@@ -1,22 +1,22 @@
 package com.melck.mckthymeleaf.models.client;
 
 import com.melck.mckthymeleaf.models.enums.Gender;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "tb_user")
-public class Client {
+public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,6 +36,7 @@ public class Client {
     private Gender gender;
 
     @ManyToOne
+    @JoinColumn(name = "address_id")
     private Address address;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -49,5 +50,14 @@ public class Client {
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant updatedAt;
+
+    @PrePersist
+    public void preCreated(){
+        createdAt = Instant.now();
+    }
+    @PreUpdate
+    public void preUpdate() {
+        updatedAt = Instant.now();
+    }
 
 }

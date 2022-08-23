@@ -1,19 +1,21 @@
 package com.melck.mckthymeleaf.models.doctor;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "tb_expertise")
-public class Expertise {
+public class Expertise implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +23,6 @@ public class Expertise {
     private String name;
     private String description;
 
-    @ManyToMany
-    private List<Doctor> doctors = new ArrayList<>();
+    @ManyToMany(mappedBy = "expertises")
+    private Set<Doctor> doctors = new HashSet<>();
 }

@@ -1,16 +1,17 @@
 package com.melck.mckthymeleaf.models.doctor;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-@Data
+
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -29,8 +30,10 @@ public class Doctor implements Serializable {
     private String registry;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "specialty_id")
-    private Expertise expertise;
+    @JoinTable(name = "tb_doctor_expertise",
+    joinColumns = @JoinColumn(name = "doctor_id"),
+    inverseJoinColumns = @JoinColumn(name = "expertise_id"))
+    private Set<Expertise> expertises = new HashSet<>();
 
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
@@ -38,5 +41,14 @@ public class Doctor implements Serializable {
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant updatedAt;
+
+    @PrePersist
+    public void preCreated(){
+        createdAt = Instant.now();
+    }
+    @PreUpdate
+    public void preUpdate(){
+        updatedAt = Instant.now();
+    }
 
 }

@@ -1,17 +1,18 @@
 package com.melck.mckthymeleaf.models.client;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Address {
+public class Address implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,8 +31,8 @@ public class Address {
     private String country;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "address")
-    private Client client;
+    @OneToMany(mappedBy = "address")
+    private List<Client> clients;
 
 }
 

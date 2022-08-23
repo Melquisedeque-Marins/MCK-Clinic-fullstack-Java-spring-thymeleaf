@@ -5,16 +5,15 @@ import com.melck.mckthymeleaf.models.client.Client;
 import com.melck.mckthymeleaf.models.doctor.Doctor;
 import com.melck.mckthymeleaf.models.enums.Status;
 import com.melck.mckthymeleaf.models.enums.Type;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
 import java.time.LocalDateTime;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -50,4 +49,13 @@ public class Scheduling implements Serializable {
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant updatedAt;
+
+    @PrePersist
+    public void preCreated(){
+        createdAt = Instant.now();
+    }
+    @PreUpdate
+    public void preUpdate() {
+        updatedAt = Instant.now();
+    }
 }
