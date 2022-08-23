@@ -1,7 +1,9 @@
-package com.melck.mckthymeleaf.models;
+package com.melck.mckthymeleaf.models.client;
 
 import com.melck.mckthymeleaf.models.enums.Gender;
-import org.hibernate.mapping.ToOne;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -9,6 +11,9 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "tb_user")
 public class Client {

@@ -1,9 +1,15 @@
-package com.melck.mckthymeleaf.models;
+package com.melck.mckthymeleaf.models.client;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Address {
 
