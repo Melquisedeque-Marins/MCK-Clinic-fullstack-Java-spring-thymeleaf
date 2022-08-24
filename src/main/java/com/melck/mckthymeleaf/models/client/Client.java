@@ -60,4 +60,6 @@ public class Client implements Serializable {
         updatedAt = Instant.now();
     }
 
+    
+
 }
