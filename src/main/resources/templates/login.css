@@ -107,31 +107,32 @@ nav .menu-bar ul {
 }
 
 .bg-imagem{
-    position: relative;
+    padding: 20px;
     display: flex;
     margin: auto;
     width: 100%;
     max-width: 1400px;
-    height: 700px;
+    height: 600px;
     background-image: url("agendar.jpeg");
     background-size: cover;
+    
 }
 
 .card{
+    padding: 30px;
     display: flex;
     margin: auto;
     flex-direction: column;
     background-color: #4e4e5ccf;
     align-items: center;
-    justify-content: center;
-    width: 40%;
+    width:40%;
 }
+
 
 .card h1{
     text-align: center;
     font-size: 5rem;
     color: #f66212;
-    margin: 10px 0;
 }
 
 .form{
@@ -139,45 +140,62 @@ nav .menu-bar ul {
     flex-direction: column; 
     width: 70%;
     margin: auto;
-    padding-bottom: 40px;
-
 }
 
 .campos{
     display: flex;
     flex-direction: column;
-    
-
 }
 
 .campos .lbl{
     color: white;
-    margin: 2px;
-    font-size: 1.5rem;
-}
-
-.campos input{
-    font-size: 1.5rem;
-    padding: 5px ;
-    margin-bottom: 10px;
-    outline: 0;
+    font-size: 2rem;
 }
 
 .campos .campo{
-    font-size: 1.5rem;
-    padding: 5px ;
-    margin: 10px 0;
+    font-size: 1.8rem;
+    padding: 7px ;
+    margin-bottom: 8px;
+    margin-top: 5px;
     outline: 0;
-
 }
+
 .campos .botão{
-    
     color: white;
     border: none;
     background-color: #2b2ef6;
-    font-size: 2rem;
+    font-size: 2.5rem;
     cursor: pointer;
-  
+    padding: 5px 20px;
+    margin-top: 5px;
+}
+
+.campos p{
+    color: #2b2ef6; ;
+    text-align: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.campos a{
+    color: black;
+    text-align: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    align-items: center;
+}
+
+.back{
+    display:flex;
+    justify-content: center;
+
+}
+
+.back .botão{
+    text-align: center;
+   
 }
 
 

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.melck.mckthymeleaf.models.client.Client;
+import com.melck.mckthymeleaf.dtos.ClientDTO;
 import com.melck.mckthymeleaf.models.enums.Gender;
 import com.melck.mckthymeleaf.services.ClientService;
 
@@ -24,11 +24,10 @@ public class ClientController {
     }
 
     @PostMapping ("/client")
-    public String create(Client client){
-        service.insert(client);
+    public String create(ClientDTO dto){
+        service.insert(dto);
         return "redirect:/home";
     }
-
 
 
 }

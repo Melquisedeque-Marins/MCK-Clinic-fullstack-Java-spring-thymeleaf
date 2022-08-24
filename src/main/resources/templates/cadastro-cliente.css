@@ -95,8 +95,8 @@ nav .menu-bar ul {
 
 
 .content{
-    display: flex;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
 }
 
 .fundo {
@@ -107,72 +107,89 @@ nav .menu-bar ul {
 }
 
 .bg-imagem{
-    position: relative;
+    padding: 30px;
     display: flex;
     margin: auto;
     width: 100%;
     max-width: 1400px;
-    height: 600px;
-    background-image: url("Cadastro-especialidades-p.jpg");
+    height: 80%;
+    background-image: url("agendar.jpeg");
     background-size: cover;
+
 }
 
 .card{
+    padding: 12px;
     display: flex;
     margin: auto;
     flex-direction: column;
-    background-color: #4e4e5ceb;
+    background-color: #4e4e5ccf;
     align-items: center;
-    justify-content: center;
-    height: 400px;
-    width: 40%;
+    width:50%;
 }
-
 
 .card h1{
     text-align: center;
     font-size: 5rem;
     color: #f66212;
-   
-
 }
 
 .form{
     display: flex;
     flex-direction: column; 
     width: 70%;
-
+    margin: auto;
 }
 
 .campos{
     display: flex;
     flex-direction: column;
-    margin: auto;
-
 }
 
 .campos .lbl{
-    margin-bottom: 2px;
+    color: white;
     font-size: 1.5rem;
 }
 
 .campos input{
     font-size: 1.5rem;
-    padding: 10px ;
-    margin: 5px 0;
+    margin-bottom: 10px;
+    outline: 0;
+}
+
+.campos .campo{
+    font-size: 1.5rem;
+    padding: 5px ;
+    margin-bottom: 8px;
+    margin-top: 2px;
     outline: 0;
 }
 
 .campos .botão{
-    margin-top: 20px;
     color: white;
     border: none;
     background-color: #2b2ef6;
-    font-size: 2rem;
+    font-size: 2.5rem;
     cursor: pointer;
-  
+    padding: 5px 20px;
+    margin-top: 10px;
 }
 
+.campos a{
+    text-decoration: none;
+    align-items: center;
+}
+
+.back{
+    display:flex;
+    justify-content: center;
+
+}
+
+.back .botão{
+    text-align: center;
+   
+}
 
 footer {
     font-size: 1.4rem;

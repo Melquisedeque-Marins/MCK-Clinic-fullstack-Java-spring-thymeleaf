@@ -11,7 +11,7 @@
     <link
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,300;1,400&display=swap"
             rel="stylesheet">
-    <link rel="stylesheet" href="../static/cadastro-cliente.css">
+    <link rel="stylesheet" href="cadastro-cliente.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/954f0760ed.js" crossorigin="anonymous"></script>
 
@@ -28,11 +28,11 @@
             <div class="menu-bar">
                 <ul>
                     <li> <a class="nav-item" href="index.html">HOME</a></li>
-                    <li> <a class="nav-item" href="sobre.html">SOBRE</a></li>
+                    <li> <a class="nav-item" href="index.html">SOBRE</a></li>
                     <li> <a class="nav-item" href="">ESPECIALIDADES</a></li>
                     <li> <a class="nav-item" href="">AGENDAR</a></li>
                     <li> <a class="nav-item" href="">CONTATOS</a></li>
-                    <li> <a class="nav-item" href="cadastro cliente.html">LOGIN</a></li>
+                    <li> <a class="nav-item" href="login.html">LOGIN</a></li>
                 </ul>
             </div>
         </nav>
@@ -43,18 +43,18 @@
     <div class="fundo">
         <div class="bg-imagem">
             <div class="card">
-                <h1>Cadastre-se </h1>
                 <div class="form">
+                    <h1>Cadastre-se </h1>
                     <form action="/client" method="POST">
                             <div class="campos">
                                 <label class="lbl" for="name">Name</label>
-                                <input class="campo" type="text" name="name" id="">
+                                <input class="campo" type="text" name="name" placeholder="Digite seu nome" id="">
                                 <label class="lbl" for="cpf">CPF</label>
-                                <input class="campo" type="text" name="cpf" id="">
+                                <input class="campo" type="text" name="cpf" placeholder="Digite seu CPF" id="">
                                 <label class="lbl" for="email">E-mail</label>
-                                <input class="campo" type="email" name="email" id="">
+                                <input class="campo" type="email" name="email" placeholder="Digite seu melhor e-mail" id="">
                                 <label class="lbl" for="telefone">Telefone</label>
-                                <input class="campo" type="tel" name="phoneNumber" id="">
+                                <input class="campo" type="tel" name="phoneNumber" placeholder="Digite seu telefone" id="">
                                 <label class="lbl" for="data de nascimento">Data de nascimento</label>
                                 <input class="campo" type="date" name="birthDate" id="">
                                 <label class="lbl" for="description">Sexo</label>
@@ -64,10 +64,12 @@
                                     ></option>
                                 </select>
                                 <label class="lbl" for="password">Password</label>
-                                <input class="campo" type="password" name="password" id="">
+                                <input class="campo" type="password" name="password" placeholder="Escolha uma senha com 8 digitos" id="">
+                                    <input class="botão" type="submit" value="Cadastrar">
+                                    <div class="back">
+                                        <a href="index.html"><input class="botão" type="button" value="Voltar"></a>
+                                    </div>
                                 
-                                <input class="botão" type="submit" value="Cadastrar">
-                                <a href="index.html"><input class="botão" type="button" value="Voltar"></a>
                             </div>
                     </form>
                 </div>

@@ -7,5 +7,9 @@ import com.melck.mckthymeleaf.models.client.Client;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long>{
+
+    Client findByCpf(String cpf);
+
+    Client findByPassword(String password);
     
 }
