@@ -44,7 +44,6 @@ nav {
     font-weight: 600;
     font-size: 2.4rem;
     align-items: center;
-
 }
 
 .container .brand img {
@@ -67,7 +66,7 @@ nav .menu-bar ul {
     position: relative;
     display: block;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 500;
     text-decoration: none;
     padding: 0 20px;
@@ -92,7 +91,6 @@ nav .menu-bar ul {
     top: 0px;
 
 }
-
 
 .content{
   display: flex;

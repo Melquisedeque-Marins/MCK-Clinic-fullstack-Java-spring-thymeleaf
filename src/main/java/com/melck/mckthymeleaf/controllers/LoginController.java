@@ -25,7 +25,7 @@ public class LoginController {
     public String login(String cpf, String password){
         clientService.login(cpf, password);
 
-        return "redirect:/";
+        return "redirect:/clients/logged";
     }
 
     

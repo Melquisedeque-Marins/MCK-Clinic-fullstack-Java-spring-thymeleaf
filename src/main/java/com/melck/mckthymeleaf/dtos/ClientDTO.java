@@ -5,7 +5,10 @@ import com.melck.mckthymeleaf.models.client.Address;
 import com.melck.mckthymeleaf.models.client.Client;
 import com.melck.mckthymeleaf.models.enums.Gender;
 import lombok.*;
+import org.hibernate.validator.constraints.br.CPF;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -17,8 +20,12 @@ import java.time.LocalDate;
 public class ClientDTO implements Serializable {
 
     private Long id;
+
+    @NotBlank(message = "This field cannot be black")
     private String name;
+    @Email
     private String email;
+
     private String cpf;
     private String password;
     private String phoneNumber;

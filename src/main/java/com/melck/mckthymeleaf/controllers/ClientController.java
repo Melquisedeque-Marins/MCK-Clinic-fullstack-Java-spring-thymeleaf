@@ -17,16 +17,23 @@ public class ClientController {
     private ClientService service;
 
     @GetMapping("/clients/form")
-    public ModelAndView cadastroClient(){
+    public ModelAndView formClient(){
         ModelAndView mv = new ModelAndView("/clients/form_client");
         mv.addObject("gender", Gender.values());
         return mv;
     }
 
+    @GetMapping("/clients/logged")
+    public ModelAndView loggedArea(){
+        ModelAndView mv = new ModelAndView("/clients/logged_area");
+        return mv;
+    }
+
     @PostMapping ("/clients/new")
-    public String create(ClientDTO dto){
+    public ModelAndView insertClient(ClientDTO dto){
         service.insert(dto);
-        return "redirect:/";
+        ModelAndView mv = new ModelAndView("redirect:/clients/login");
+        return mv;
     }
 
 
