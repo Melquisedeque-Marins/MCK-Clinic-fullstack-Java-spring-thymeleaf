@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,300;1,400&display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="/css/form_client.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/954f0760ed.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div th:replace="fragments/fragments :: header"></div>
+
+<section class="content">
+    <div class="fundo">
+        <div class="bg-imagem">
+            <div class="card">
+                <div class="form">
+                    <h1>Cadastre-se </h1>
+                    <form action="/clients/new" method="POST">
+                            <div class="campos">
+                                <label class="lbl" for="name">Name</label>
+                                <input class="campo" type="text" name="name" placeholder="Digite seu nome" id="">
+                                <label class="lbl" for="cpf">CPF</label>
+                                <input class="campo" type="text" name="cpf" placeholder="Digite seu CPF" id="">
+                                <label class="lbl" for="email">E-mail</label>
+                                <input class="campo" type="email" name="email" placeholder="Digite seu melhor e-mail" id="">
+                                <label class="lbl" for="telefone">Telefone</label>
+                                <input class="campo" type="tel" name="phoneNumber" placeholder="Digite seu telefone" id="">
+                                <label class="lbl" for="data de nascimento">Data de nascimento</label>
+                                <input class="campo" type="date" name="birthDate" id="">
+                                <label class="lbl" for="description">Sexo</label>
+                                <select class="campo" name="gender" id="">
+                                    <option th:each="gender : ${gender}"
+                                        th:value="${gender}" th:text="${gender}"
+                                    ></option>
+                                </select>
+                                <label class="lbl" for="password">Password</label>
+                                <input class="campo" type="password" name="password" placeholder="Escolha uma senha com 8 digitos" id="">
+                                    <input class="botão" type="submit" value="Cadastrar">
+                                    <div class="back">
+                                        <a href="index.html"><input class="botão" type="button" value="Voltar"></a>
+                                    </div>
+                                
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div th:replace="fragments/fragments :: footer"></div>
+
+<script src="script.js"></script>
+</body>
+
+</html>

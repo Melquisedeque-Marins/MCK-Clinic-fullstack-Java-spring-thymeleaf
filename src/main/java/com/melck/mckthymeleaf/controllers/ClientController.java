@@ -16,17 +16,17 @@ public class ClientController {
     @Autowired
     private ClientService service;
 
-    @GetMapping("/client")
+    @GetMapping("/clients/form")
     public ModelAndView cadastroClient(){
-        ModelAndView mv = new ModelAndView("cadastro-cliente");
+        ModelAndView mv = new ModelAndView("/clients/form_client");
         mv.addObject("gender", Gender.values());
         return mv;
     }
 
-    @PostMapping ("/client")
+    @PostMapping ("/clients/new")
     public String create(ClientDTO dto){
         service.insert(dto);
-        return "redirect:/home";
+        return "redirect:/";
     }
 
 

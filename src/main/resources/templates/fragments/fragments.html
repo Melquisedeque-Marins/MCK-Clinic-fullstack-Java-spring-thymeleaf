@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,300;1,400&display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/954f0760ed.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header th:fragment="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="brand">
+                    <a th:href="@{/}">
+                        <img src="../img/Java_Logo.png" alt="logo">
+                    </a>
+                    <a th:href="@{/}">MCK CLINIC</a>
+                </div>
+                <div class="menu-bar">
+                    <ul>
+                        <li> <a class="nav-item" th:href="@{/}">HOME</a></li>
+                        <li> <a class="nav-item" href="">SOBRE</a></li>
+                        <li> <a class="nav-item" href="">ESPECIALIDADES</a></li>
+                        <li> <a class="nav-item" href="">AGENDAR</a></li>
+                        <li> <a class="nav-item" href="">CONTATOS</a></li>
+                        <li> <a class="nav-item" th:href="@{/clients/login}">LOGIN</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <footer th:fragment="footer">
+        <div class="conteudo">
+            <div class="column">
+                <h3>Endereço</h3>
+                <ul>
+                    <li>Rua da Venezuela 227</li>
+                    <li>Bloco 5 apt 5101</li>
+                    <li>Porto, Porto, Portugal</li>
+                    <li>Tel.: +351 935 893 129</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h3>Onde nos encontrar</h3>
+                <ul>
+                    <li>Email: mckclinic@mckgroup.com</li>
+                    <li>Instagram</li>
+                    <li>WhatsApp</li>
+                    <li>Twiter</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h3>Onde nos encontrar</h3>
+                <ul>
+                    <li>Email: mckclinic@mckgroup.com</li>
+                    <li>Instagram</li>
+                    <li>WhatsApp</li>
+                    <li>Twiter</li>
+                </ul>
+            </div>
+        </div>
+        <div class="produced-by">
+            <span>Desenvolvido por <a href=""> MCK Enterprise</a></span>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+    

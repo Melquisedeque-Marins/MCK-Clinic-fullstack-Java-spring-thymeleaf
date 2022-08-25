@@ -15,7 +15,7 @@ public class LoginController {
     private ClientService clientService;
 
 
-    @GetMapping("/client/login")
+    @GetMapping("/clients/login")
     public ModelAndView cadastroClient(){
         ModelAndView mv = new ModelAndView("login");
         return mv;
@@ -25,7 +25,7 @@ public class LoginController {
     public String login(String cpf, String password){
         clientService.login(cpf, password);
 
-        return "redirect:/home";
+        return "redirect:/";
     }
 
     

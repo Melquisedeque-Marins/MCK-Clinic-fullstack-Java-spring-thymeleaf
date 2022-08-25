@@ -1,43 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <title>Login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,300;1,400&display=swap"
             rel="stylesheet">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/954f0760ed.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-<header>
-    <div class="container">
-        <nav class="nav">
-            <div class="brand">
-                <a href="index.html"><img src="Java_Logo.png" alt="logo"></a>
-                <a href="index.html">MCK CLINIC</a>
-            </div>
-            <div class="menu-bar">
-                <ul>
-                    <li> <a class="nav-item" href="index.html">HOME</a></li>
-                    <li> <a class="nav-item" href="sobre.html">SOBRE</a></li>
-                    <li> <a class="nav-item" href="">ESPECIALIDADES</a></li>
-                    <li> <a class="nav-item" href="">AGENDAR</a></li>
-                    <li> <a class="nav-item" href="">CONTATOS</a></li>
-                    <li> <a class="nav-item" href="login.html">LOGIN</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-</header>
+
+<div th:replace="fragments/fragments :: header"></div>
 
 <section class="content">
     <div class="fundo">
@@ -51,7 +33,7 @@
                                 <input class="campo" type="text" name="cpf" id="">
                                 <label class="lbl" for="password">Password</label>
                                 <input class="campo" type="password" name="password" id="">
-                                <p>Não tem cadastro? <span><a href="cadastro-cliente.html">clique aqui</a></span></p>
+                                <p>Não tem cadastro? <span><a th:href="@{/clients/form}">clique aqui</a></span></p>
                                 <input class="botão"type="submit" value="Login">
                                 <input class="botão"type="button" value="Voltar">
                             </div>
@@ -62,40 +44,7 @@
     </div>
 </section>
 
-<footer>
-    <div class="conteudo">
-        <div class="column">
-            <h3>Endereço</h3>
-            <ul>
-                <li>Rua da Venezuela 227</li>
-                <li>Bloco 5 apt 5101</li>
-                <li>Porto, Porto, Portugal</li>
-                <li>Tel.: +351 935 893 129</li>
-            </ul>
-        </div>
-        <div class="column">
-            <h3>Onde nos encontrar</h3>
-            <ul>
-                <li>Email: mckclinic@mckgroup.com</li>
-                <li>Instagram</li>
-                <li>WhatsApp</li>
-                <li>Twiter</li>
-            </ul>
-        </div>
-        <div class="column">
-            <h3>Onde nos encontrar</h3>
-            <ul>
-                <li>Email: mckclinic@mckgroup.com</li>
-                <li>Instagram</li>
-                <li>WhatsApp</li>
-                <li>Twiter</li>
-            </ul>
-        </div>
-    </div>
-    <div class="produced-by">
-        <span>Desenvolvido por <a href=""> MCK Enterprise</a></span>
-    </div>
-</footer>
+<div th:replace="fragments/fragments :: footer"></div>
 
 <script src="script.js"></script>
 </body>
