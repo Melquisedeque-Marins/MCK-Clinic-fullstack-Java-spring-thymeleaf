@@ -11,6 +11,9 @@ import com.melck.mckthymeleaf.dtos.ClientDTO;
 import com.melck.mckthymeleaf.models.client.Client;
 import com.melck.mckthymeleaf.repositories.ClientRepository;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 @Service
 public class ClientService {
 
@@ -20,6 +23,7 @@ public class ClientService {
     public ClientDTO insert(ClientDTO dto){
         Client client = new Client();
         BeanUtils.copyProperties(dto, client);
+        client.setBirthDate(LocalDate.parse(dto.getBirthDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         return new ClientDTO(repository.save(client));
     }
 

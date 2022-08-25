@@ -10,6 +10,8 @@ import com.melck.mckthymeleaf.dtos.ClientDTO;
 import com.melck.mckthymeleaf.models.enums.Gender;
 import com.melck.mckthymeleaf.services.ClientService;
 
+import javax.validation.Valid;
+
 @Controller
 public class ClientController {
 
@@ -30,7 +32,7 @@ public class ClientController {
     }
 
     @PostMapping ("/clients/new")
-    public ModelAndView insertClient(ClientDTO dto){
+    public ModelAndView insertClient(@Valid ClientDTO dto){
         service.insert(dto);
         ModelAndView mv = new ModelAndView("redirect:/clients/login");
         return mv;
