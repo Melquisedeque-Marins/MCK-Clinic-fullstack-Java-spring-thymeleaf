@@ -33,7 +33,7 @@
                                 <th>Nome</th>
                                 <th>CPF</th>
                                 <th>E-mail</th>
-                                <th>Birth Date</th>
+                                <th>Idade</th>
                         </thead>
                         <tbody>
                             <tr th:each="clients : ${listClients}">
@@ -41,7 +41,7 @@
                                 <td th:text="${clients.name}"></td>
                                 <td th:text="${clients.cpf}"></td>
                                 <td th:text="${clients.email}"></td>
-                                <td th:text="${clients.birthDate}"></td>
+                                <td th:text="${clients.age}"></td>
 
                                 
                             </tr>

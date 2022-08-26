@@ -67,9 +67,8 @@ public class UserService {
     @Transactional
     public User login(String cpf, String password){
         var c1 = repository.findByCpf(cpf);
-        var c2 = repository.findByPassword(password);
-        if (c1 == null || c2 == null){
-           throw new EntityNotFoundException("usuatio não encontrado");
+        if (c1 == null || !c1.getPassword().equals(password) ){
+           throw new EntityNotFoundException("usuario não encontrado");
         }
         return c1;
     }
