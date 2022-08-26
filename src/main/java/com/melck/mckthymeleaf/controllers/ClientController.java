@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.melck.mckthymeleaf.dtos.ClientDTO;
+import com.melck.mckthymeleaf.dtos.UserDTO;
 import com.melck.mckthymeleaf.models.enums.Gender;
-import com.melck.mckthymeleaf.services.ClientService;
+import com.melck.mckthymeleaf.services.UserService;
 
 import javax.validation.Valid;
 
@@ -16,7 +16,7 @@ import javax.validation.Valid;
 public class ClientController {
 
     @Autowired
-    private ClientService service;
+    private UserService service;
 
     @GetMapping("/clients/form")
     public ModelAndView formClient(){
@@ -39,7 +39,7 @@ public class ClientController {
     }
 
     @PostMapping ("/clients/new")
-    public ModelAndView insertClient(@Valid ClientDTO dto){
+    public ModelAndView insertClient(@Valid UserDTO dto){
         service.insert(dto);
         ModelAndView mv = new ModelAndView("redirect:/clients/login");
         return mv;

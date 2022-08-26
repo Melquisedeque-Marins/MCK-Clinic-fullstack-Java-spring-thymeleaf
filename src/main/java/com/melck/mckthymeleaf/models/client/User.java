@@ -60,4 +60,7 @@ public class User implements Serializable {
         updatedAt = Instant.now();
     }
 
+    public Set<Role> getRoles() {
+        return roles;
+    }
 }

@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.melck.mckthymeleaf.services.ClientService;
+import com.melck.mckthymeleaf.services.UserService;
 
 @Controller
 public class LoginController {
 
     @Autowired
-    private ClientService clientService;
+    private UserService userService;
 
 
     @GetMapping("/clients/login")
@@ -23,7 +23,7 @@ public class LoginController {
 
     @PostMapping("/login")
     public String login(String cpf, String password){
-        clientService.login(cpf, password);
+        userService.login(cpf, password);
 
         return "redirect:/clients/logged";
     }

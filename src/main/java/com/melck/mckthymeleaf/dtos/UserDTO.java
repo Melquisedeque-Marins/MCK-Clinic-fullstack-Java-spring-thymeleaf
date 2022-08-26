@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClientDTO implements Serializable {
+public class UserDTO implements Serializable {
 
     private Long id;
 
@@ -42,12 +42,12 @@ public class ClientDTO implements Serializable {
     //@Past(message = "enter a valid date of birth")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private String birthDate;
-    private Integer age;
+    private Long age;
 
     private Gender gender;
 
 
-    public ClientDTO(User client) {
+    public UserDTO(User client) {
         this.id = client.getId();
         this.name = client.getName();
         this.email = client.getEmail();
