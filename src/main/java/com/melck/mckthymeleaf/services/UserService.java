@@ -8,6 +8,10 @@ import com.melck.mckthymeleaf.services.exceptions.ObjectIsAlreadyInUseException;
 import com.melck.mckthymeleaf.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.melck.mckthymeleaf.dtos.UserDTO;
@@ -23,13 +27,16 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepository repository;
 
     @Autowired
     private RoleRepository roleRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Transactional
     public UserDTO insert(UserDTO dto){
@@ -39,10 +46,9 @@ public class UserService {
         if (repository.findByEmail(dto.getEmail()) != null){
             throw new ObjectIsAlreadyInUseException("Endereço de e-mail: " + dto.getEmail() + " já esta sendo utilizado");
         }
-
         User user = new User();
         BeanUtils.copyProperties(dto, user);
-       // user.setPassword(passwordEncoder.encode(dto.getPassword()));
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));
         Role role = roleRepository.getReferenceById(2L);
         user.getRoles().add(role);
         user.setBirthDate(LocalDate.parse(dto.getBirthDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd")));
@@ -71,5 +77,14 @@ public class UserService {
            throw new EntityNotFoundException("usuario não encontrado");
         }
         return c1;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = repository.findByCpf(username);
+        if (user == null){
+            throw new UsernameNotFoundException("Cpf não encontrado");
+        }
+        return user;
     }
 }

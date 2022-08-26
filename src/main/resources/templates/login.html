@@ -29,10 +29,10 @@
             <div class="card">
                 <div class="form">
                     <h1>Acesse a área do cliente</h1>
-                    <form action="/login" method="post" th:object="${login}">
+                    <form th:action="@{/login}" method="post" >
                             <div class="campos">
                                 <label class="lbl" for="cpf">CPF</label>
-                                <input class="campo" type="text" name="cpf" id="">
+                                <input class="campo" type="text" name="username" id="">
                                 <label class="lbl" for="password">Password</label>
                                 <input class="campo" type="password" name="password" id="">
                                 <p>Não tem cadastro? <span><a th:href="@{/clients/form}">clique aqui</a></span></p>

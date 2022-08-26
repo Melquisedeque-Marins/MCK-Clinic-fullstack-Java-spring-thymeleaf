@@ -33,7 +33,7 @@ public class ClientController {
     @PostMapping ("/clients/form")
     public ModelAndView insertClient(@Valid UserDTO dto){
         service.insert(dto);
-        ModelAndView mv = new ModelAndView("redirect:/clients/login");
+        ModelAndView mv = new ModelAndView("redirect:/login");
         return mv;
     }
 
@@ -44,19 +44,11 @@ public class ClientController {
         mv.addObject("listClients", service.findAll());
         return mv;
     }
-    
-    
-    @GetMapping("/clients/login")
-    public ModelAndView cadastroClient(String cpf, String password){
+
+    @GetMapping("/login")
+    public ModelAndView cadastroClient(String username, String password){
         ModelAndView mv = new ModelAndView("login");
         return mv;
-    }
-
-    @PostMapping("/login")
-    public String login(User login, HttpSession session){
-        User user = service.login(login.getCpf(), login.getPassword());
-        session.setAttribute("LoggedUser", user);
-        return "redirect:/clients/logged";
     }
     
     @GetMapping("/clients/logged")

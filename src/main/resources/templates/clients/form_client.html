@@ -29,7 +29,7 @@
             <div class="card">
                 <div class="form">
                     <h1>Cadastre-se </h1>
-                    <form action="/clients/form" method="POST">
+                    <form th:action="@{/clients/form}" method="POST">
                             <div class="campos">
                                 <label class="lbl" for="name">Name</label>
                                 <input class="campo" type="text" name="name" placeholder="Digite seu nome" id="">
