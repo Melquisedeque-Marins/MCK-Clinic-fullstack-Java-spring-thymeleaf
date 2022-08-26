@@ -31,6 +31,13 @@ public class ClientController {
         return mv;
     }
 
+    @GetMapping("/clients")
+    public ModelAndView findAll(){
+        ModelAndView mv = new ModelAndView("/clients/clients");
+        mv.addObject("listClients", service.findAll());
+        return mv;
+    }
+
     @PostMapping ("/clients/new")
     public ModelAndView insertClient(@Valid ClientDTO dto){
         service.insert(dto);

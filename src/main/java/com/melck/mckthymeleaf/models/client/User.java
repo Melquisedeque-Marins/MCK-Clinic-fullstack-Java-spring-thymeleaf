@@ -16,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "tb_user")
-public class Client implements Serializable {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,7 +59,5 @@ public class Client implements Serializable {
     public void preUpdate() {
         updatedAt = Instant.now();
     }
-
-    
 
 }

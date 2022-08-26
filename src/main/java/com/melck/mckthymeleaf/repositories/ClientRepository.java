@@ -3,13 +3,13 @@ package com.melck.mckthymeleaf.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.melck.mckthymeleaf.models.client.Client;
+import com.melck.mckthymeleaf.models.client.User;
 
 @Repository
-public interface ClientRepository extends JpaRepository<Client, Long>{
+public interface ClientRepository extends JpaRepository<User, Long>{
 
-    Client findByCpf(String cpf);
+    User findByCpf(String cpf);
 
-    Client findByPassword(String password);
+    User findByPassword(String password);
     
 }

@@ -32,7 +32,7 @@ public class Address implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "address")
-    private List<Client> clients;
+    private List<User> clients;
 
 }
 

@@ -19,5 +19,5 @@ public class Role implements Serializable {
     private Long id;
     private String authority;
     @ManyToMany(mappedBy = "roles")
-    private Set<Client> clients = new HashSet<>();
+    private Set<User> users = new HashSet<>();
 }

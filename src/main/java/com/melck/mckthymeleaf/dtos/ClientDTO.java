@@ -1,14 +1,13 @@
 package com.melck.mckthymeleaf.dtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.melck.mckthymeleaf.models.client.Client;
+import com.melck.mckthymeleaf.models.client.User;
 import com.melck.mckthymeleaf.models.enums.Gender;
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 
 
 @Getter
@@ -43,11 +42,12 @@ public class ClientDTO implements Serializable {
     //@Past(message = "enter a valid date of birth")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private String birthDate;
+    private Integer age;
 
     private Gender gender;
 
 
-    public ClientDTO(Client client) {
+    public ClientDTO(User client) {
         this.id = client.getId();
         this.name = client.getName();
         this.email = client.getEmail();

@@ -1,7 +1,7 @@
 package com.melck.mckthymeleaf.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.melck.mckthymeleaf.models.client.Client;
+import com.melck.mckthymeleaf.models.client.User;
 import com.melck.mckthymeleaf.models.doctor.Doctor;
 import com.melck.mckthymeleaf.models.enums.Status;
 import com.melck.mckthymeleaf.models.enums.Type;
@@ -38,7 +38,7 @@ public class Scheduling implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
-    private Client client;
+    private User client;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "doctor_id")
