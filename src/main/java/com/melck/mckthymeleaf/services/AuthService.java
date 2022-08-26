@@ -2,6 +2,8 @@ package com.melck.mckthymeleaf.services;
 
 import com.melck.mckthymeleaf.models.client.User;
 import com.melck.mckthymeleaf.repositories.UserRepository;
+import com.melck.mckthymeleaf.services.exceptions.ForbiddenException;
+import com.melck.mckthymeleaf.services.exceptions.UnauthorizedException;
 import org.springframework.stereotype.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
