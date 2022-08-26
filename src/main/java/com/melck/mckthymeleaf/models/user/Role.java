@@ -1,4 +1,4 @@
-package com.melck.mckthymeleaf.models.client;
+package com.melck.mckthymeleaf.models.user;
 
 import lombok.*;
 

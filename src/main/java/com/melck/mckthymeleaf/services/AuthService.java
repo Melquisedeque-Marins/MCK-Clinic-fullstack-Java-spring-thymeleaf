@@ -1,6 +1,6 @@
 package com.melck.mckthymeleaf.services;
 
-import com.melck.mckthymeleaf.models.client.User;
+import com.melck.mckthymeleaf.models.user.User;
 import com.melck.mckthymeleaf.repositories.UserRepository;
 import com.melck.mckthymeleaf.services.exceptions.ForbiddenException;
 import com.melck.mckthymeleaf.services.exceptions.UnauthorizedException;

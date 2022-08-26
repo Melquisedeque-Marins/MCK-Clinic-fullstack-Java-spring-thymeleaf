@@ -1,7 +1,7 @@
 package com.melck.mckthymeleaf.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.melck.mckthymeleaf.models.client.User;
+import com.melck.mckthymeleaf.models.user.User;
 import com.melck.mckthymeleaf.models.doctor.Doctor;
 import com.melck.mckthymeleaf.models.enums.Status;
 import com.melck.mckthymeleaf.models.enums.Type;

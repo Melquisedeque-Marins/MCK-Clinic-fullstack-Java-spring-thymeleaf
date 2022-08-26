@@ -1,4 +1,4 @@
-package com.melck.mckthymeleaf.models.client;
+package com.melck.mckthymeleaf.models.user;
 
 import com.melck.mckthymeleaf.models.enums.Gender;
 import lombok.*;
@@ -67,6 +67,15 @@ public class User implements UserDetails, Serializable {
 
     public Set<Role> getRoles() {
         return roles;
+    }
+
+    public boolean hasRole(String roleName){
+        for (Role role : roles){
+            if (role.getAuthority().equals(roleName)){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

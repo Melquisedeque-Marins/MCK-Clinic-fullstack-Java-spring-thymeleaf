@@ -1,7 +1,7 @@
 package com.melck.mckthymeleaf.dtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.melck.mckthymeleaf.models.client.User;
+import com.melck.mckthymeleaf.models.user.User;
 import com.melck.mckthymeleaf.models.enums.Gender;
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;

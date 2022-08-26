@@ -2,7 +2,7 @@ package com.melck.mckthymeleaf.services;
 
 import javax.persistence.EntityNotFoundException;
 
-import com.melck.mckthymeleaf.models.client.Role;
+import com.melck.mckthymeleaf.models.user.Role;
 import com.melck.mckthymeleaf.repositories.RoleRepository;
 import com.melck.mckthymeleaf.services.exceptions.ObjectIsAlreadyInUseException;
 import com.melck.mckthymeleaf.services.exceptions.ResourceNotFoundException;
@@ -15,7 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.melck.mckthymeleaf.dtos.UserDTO;
-import com.melck.mckthymeleaf.models.client.User;
+import com.melck.mckthymeleaf.models.user.User;
 import com.melck.mckthymeleaf.repositories.UserRepository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,6 +34,9 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private RoleRepository roleRepository;
+
+    @Autowired
+    private AuthService authService;
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -71,12 +74,9 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
-    public User login(String cpf, String password){
-        var c1 = repository.findByCpf(cpf);
-        if (c1 == null || !c1.getPassword().equals(password) ){
-           throw new EntityNotFoundException("usuario não encontrado");
-        }
-        return c1;
+    public User userLogged(){
+       User user = authService.authenticated();
+       return user;
     }
 
     @Override
