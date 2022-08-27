@@ -52,7 +52,14 @@ public class ClientController {
         ModelAndView mv = new ModelAndView("login");
         return mv;
     }
-    
+
+    @GetMapping("/logout")
+    public ModelAndView logout(){
+        ModelAndView mv = new ModelAndView("redirect:/");
+        return mv;
+    }
+
+
     @GetMapping("/clients/logged")
     public ModelAndView loggedArea(){
         ModelAndView mv = new ModelAndView("/clients/logged_area");

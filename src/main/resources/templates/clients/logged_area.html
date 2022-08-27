@@ -24,12 +24,19 @@
     <div th:replace="fragments/fragments :: header"></div>
 
 <div class="fundo">
-    <div class="content">
-        <p th:text="${userLogged.name}"></p>
-        <p th:text="${userLogged.email}"></p>
-        <p th:text="${userLogged.cpf}"></p>
 
-    </div>
+    
+        <div class="content">
+            <p th:text="${userLogged.name}"></p>
+            <p th:text="${userLogged.email}"></p>
+            <p th:text="${userLogged.cpf}"></p>
+    
+    
+        </div>
+    <form th:action="@{/logout}" method="post" >
+        
+        <input type="submit" value="Logout">
+    </form>
 </div>
 
     <div th:replace="fragments/fragments :: footer"></div>
