@@ -18,28 +18,28 @@ public class UserDTO implements Serializable {
 
     private Long id;
 
-    @NotBlank(message = "This field cannot be black")
-    @Size(min = 5, max = 100)
+    @NotBlank(message = "Campo obrigatório")
+    @Size(min = 5, max = 100, message = "Insira o nome completo")
     private String name;
 
-    @Email
-    @NotBlank(message = "the e-mail field cannot be empty")
+    @Email(message = "Insira um email valido. Ex: nome@email.com")
+    @NotBlank(message = "O campo e-mail é obrigatório")
     private String email;
 
-    @CPF(message = "Enter a valid cpf")
-    @NotBlank(message = "the cpf field cannot be empty")
+    @CPF(message = "Insira um cpf valido. somente números")
+    @NotBlank(message = "O campo cpf é obrigatório")
     private String cpf;
 
-    @NotBlank(message = "the password field cannot be empty")
-    @Size(min = 8, max = 8)
+    @NotBlank(message = "O campo password é obrigatório")
+    @Size(min = 8, max = 8, message = "A senha deve conter 8 digitos")
     private String password;
 
-    @NotBlank(message = "the phone number field cannot be empty")
-    @Size(min = 9, max = 15)
+    @NotBlank(message = "O campo telefone é obrigatório")
+    @Size(min = 9, max = 15, message = "A senha deve conter 8 digitos")
     private String phoneNumber;
 
-    @NotEmpty(message = "the birth date field cannot be empty")
-   //@Past(message = "enter a valid date of birth")
+    @NotEmpty(message =  "O campo data de nascimento é obrigatório")
+    //@Past(message = "enter a valid date of birth")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private String birthDate;
     private Long age;

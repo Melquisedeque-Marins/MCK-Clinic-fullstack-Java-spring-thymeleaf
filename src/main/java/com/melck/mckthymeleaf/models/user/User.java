@@ -7,6 +7,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Past;
 import java.io.Serializable;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -35,6 +36,8 @@ public class User implements UserDetails, Serializable {
 
     private String password;
     private String phoneNumber;
+
+    @Past(message = "Insira uma data de nascimento valida")
     private LocalDate birthDate;
 
     @Enumerated(EnumType.STRING)
