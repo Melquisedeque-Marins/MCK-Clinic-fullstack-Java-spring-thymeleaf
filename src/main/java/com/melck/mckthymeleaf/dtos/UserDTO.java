@@ -34,12 +34,12 @@ public class UserDTO implements Serializable {
     @Size(min = 8, max = 8)
     private String password;
 
-    @NotEmpty(message = "the phone number field cannot be empty")
+    @NotBlank(message = "the phone number field cannot be empty")
     @Size(min = 9, max = 15)
     private String phoneNumber;
 
-    @NotNull(message = "the birth date field cannot be empty")
-    @Past(message = "enter a valid date of birth")
+    @NotEmpty(message = "the birth date field cannot be empty")
+   //@Past(message = "enter a valid date of birth")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private String birthDate;
     private Long age;

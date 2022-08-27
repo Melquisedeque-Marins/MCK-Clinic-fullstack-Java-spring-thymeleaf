@@ -29,26 +29,27 @@
             <div class="card">
                 <div class="form">
                     <h1>Cadastre-se </h1>
-                    <form th:action="@{/clients/form}" method="POST">
+                    <form th:object="${userDTO}" th:action="@{/clients/form}" method="POST">
                             <div class="campos">
-                                <label class="lbl" for="name">Name</label>
-                                <input class="campo" type="text" name="name" placeholder="Digite seu nome" id="">
-                                <label class="lbl" for="cpf">CPF</label>
-                                <input class="campo" type="text" name="cpf" placeholder="Digite seu CPF" id="">
-                                <label class="lbl" for="email">E-mail</label>
-                                <input class="campo" type="email" name="email" placeholder="Digite seu melhor e-mail" id="">
-                                <label class="lbl" for="telefone">Telefone</label>
-                                <input class="campo" type="tel" name="phoneNumber" placeholder="Digite seu telefone" id="">
-                                <label class="lbl" for="data de nascimento">Data de nascimento</label>
-                                <input class="campo" type="date" name="birthDate" id="">
-                                <label class="lbl" for="description">Sexo</label>
-                                <select class="campo" name="gender" id="">
-                                    <option th:each="gender : ${gender}"
+                                <label class="lbl" >Name</label>
+                                <input class="campo" th:errorclass="is-invalid" type="text" th:field="*{name}" placeholder="Digite seu nome" >
+                                <div class="invalid-feedback" th:errors="*{name}"></div>
+                                <label class="lbl" >CPF</label>
+                                <input class="campo" type="text" th:field="*{cpf}" placeholder="Digite seu CPF" >
+                                <label class="lbl" >E-mail</label>
+                                <input class="campo" type="email" th:field="*{email}" placeholder="Digite seu melhor e-mail">
+                                <label class="lbl" >Telefone</label>
+                                <input class="campo" type="tel" th:field="*{phoneNumber}" placeholder="Digite seu telefone" >
+                                <label class="lbl" >Data de nascimento</label>
+                                <input class="campo" type="date" th:field="*{birthDate}" >
+                                <label class="lbl" >Sexo</label>
+                                <select class="campo" th:field="*{gender}">
+                                    <option th:each="gender : ${listGender}"
                                         th:value="${gender}" th:text="${gender}"
                                     ></option>
                                 </select>
-                                <label class="lbl" for="password">Password</label>
-                                <input class="campo" type="password" name="password" placeholder="Escolha uma senha com 8 digitos" id="">
+                                <label class="lbl" >Password</label>
+                                <input class="campo" type="password" th:field="*{password}" placeholder="Escolha uma senha com 8 digitos" id="">
                                     <input class="botão" type="submit" value="Cadastrar">
                                     <div class="back">
                                         <a th:href="@{/}"><input class="botão" type="button" value="Voltar"></a>

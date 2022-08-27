@@ -1,17 +1,16 @@
 package com.melck.mckthymeleaf.controllers;
 
 
+import com.melck.mckthymeleaf.dtos.UserDTO;
+import com.melck.mckthymeleaf.models.enums.Gender;
+import com.melck.mckthymeleaf.models.user.User;
+import com.melck.mckthymeleaf.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.melck.mckthymeleaf.dtos.UserDTO;
-import com.melck.mckthymeleaf.models.user.User;
-import com.melck.mckthymeleaf.models.enums.Gender;
-import com.melck.mckthymeleaf.services.UserService;
 
 import javax.validation.Valid;
 
@@ -23,17 +22,21 @@ public class ClientController {
 
     
     @GetMapping("/clients/form")
-    public ModelAndView formClient(){
-        ModelAndView mv = new ModelAndView("/clients/form_client");
-        mv.addObject("gender", Gender.values());
+    public ModelAndView formClient(UserDTO userDTO){
+        ModelAndView mv = new ModelAndView("/clients/formClient");
+        mv.addObject("listGender", Gender.values());
         return mv;
     }
     
     @PostMapping ("/clients/form")
-    public ModelAndView insertClient(@Valid UserDTO dto){
-        service.insert(dto);
-        ModelAndView mv = new ModelAndView("redirect:/login");
-        return mv;
+    public ModelAndView insertClient(@Valid UserDTO userDTO, BindingResult br){
+        if (br.hasErrors()){
+            ModelAndView mv = new ModelAndView("/clients/formClient");
+            mv.addObject("listGender", Gender.values());
+            return mv;
+        }
+        service.insert(userDTO);
+        return new ModelAndView("redirect:/login");
     }
 
     
