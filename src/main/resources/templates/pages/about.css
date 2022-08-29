@@ -1,0 +1,243 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+html {
+    font-family: 'roboto', Helvetica, sans-serif;
+    font-size: 62.5%;
+}
+
+
+.fundo {
+    width: 100%;
+    max-width: 2000px;
+    margin: auto;
+    background-color: rgba(206, 241, 228, 0.63);
+}
+
+
+.main-title {
+    display: flex;
+    font-size: 3rem;
+    text-align: center;
+    color: #2b2ef6;
+    background-color: white;
+    padding: 10px ;
+    margin: auto;
+
+}
+
+.banner{
+    position: relative;
+    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 1400px;
+    height: 600px;
+    background-image: url("equipe.jpg");
+    background-size: cover;
+
+}
+
+.slogan{
+    width: 50%;
+    position: absolute;
+    bottom: 4rem;
+}
+
+.slogan .main-link{
+    padding-top: 500px;
+    text-decoration: none;
+    color:#f66212;
+    margin-left: 40px;
+    font-size: 7rem;
+}
+
+.slogan h2{
+    font-size: 4rem;
+    margin-left: 40px;
+    text-align: left;
+    color: #2b2ef6;
+}
+
+
+
+.content{
+    width: 100%;
+    max-width: 2000px;
+    background-color: #fcf9f7cf;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.cards{
+    width: 100%;
+    max-width: 1200px;
+    margin: 30px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card{
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+    background-color: #f9fcfd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid rgba(32, 30, 30, 0.462);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(105, 104, 104, 0.633);
+    transition: .5s;
+
+}
+
+.card:hover{
+   opacity: 70%;
+
+
+}
+
+.card h3{
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 8px;
+    color: #2b2ef6;
+
+}
+
+.card img{
+    display: flex;
+    margin: auto;
+    width: 100px;
+}
+
+.card a{
+    text-decoration: none;
+}
+
+.card i{
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    color: #2b2ef6;
+}
+
+
+
+.container{
+   
+    display: flexbox;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 40px;
+}
+
+.section{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+}
+
+
+.section .title {
+    display: flex;
+    font-size: 3rem;
+    text-align: center;
+    color: rgba(80, 73, 73, 0.864);
+    padding: 10px;
+   
+
+}
+
+.section .text {
+    
+    font-size: 2.5rem;
+    text-align: center;
+    color: #0e6aa4;
+    text-align: left;
+    margin: 10px;
+
+}
+
+
+
+.news{
+    width: 100%;
+    max-width: 1200px;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.news .banner-news{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 350px;
+    width: 30%;
+
+}
+
+
+.banner-news .texto-banner{
+    font-size: 5rem;
+    line-height: 6rem;
+    padding-bottom: 40px;
+
+}
+
+.banner-news .texto-banner h1{
+    color: #de6515;
+
+
+}
+
+.banner-news .texto-banner span{
+    display: flex;
+    justify-content: center;
+    color:#2b2ef6;
+}
+
+.banner-news a{
+    text-decoration: none;;
+    font-size: 3rem;
+    color: #0a0ef6;
+    padding: 1rem 2rem;
+    border-radius: 5%;
+    background-color: rgb(229, 239, 235);
+}
+
+.news .carrossel-news{
+    height: 350px;
+    width: 65%;
+    background-color: #ccbfb7;
+}
+
+.carrossel-news img{
+    height: 350px;
+    width: 100%;
+
+}
+
+
