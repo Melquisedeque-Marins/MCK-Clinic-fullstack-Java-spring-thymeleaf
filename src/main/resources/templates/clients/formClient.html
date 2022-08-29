@@ -29,7 +29,7 @@
             <div class="card">
                 <div class="form">
                     <h1>Cadastre-se </h1>
-                    <form th:object="${userDTO}" th:action="@{/clients/form}" method="POST">
+                    <form th:object="${userDTO}" th:action="@{/users/form}" method="POST">
                             <div class="campos">
                                 <label class="lbl" >Name</label>
                                 <input class="campo" th:errorclass="error-field" type="text" th:field="*{name}" placeholder="Digite seu nome" >
