@@ -10,13 +10,12 @@ html {
     font-size: 62.5%;
 }
 
-
 .content{
-    display: flex;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
 }
 
-. fundo {
+.fundo {
     width: 100%;
     max-width: 2000px;
     margin: auto;
@@ -24,27 +23,26 @@ html {
 }
 
 .bg-imagem{
-    padding: 20px;
+    padding: 30px;
     display: flex;
     margin: auto;
     width: 100%;
     max-width: 1400px;
-    height: 600px;
+    height: 80%;
     background-image: url("../img/agendar.jpeg");
     background-size: cover;
-    
+
 }
 
 .card{
-    padding: 30px;
+    padding: 12px;
     display: flex;
     margin: auto;
     flex-direction: column;
     background-color: #4e4e5ccf;
     align-items: center;
-    width:40%;
+    width:50%;
 }
-
 
 .card h1{
     text-align: center;
@@ -66,15 +64,20 @@ html {
 
 .campos .lbl{
     color: white;
-    margin-top: 20px;
-    font-size: 2rem;
+    font-size: 1.5rem;
+}
+
+.campos input{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    outline: 0;
 }
 
 .campos .campo{
-    font-size: 1.8rem;
-    padding: 7px ;
+    font-size: 1.5rem;
+    padding: 5px ;
     margin-bottom: 8px;
-    margin-top: 5px;
+    margin-top: 2px;
     outline: 0;
 }
 
@@ -85,32 +88,27 @@ html {
     font-size: 2.5rem;
     cursor: pointer;
     padding: 5px 20px;
-    margin-top: 5px;
-}
-
-.campos p{
-    color: #090deb; 
-    text-align: center;
-    font-size: 1.5rem;
-    text-decoration: none;
-    align-items: center;
-    margin-bottom: 5px;
+    margin-top: 10px;
 }
 
 .campos a{
-    color: black;
-    text-align: center;
-    font-size: 1.5rem;
     text-decoration: none;
     align-items: center;
-    transition: 0.5s;
 }
 
-.campos a:hover{
-    color: white;
-   
-}
+.error-field{
+    padding: 2px;
+    border: 1px solid gray;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
 
+}
+.alert{
+    border-color: #e8273b;
+    color: #FFF;
+    background-color: #ed5565;
+}
 
 .back{
     display:flex;
@@ -122,7 +120,6 @@ html {
     text-align: center;
    
 }
-
 
 footer {
     font-size: 1.4rem;

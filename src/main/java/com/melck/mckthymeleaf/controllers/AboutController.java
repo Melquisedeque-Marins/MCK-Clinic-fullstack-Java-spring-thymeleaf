@@ -9,8 +9,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class AboutController {
 
     @GetMapping("/about")
-    public ModelAndView ModelAndView (){
+    public ModelAndView about(){
         ModelAndView mv = new ModelAndView("/pages/about");
+        return mv;
+    }
+
+    @GetMapping("/expertises")
+    public ModelAndView expertises(){
+        ModelAndView mv = new ModelAndView("/pages/expertises");
         return mv;
     }
 

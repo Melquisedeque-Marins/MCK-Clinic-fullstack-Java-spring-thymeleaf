@@ -2,7 +2,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
 }
 
 html {
@@ -46,6 +45,7 @@ html {
     width: 50%;
     position: absolute;
     bottom: 4rem;
+    background-color: #2b2ef6;
 }
 
 .slogan .main-link{
@@ -60,185 +60,104 @@ html {
     font-size: 4rem;
     margin-left: 40px;
     text-align: left;
-    color: #2b2ef6;
+    color: white
 }
-
 
 
 .content{
-    width: 100%;
-    max-width: 2000px;
-    background-color: #f9fcfd;
-   
-    margin: auto;
+    background-color: #eee7e3;
+
+}
+
+.section-1 {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    width: 100%;
+    margin: auto;
+    border-left: 1px solid #0d334a;
+}
 
+.about{
+
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 20px auto;
+}
+
+.about .title{
+    font-size: 3rem;
+    color: #f66212;
+}
+
+.about .text{
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+.about p{
+    padding-bottom: 15px;
+    color: #0d334a;
+    font-weight: 400;
+}
+
+.section-2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    margin: auto;
+    width: 70%;
 }
 
 .cards{
-    width: 100%;
-    max-width: 1200px;
-    margin: 30px 0;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
+    margin: 0 auto;    
 }
 
 .card{
-    height: 200px;
-    width: 200px;
-    margin: 10px;
-    background-color: #f9fcfd;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    position: relative;
-    cursor: pointer;
-    border: 1px solid rgba(32, 30, 30, 0.462);
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px rgba(105, 104, 104, 0.633);
-    transition: .5s;
-
-}
-
-.card:hover{
-   opacity: 70%;
-
-
-}
-
-.card h3{
-    font-size: 2.5rem;
-    text-align: center;
-    margin: 8px;
-    color: #2b2ef6;
-
-}
-
-.card img{
-    display: flex;
-    margin: auto;
-    width: 100px;
-}
-
-.card a{
-    text-decoration: none;
-}
-
-.card i{
-    display: flex;
-    justify-content: center;
-    margin: 20px auto;
-    color: #2b2ef6;
-}
-
-
-
-.container{
-   
-    display: flexbox;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 0 40px;
-}
-
-.section{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-
-}
-
-
-.section .title {
-    display: flex;
-    font-size: 3rem;
-    text-align: center;
-    color: rgba(80, 73, 73, 0.864);
-    padding: 10px;
-   
-
-}
-
-.section .text {
-    
-    font-size: 2.5rem;
-    text-align: center;
-    color: #0e6aa4;
-    text-align: left;
-    margin: 10px;
-
-}
-
-
-
-.news{
-    width: 100%;
-    max-width: 1200px;
-    height: 400px;
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-around;
-
-}
-
-.news .banner-news{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin: auto;
-    height: 350px;
-    width: 30%;
-
+    margin: 0px auto;
+    height: 200px;
 }
 
-
-.banner-news .texto-banner{
-    font-size: 5rem;
-    line-height: 6rem;
-    padding-bottom: 40px;
-
+.card-text{
+   margin: auto;      
 }
 
-.banner-news .texto-banner h1{
-    color: #de6515;
+.card-text h4{
+    font-size: 4rem;
+    text-align: center;
+    color: #2b2ef6;
 
-
+    padding-top: 10px;
 }
 
-.banner-news .texto-banner span{
-    display: flex;
-    justify-content: center;
-    color:#2b2ef6;
+.card-text p{
+    padding: 10px 30px;
+    margin: 10px auto;
+    font-size: 2rem;
+    text-align: left;
+    color: rgb(82, 76, 76);
 }
 
-.banner-news a{
-    text-decoration: none;;
-    font-size: 3rem;
-    color: #0a0ef6;
-    padding: 1rem 2rem;
-    border-radius: 5%;
-    background-color: rgb(229, 239, 235);
-}
+.gren{
+    background-color: rgb(179, 228, 105);     
+ }
+.blue{
+    background-color: rgba(134, 134, 221, 0.763);     
+ }
+.red{
+    background-color: rgba(250, 165, 165, 0.718);     
+ }
 
-.news .carrossel-news{
-    height: 350px;
-    width: 65%;
-    background-color: #ccbfb7;
-}
 
-.carrossel-news img{
-    height: 350px;
-    width: 100%;
 
-}
+
 
 
