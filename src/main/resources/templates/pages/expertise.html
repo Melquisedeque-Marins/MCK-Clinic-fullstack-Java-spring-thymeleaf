@@ -24,20 +24,9 @@
     <div th:replace="fragments/fragments :: header"></div>
 
     <section class="content">
-               <table class="tb">
-                    <thead>
-                            <th>#</th>
-                            <th>Nome</th>
-                            <th>Descrição</th>
-                    </thead>
-                    <tbody>
-                        <tr th:each="expertise : ${listExpertises}">
-                            <td th:text="${expertise.id}"></td>
-                            <td th:text="${expertise.name}"></td>
-                            <td th:text="${expertise.description}"></td>                            
-                        </tr>
-                    </tbody>
-               </table>
+             
+              <label for="">Id:</label> <span th:text="${expertise.id}"></span>
+              <label for="">Nome:</label> <span th:text="${expertise.name}"></span>
                
     </section>
 

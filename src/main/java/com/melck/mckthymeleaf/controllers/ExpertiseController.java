@@ -5,6 +5,7 @@ import com.melck.mckthymeleaf.services.ExpertiseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -20,6 +21,14 @@ public class ExpertiseController {
         ModelAndView mv = new ModelAndView("/pages/expertisesList");
         List<Expertise> expertises = service.findAll();
         mv.addObject("listExpertises", expertises);
+        return mv;
+    }
+
+    @GetMapping("/expertises/{id}")
+    public ModelAndView findById(@PathVariable long id){
+        ModelAndView mv = new ModelAndView("/pages/expertise");
+        Expertise expertise = service.findById(id);
+        mv.addObject("expertise", expertise);
         return mv;
     }
 }

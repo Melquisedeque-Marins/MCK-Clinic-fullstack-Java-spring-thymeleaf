@@ -27,9 +27,24 @@
 
     
         <div class="content">
-            <p th:text="${userLogged.name}"></p>
-            <p th:text="${userLogged.email}"></p>
-            <p th:text="${userLogged.cpf}"></p>
+            <p th:text="'Usuario: ' + ${userLogged.name}"></p>
+        <div class="content">
+            <div class="div">
+                <div th:each="sch : ${schedulings}">
+                     <div  th:each="exp : ${sch.doctor.expertises}">
+                        <p th:text=" 'Especialidade: ' + ${exp.name}"></p>
+                        <p th:text=" 'Médico: ' + ${sch.doctor.name}"> Médico: </p>
+                        <p th:text=" 'Horario: ' + ${sch.schedulingTime}"> Data:  </p>
+                     </div>
+                </div>
+
+                <form th:action="@{/logout}" method="post" >
+        
+                    <input type="submit" value="Logout">
+                </form>
+            </div>
+
+         
     
     
         </div>
