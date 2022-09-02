@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
 
 <head>
     <meta charset="UTF-8">
@@ -31,8 +33,18 @@
                         <li> <a class="nav-item" th:href="@{/about}">SOBRE</a></li>
                         <li> <a class="nav-item" th:href="@{/expertises}">ESPECIALIDADES</a></li>
                         <li> <a class="nav-item" href="">AGENDAR</a></li>
-                        <li> <a class="nav-item" href="">CONTATOS</a></li>
-                        <li> <a class="nav-item" th:href="@{/login}">LOGIN</a></li>
+                        <li> <a class="nav-item" href="">CONTATOS</a></li>                      
+                      
+                        <li sec:authorize="isAnonymous()">
+                            <a class="nav-item" th:href="@{/login}">ENTRAR</a>
+                        </li>
+                        <li sec:authorize="isAnonymous()">
+                            <a class="nav-item" th:href="@{/users/form}">CADASTRE-SE</a>
+                        </li>
+
+                        <li sec:authorize="isAuthenticated()">
+                            <a class="nav-item" th:href="@{/logout}">SAIR</a><span class="nav-item" sec:authentication="principal.name"></span>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -59,18 +71,16 @@
                 </ul>
             </div>
             <div class="column">
-                <h3>Onde nos encontrar</h3>
+                <h3>Desenvolvido por:</h3>
                 <ul>
-                    <li>Email: mckclinic@mckgroup.com</li>
-                    <li>Instagram</li>
-                    <li>WhatsApp</li>
-                    <li>Twiter</li>
+                    <li>MCK Enterprise</li>
+                    <li>Developer: Melquisedeque Marins Junior</li>
+                    <li>Email: melck_junior@hotmail.com</li>
+                    <li>WhatsApp: PT +351 935 893 129 / BR +55 (98) 98805-2832</li>
                 </ul>
             </div>
         </div>
-        <div class="produced-by">
-            <span>Desenvolvido por <a href=""> MCK Enterprise</a></span>
-        </div>
+       
     </footer>
     
     <script src="script.js"></script>
