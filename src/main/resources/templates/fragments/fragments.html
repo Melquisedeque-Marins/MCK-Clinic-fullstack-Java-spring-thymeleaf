@@ -43,9 +43,10 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
                         </li>
 
                         <li sec:authorize="isAuthenticated()">
-                            <a class="nav-item" th:href="@{/logout}">SAIR</a><span class="nav-item" sec:authentication="principal.name"></span>
+                            <a class="nav-item" th:href="@{/logout}">SAIR</a>
                         </li>
                     </ul>
+                    <div sec:authorize="isAuthenticated()"><span sec:authentication="principal.name"></span></div>
                 </div>
             </nav>
         </div>

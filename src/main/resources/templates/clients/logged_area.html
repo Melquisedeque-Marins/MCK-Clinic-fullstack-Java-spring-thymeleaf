@@ -24,15 +24,12 @@
     <div th:replace="fragments/fragments :: header"></div>
 
 <div class=  "fundo">
-
-    
         <div class="content">
-            <p th:text="'Usuario: ' + ${userLogged.name}"></p>
-        <div class="content">
-            <div class="div">
+            <span sec:authentication="principal.name"></span>
+            <div class="card-shedulings">
                 <div th:each="sch : ${schedulings}">
-                     <div  th:each="exp : ${sch.doctor.expertises}">
-                        <div class="agendamentos">
+                     <div class="main-schedulings" th:each="exp : ${sch.doctor.expertises}">
+                        <div class="card">
                             <p th:text=" 'Especialidade: ' + ${exp.name}"></p>
                             <p th:text=" 'Médico: ' + ${sch.doctor.name}"> Médico: </p>
                             <p th:text=" 'Horario: ' + ${sch.schedulingTime}"> Data:  </p>
@@ -45,10 +42,6 @@
                     <input type="submit" value="Logout">
                 </form>
             </div>
-
-         
-    
-    
         </div>
     <form th:action="@{/logout}" method="post" >
         
