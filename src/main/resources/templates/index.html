@@ -13,7 +13,7 @@
             rel="stylesheet">
             
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/indexx.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/954f0760ed.js" crossorigin="anonymous"></script>
 
@@ -23,70 +23,76 @@
 
 <div th:replace="fragments/fragments :: header"></div>
 
-<section class="corpo">
-    <div class="fundo">
-        <div class="banner">
-            <div class="slogan">
-                <a class="main-link" th:href="@{/}"><strong>MCK CLINIC</strong></a>
-                <h2>
-                    Tudo que você precisa para um corpo e mente sãos em um só lugar. 
-                </h2>
-            </div>
+<div class="content">
+    <section class="container-main">
+      <div class="main-baner">
+       <div class="slogan">
+        <h1>MCK CLINIC</h1>
+        <h2>Tudo que você precisa para um corpo e mente sãos em um só lugar.</h2>
+       </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="cards-link">
+        <div class="card-link">
+          <a href="/about">
+            <i class="fa-solid fa-circle-info fa-4x"></i>
+            <h3>Quem somos</h3>
+          </a>
         </div>
-    </div>
-    <div class="content ">
-        <div class="cards">
-
-            <div class="card">
-                <a href="/about">
-                    <i class="fa-solid fa-circle-info fa-6x"></i>
-                    <h3>Sobre a MCK Clinic</h3>
-                </a>
-            </div>
-
-            <div class="card">
-                <a href="">
-                    <i class="fa-solid fa-calendar-check fa-6x"></i>
-                    <h3>Agendar minha consulta</h3>
-                </a>
-            </div>
-
-            <div class="card">
-                <a href="/users/logged">
-                    <i class="fa-solid fa-arrow-right-to-bracket fa-6x"></i>
-                    <h3>Área do cliente</h3>
-                </a>
-            </div>
-
-            <div class="card">
-                <a href="/expertises">
-                    <i class="fa-solid fa-stethoscope fa-6x"></i>
-                    <h3>Nossas especialidades</h3>
-                </a>
-            </div>
-            <div class="card">
-                <a href="">
-                    <i class="fa-solid fa-hospital fa-6x"></i>
-                    <h3>Nossas unidades</h3>
-                </a>
-            </div>
-
+        <div class="card-link">
+          <a href="">
+            <i class="fa-solid fa-calendar-check fa-4x"></i>
+            <h3>Agendar minha consulta</h3>
+          </a>
         </div>
-        <div class="news">
-            <div class="banner-news">
-                <div class="texto-banner">
-                    <span>Temos</span>
-                    <h1>Novidades!</h1>
-                </div>
-                <a href="">Saiba mais!</a>
-            </div>
-            <div class="carrossel-news">
-                <img src="img/AdobeStock_178178569.jpeg" alt="">
-            </div>
+        <div class="card-link">
+          <a href="/users/logged">
+            <i class="fa-solid fa-arrow-right-to-bracket fa-4x"></i>
+            <h3>Área do cliente</h3>
+          </a>
         </div>
-
-    </div>
-</section>
+        <div class="card-link">
+          <a href="/expertises">
+            <i class="fa-solid fa-stethoscope fa-4x"></i>
+            <h3>Nossas especialidades</h3>
+          </a>
+        </div>
+        <div class="card-link">
+          <a href="">
+            <i class="fa-solid fa-hospital fa-4x"></i>
+            <h3>Nossas unidades</h3>
+        </a>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="container info">
+      <div class="info-baner one">
+        <div class="info-text">
+          <h3>Venha nos visitar</h3>
+          <p>Temos uma equipe especializada para atendê-lo!</p>
+        </div>
+        <div class="info-img">
+            <picture>
+              <img src="img/index/banner-index-rodapé-300.jpg" alt="médicos">
+            </picture>
+        </div>
+      </div>
+      <div class="info-baner two">
+        <div class="info-text">
+          <h3>Agende a sua consulta</h3>
+          <p>Cadastre-se aqui e tenha acesso a nossa plataforma de agendamento de consultas on-line</p>
+        </div>
+        <div class="info-img">
+          <picture>
+            <img src="img/index/info-agendamento-300.jpg" alt="médicos">
+          </picture>
+        </div>
+      </div>
+    </section>
+  </div>
 
 <div th:replace="fragments/fragments :: footer"></div>
 

@@ -1,0 +1,210 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: "roboto", Helvetica, sans-serif;
+    font-size: 62.5%;
+  }
+  
+  .content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .container-main {
+    padding-top: 60px;
+    width: 100%;
+    max-width: 2000px;
+    margin: auto;
+    background-color: rgba(206, 241, 228, 0.63);
+  }
+  
+  .main-banner {
+    padding: 20px;
+    display: flex;
+    margin: auto;
+    width: 100%;
+    max-width: 1400px;
+    height: 500px;
+    background-image: url("../img/login/form-login-1200.jpg");
+    background-size: cover;
+  }
+  
+  .card {
+    padding: 10px;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    background-color: #4e4e5ccf;
+    align-items: center;
+    width: 280px;
+    height: 320px;
+  }
+  
+  .card h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #f66212;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+  }
+  
+  .campos {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .campos .lbl {
+    color: white;
+    margin-top: 10px;
+    font-size: 1.5rem;
+  }
+  
+  .campos .campo {
+    font-size: 1.5rem;
+    padding: 3px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    outline: 0;
+  }
+  
+  .campos .botão {
+    color: white;
+    border: none;
+    background-color: #2b2ef6;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px 20px;
+    margin-top: 5px;
+  }
+  
+  .campos p {
+    color: #090deb;
+    text-align: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    align-items: center;
+  }
+  
+  .campos a {
+    color: black;
+    text-align: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    align-items: center;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  
+  .campos a:hover {
+    color: white;
+  }
+  
+  .back {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .back .botão {
+    text-align: center;
+  }
+  
+  @media (min-width: 425px) {
+      .container-main {
+          padding-top: 80px;   
+      }
+  
+      .card {
+          width: 320px;
+          height: 320px;
+          padding: 5px;
+        }
+  
+        .card h1 {
+          font-size: 2.5rem;
+        }
+  
+  }
+  
+  @media (min-width: 600px) {
+      .card {
+          width: 400px;
+          height: 400px;
+        }
+  
+        .card h1 {
+          font-size: 3.5rem;
+        }
+  
+        .campos .lbl {
+          margin-top: 10px;
+          font-size: 2rem;
+        }
+        
+        .campos .campo {
+          font-size: 2rem;
+          padding: 5px;
+          margin-bottom: 10px;
+          margin-top: 5px;
+          margin-bottom: 2px;
+        }
+  
+        .campos .botão {
+          font-size: 2rem;
+          padding: 5px 20px;
+          margin-top: 10px;
+        }
+  }
+  
+  @media (min-width: 1000px) {
+  
+      .main-banner {
+          height: 600px;
+        }
+  
+      .container-main {
+          padding-top: 100px;   
+      }
+      .card {
+          width: 500px;
+          height: 460px;
+          padding: 10px;
+        }
+  
+        .card h1 {
+          font-size: 4rem;
+        }
+  
+        .campos .lbl {
+          margin-top: 10px;
+          font-size: 2rem;
+        }
+        
+        .campos .campo {
+          font-size: 2rem;
+          padding: 5px;
+          margin-bottom: 10px;
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+  
+        .campos .botão {
+          font-size: 2.5rem;
+          padding: 5px 20px;
+          margin-top: 10px;
+        }
+  
+  }
+  
+  
+  
+  
+  
