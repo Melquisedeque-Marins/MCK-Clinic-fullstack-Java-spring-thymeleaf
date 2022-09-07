@@ -10,37 +10,50 @@ html {
     font-size: 62.5%;
 }
 
-
-.fundo {
-    
-    max-width: 2000px;
-   
-    background-color: rgba(206, 241, 228, 0.63);
-}
-
-.content{
+.container {
     display: flex;
+    padding-top: 100px;
     flex-direction: column;
-    align-items: center;
-    margin: auto;
-    height: 600px;
-
-}
-
-.card-shedulings {
+    height: 600px
    
 }
 
-.main-schedulings {
+h1 {
+    color: orangered;
+}
+.user {
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.user span {
+    font-size: 1.5rem;
+    color: blue;
+}
+
+.cards {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin: 10px;
+    grid-template-columns: 2fr 2fr 2fr 2fr;
 }
 
 .card {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    border: 2px solid gray;
+    border-radius: 10px;
+   
+    margin: 20px;
+    padding: 20px 10px;
     text-align: left;
 }
+
+.card p {
+    font-size: 1.5rem;
+    padding: 5px 0;
+    text-align: left;
+}
+.actions {
+    display: flex;
+}
+

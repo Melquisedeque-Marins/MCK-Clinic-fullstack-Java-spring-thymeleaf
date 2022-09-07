@@ -13,7 +13,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
-    <link rel="stylesheet" href="css/pages/about.css">
+    <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/954f0760ed.js" crossorigin="anonymous"></script>
 
@@ -23,87 +23,72 @@
 
     <div th:replace="fragments/fragments :: header"></div>
 
-    <section class="corpo">
-        <div class="fundo">
-            <div class="banner">
-                <div class="slogan">
-                    <a class="main-link" th:href="@{/}"><strong>MCK CLINIC</strong></a>
-                    <h2>
-                        Uma equipe técnica pronta para lhe atender.
-                    </h2>
+    <section class="container">
+        <div class="content-about">
+          <div class="about">
+            <h2>Quem somos</h2>
+            <div class="about-card">
+                <img src="../img/about/banner-about-1200.jpg" alt="sobre nós">
+                <div>
+                    <p>Empresa ficticia do ramo de saúde destinada a fornecimento de serviços clinicos em diversas
+                        áreas médicas.
+                    </p>
+                    <p>A mesma foi idealizada para representar o modelo de negócio de uma clinica real para fim do
+                        desenvolvimento desta plataforma online de agendamento de consultas e gerenciamento de clientes e profissionais.
+                    </p>
+                    <p>Esta empresa é completamente ficticia e as informações como nomes de pacientes e médicos,
+                        dados de endereço e contato, bem como serviços prestatos são meramente
+                        ilustrativos com fins didaticos. 
+                    </p>
                 </div>
             </div>
+          </div>
+          <div class="about">
+            <h2>Nossa história</h2>
+            <div class="about-card">
+                <img src="../img/about/about-historia-1200.jpg" alt="historia">
+                <div>
+                    <p>Esta aplicação web foi desenvolvida utilizando tecnologias como Java, Spting Boot, Thymeleaf, PostgreSQL, HTML 5 e CSS 3.</p>
+                    <p>A mesma possui funcionalidades como Cadastro de usuario, agenamento de consultas, gerenciamento de profissionais
+                        e base de informações para analises de fluxo de agendamentos.
+                    </p>
+                </div>
+            </div>
+          </div>
         </div>
-        <div class="content ">
-            <div class="section-1">
-                <div class="about">
-                    <div class="title">
-                        <h3>Quem somos</h3>
-                    </div>
-                    <div class="text">
-                        <p>Empresa ficticia do ramo de saúde destinada a fornecimento de serviços clinicos em diversas
-                            áreas médicas. </p>
-                        <p>A mesma foi idealizada para representar o modelo de negócio de uma clinica real para fim do
-                            desenvolvimento desta plataforma online de agendamento de consultas e gerenciamento de clientes e profissionais.
-                        </p>
-                        <p>Esta empresa é completamente ficticia e as informações como nomes de pacientes e médicos,
-                            dados de endereço e contato, bem como serviços prestatos são meramente
-                            ilustrativos com fins didaticos. 
-                        </p>
-                    </div>
-                </div>
-                <div class="about">
-                    <div class="title">
-                        <h3>Área de atuação</h3>
-                    </div>
-                    <div class="text">
-                        <p>Esta aplicação web foi desenvolvida utilizando tecnologias como Java, Spting Boot, Thymeleaf, PostgreSQL, HTML 5 e CSS 3.</p>
-                        <p>A mesma possui funcionalidades como Cadastro de usuario, agenamento de consultas, gerenciamento de profissionais 
-                            e base de informações para analises de fluxo de agendamentos.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section-2">
-                <div class="cards">
-                    <div class="card">
-                        <div class="card-img">
-                            <img src="img/mission.jpg" alt="missão">
-                        </div>
-                        <div class="card-text red">
-                            <h4>Missão</h4>
-                            <p>Dispor aos nossos clientes atendimento médico de primeira qualidade a preço justo, dando o melhor tratamento aos pacientes e assistência e conforto aos familiares.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-text blue">
-                            <h4>Visão</h4>
-                            <p>Nos tornarmos uma clinica médica de alcance nacional em todo o país.</p>
-                            </div>
-                            <div class="card-img">
-                                <img src="img/visao.jpg" alt="visão">
-                            </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-img">
-                            <img src="img/mission.jpg" alt="valores">
-                        </div>
-                        <div class="card-text gren">
-                            <h4>Valores</h4>
-                            <p>Todas as nossas ações estam apoiadas por valores como: Respeito, Empatia, valorização pessoal e ética</p>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
+      </section>
+      <section class="container mission">
+        <div class="mission-baner">
+          <div class="mission-text">
+            <h3>Missão</h3>
+            <p>Prestar serviços de qualidade buscando sempre a maxima satisfação dos nossos clientes.</p>
+          </div>
+          <div class="mission-img">
+                <img src="../img/banner-index-rodapé-700.jpg" alt="médicos">
+          </div>
         </div>
-    </section>
-
+        <div class="mission-baner">
+            <div class="mission-img">
+                  <img src="../img/banner-index-rodapé-700.jpg" alt="médicos">
+            </div>
+          <div class="mission-text">
+            <h3>Visão</h3>
+            <p>Me tornar um desenvolvedor web fullstack pleno e poder contribuir com projetos de grandes empresas.</p>
+          </div>
+        </div>
+        <div class="mission-baner">
+          <div class="mission-text">
+            <h3>Valores</h3>
+            <p>Prestar serviços de qualidade buscando sempre a maxima satisfação dos nossos clientes.</p>
+          </div>
+          <div class="mission-img">
+                <img src="../img/banner-index-rodapé-700.jpg" alt="médicos">
+          </div>
+        </div>
+      </section>
     <div th:replace="fragments/fragments :: footer"></div>
 
-    <script src="script.js"></script>
+    <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
 
 </html>

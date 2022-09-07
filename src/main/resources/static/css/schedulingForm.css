@@ -1,0 +1,193 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: "roboto", Helvetica, sans-serif;
+    font-size: 62.5%;
+  }
+  
+  .content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .container-main {
+    padding-top: 60px;
+    width: 100%;
+    max-width: 2000px;
+    margin: auto;
+    justify-content: space-around;
+    background-color: rgba(206, 241, 228, 0.63);
+  }
+  
+  .main-banner {
+    padding: 40px 10px 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+    background-image: url("../img/login/form-login-1200.jpg");
+    background-size: cover;
+  }
+  
+  .card {
+    padding: 10px 0;
+    display: flex;
+    margin: auto;
+    margin-bottom: 10px;
+    flex-direction: column;
+    background-color: #4e4e5ccf;
+    align-items: center;
+    width: 280px;
+    height: 680px;
+  }
+
+.card h1{
+    text-align: center;
+    font-size: 3rem;
+    color: #f66212;
+}
+
+.form{
+    display: flex;
+    flex-direction: column; 
+    width: 90%;
+    margin: auto;
+}
+
+.campos{
+    display: flex;
+    flex-direction: column;
+}
+
+.campos .lbl{
+    color: white;
+    font-size: 1.5rem;
+}
+
+.campos input{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    outline: 0;
+}
+
+.campos .campo{
+    font-size: 1.5rem;
+    padding: 5px ;
+    margin-bottom: 8px;
+    margin-top: 2px;
+    outline: 0;
+}
+
+.campos .botão{
+    color: white;
+    border: none;
+    background-color: #2b2ef6;
+    font-size: 2.5rem;
+    cursor: pointer;
+    padding: 5px 20px;
+    margin-top: 10px;
+}
+
+.campos a{
+    text-decoration: none;
+    align-items: center;
+}
+
+.error-field{
+    padding: 2px;
+    border: 1px solid gray;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+
+}
+.alert{
+    border-color: #e8273b;
+    color: #FFF;
+    background-color: #ed5565;
+}
+
+.back{
+    display:flex;
+    justify-content: center;
+}
+
+.back .botão{
+    text-align: center;
+}
+
+@media (min-width: 425px) {
+
+    .container-main {
+        padding-top: 80px;
+    }
+
+    .main-banner {
+        padding: 50px 10px;
+        padding-top: 80px;
+    }
+
+    .card {
+        width: 350px;
+        height: 680px;
+        padding: 10px;
+      }
+
+}
+
+@media (min-width: 500px) {
+    .card {
+        width: 70%;
+        height: 720px;
+        padding: 10px 20px;
+      }
+}
+
+@media (min-width: 700px) {
+    .card {
+        width: 60%;
+        height: 720px;
+        padding: 10px 50px;
+      }
+      .card h1{
+        font-size: 3.5rem;
+    }
+}
+
+@media (min-width: 850px) {
+    .card {
+        width: 50%;
+        height: 720px;
+        padding: 10px 50px;
+      }
+      .card h1{
+        font-size: 3.5rem;
+    }
+}
+
+@media (min-width: 1000px) {
+
+    .container-main {
+        padding-top: 100px;
+    }
+
+    .main-banner {
+        padding: 40px 10px;
+    }
+    .card {
+        width: 50%;
+        height: 700px;
+        padding: 0px 70px;
+      }
+
+    .card h1{
+        font-size: 4rem;
+    }
+}

@@ -8,6 +8,8 @@ import com.melck.mckthymeleaf.models.enums.Type;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Future;
+
 import java.io.Serializable;
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -25,6 +27,7 @@ public class Scheduling implements Serializable {
     private Long id;
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Future(message = "invalid date")
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime schedulingTime;
 

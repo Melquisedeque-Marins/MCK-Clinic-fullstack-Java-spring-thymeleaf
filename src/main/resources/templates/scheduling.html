@@ -13,7 +13,7 @@
             rel="stylesheet">
             
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="/css/schedulingForm.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/954f0760ed.js" crossorigin="anonymous"></script>
 </head>
@@ -23,26 +23,37 @@
 
 <section class="content">
     <div class="container-main">
-            <div class="main-banner">
-              <div class="card">
-                  <div class="form">
-                      <h1>Acesse a área do cliente</h1>
-                      <form th:action="@{/login}" method="post" >
-                              <div class="campos">
-                                  <label class="lbl" for="cpf">CPF</label>
-                                  <input class="campo" type="text" name="username" id="">
-                                  <label class="lbl" for="password">Password</label>
-                                  <input class="campo" type="password" name="password" id="">
-                                  <p>Não tem cadastro? <span><a th:href="@{/users/form}">clique aqui</a></span></p>
-                                  <input class="botão"type="submit" value="Login">
-                                  <a th:href="@{/}"><input class="botão"type="button" value="Voltar"></a>
-                              </div>
-                      </form>
-                  </div>
+      <div class="main-banner">
+        <div class="card">
+          <div class="form">
+            <h1>Faça o seu agendamento</h1>
+            <form
+              th:object="${schedulingDTO}"
+              th:action="@{/schedulings/new}"
+              method="POST"
+            >
+              <div class="campos">
+
+                <label class="lbl">data</label>
+                <input type="datetime-local" th:field="*{schedulingTime}">
+                
+                <label class="lbl">Doctor id</label>
+                <input class="campo" th:field="*{doctorId}" placeholder="id do médico"/>
+              
+
+                <input class="botão" type="submit" value="Agendar" />
+                <div class="back">
+                  <a th:href="@{/}"
+                    ><input class="botão" type="button" value="Voltar"
+                  /></a>
+                </div>
               </div>
-            </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 <div th:replace="fragments/fragments :: footer"></div>
 
 <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
