@@ -41,6 +41,9 @@ public class UserService implements UserDetailsService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    @Autowired
+    private EmailService emailService;
+
     @Transactional
     public UserDTO insert(UserDTO dto){
         if (repository.findByCpf(dto.getCpf()) != null){
@@ -58,6 +61,7 @@ public class UserService implements UserDetailsService {
         UserDTO newUser = new UserDTO(repository.save(user));
         Long years = ChronoUnit.YEARS.between(user.getBirthDate(), LocalDate.now());
         newUser.setAge(years);
+        emailService.sendEmail(user);
         return newUser;
     }
 
