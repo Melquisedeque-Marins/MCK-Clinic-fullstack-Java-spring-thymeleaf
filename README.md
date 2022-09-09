@@ -1,6 +1,6 @@
 # MCK Clinic (Versão Thymeleaf)
 
-## Aplicação Web desenvolvida em Java com Spring Boot utilizando a template engine Thymeleaf para renderização do frontend.
+## Aplicação Web desenvolvida em Java com Spring Boot utilizando o template engine Thymeleaf para renderização do frontend.
 
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
 
@@ -17,8 +17,8 @@
 <!--te-->
 
 ## Sobre o projeto
-Este projeto está em implementação para fins de aperfeiçoamento e prática em desenvolvimento web e utiliza tecnologias como Java e Spring Boot.
-O case utilizado como modelo de negócio para esta aplicação é totalmente fictício e todas as informações e referências contidas neste são meramente ilustrativas.
+Este projeto está sendo desenvolvido para fins de aperfeiçoamento e prática em desenvolvimento web, o mesmo utiliza tecnologias como Java e Spring Boot.<br>
+O case utilizado como modelo de negócio para esta aplicação é totalmente fictício e todas as informações, bem como as referências e nomes contidos neste são meramente ilustrativos.<br>
 Todas as imagens utilizadas possuem licença de utilização gratuita e foram adquiridas no site da [Adobe Stock](https://stock.adobe.com/pt). 
 
 <a id="Funcionalidades"></a>
@@ -80,7 +80,7 @@ Você pode acessar o código fonte do projeto clicando [aqui](https://github.com
 - Abra o terminal e navegue até o diretório onde deseja salvar o projeto
   ``$ cd /"caminho do diretório"``.
 - Faça o clone o repósitório
-  ``$ git clone https://github.com/Melquisedeque-Marins/MCK-Clinic.git``
+  ``$ git clone https://github.com/Melquisedeque-Marins/MCK-Clinic-Thymeleaf.git``
 - Acesse a pasta do projeto terminal/cmd
   ``$ cd /MCK-Clinic-Thymeleaf``.
 - Execute o seguinte comando caso não tenha o maven instalado
