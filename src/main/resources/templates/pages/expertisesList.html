@@ -13,7 +13,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
-    <link rel="stylesheet" href="/css/pages/expertises.css">
+    <link rel="stylesheet" href="css/expertisesList.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/954f0760ed.js" crossorigin="anonymous"></script>
 
@@ -23,29 +23,43 @@
 
     <div th:replace="fragments/fragments :: header"></div>
 
-    <section class="content">
-               <table class="tb">
-                    <thead>
-                            <th>#</th>
-                            <th>Nome</th>
-                            <th>Descrição</th>
-                    </thead>
-                    <tbody>
-                        <tr th:each="expertise : ${listExpertises}">
-                            <td th:text="${expertise.id}"></td>
-                            <td th:text="${expertise.name}"></td>
-                            <td th:text="${expertise.description}"></td>                            
-                        </tr>
-                    </tbody>
-               </table>
-               
-    </section>
+<div class="container">
+    
+    <div class="cards">
+        <div class="card" th:each="expertise : ${listExpertises}" >
+            <img th:src="${expertise.imgUrl}"/>
+            <div class="text">
+                <h1 th:text="${expertise.name}"></h1>
+                <p th:text="${expertise.description}"></p>
+            </div>
+        </div>
+    </div>
+</div>
 
-
-
+    
+    
     <div th:replace="fragments/fragments :: footer"></div>
-
+    
     <script type="text/javascript" th:src="@{/js/navbar.js}"></script>
 </body>
 
 </html>
+
+<!--
+<table class="tb">
+     <thead>
+             <th>#</th>
+             <th>Nome</th>
+             <th>Descrição</th>
+     </thead>
+     <tbody>
+         <tr th:each="expertise : ${listExpertises}">
+             <td th:text="${expertise.id}"></td>
+             <td th:text="${expertise.name}"></td>
+             <td th:text="${expertise.description}"></td>                            
+         </tr>
+            
+     </section>
+     </tbody>
+</table>
+-->

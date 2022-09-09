@@ -22,6 +22,7 @@ public class Expertise implements Serializable {
     private Long id;
     private String name;
     private String description;
+    private String imgUrl;
 
     @ManyToMany(mappedBy = "expertises")
     private Set<Doctor> doctors = new HashSet<>();

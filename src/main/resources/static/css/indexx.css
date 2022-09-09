@@ -54,7 +54,7 @@
 }
 
 .slogan h1 {
-    color: #2b2ef6;
+    color: rgb(43, 0, 255);
     font-size: 2rem;
     text-transform: uppercase;
 }
@@ -124,14 +124,14 @@
 
 
 .info-text h3 {
-    color: orangered;
+    color: rgb(255, 98, 0);
     font-size: 2.8rem;
     text-align: center;
     padding-bottom: 10px;
 }
 
 .info-text p {
-    color: blue;
+    color: rgb(43, 0, 255);
     font-size: 2rem;
     text-align: center;
     padding: 0px 20px;

@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: "roboto", Helvetica, sans-serif;
+    font-size: 62.5%;
+  }
+
+  .container {
+    padding-top: 100px;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border-bottom: 3px solid gray;
+    margin: 25px 0;
+    padding: 20px 40px;
+    
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+  }
+
+  .card h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    color: gray;
+  }
+
+  .card p {
+    font-size: 2rem;
+    color: gray;
+  }
+
+  .card img {
+    margin: auto;
+    width: 100%;
+  }

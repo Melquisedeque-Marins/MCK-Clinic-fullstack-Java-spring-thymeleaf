@@ -13,7 +13,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
-    <link rel="stylesheet" href="css/pages/expertises.css">
+    <link rel="stylesheet" href="/css/expertise.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/954f0760ed.js" crossorigin="anonymous"></script>
 
@@ -24,10 +24,10 @@
     <div th:replace="fragments/fragments :: header"></div>
 
     <section class="content">
-             
-              <label for="">Id:</label> <span th:text="${expertise.id}"></span>
-              <label for="">Nome:</label> <span th:text="${expertise.name}"></span>
-               
+            <span th:text="${expertise.id}"></span>
+            <span th:text="${expertise.name}"></span>
+            <span th:text="${expertise.description}"></span>
+            <img th:src="${expertise.imgUrl}"/>
     </section>
 
 

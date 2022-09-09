@@ -38,8 +38,6 @@ Todas as imagens utilizadas possuem licença de utilização gratuita e foram ad
 ## 💻 Layout da aplicação
 ### ✅ Tela Inicial
 ![](https://raw.githubusercontent.com/Melquisedeque-Marins/MCK-Clinic-Thymeleaf/main/utils/Home-screen.png)
-### ✅ Tela Sobre
-![](https://raw.githubusercontent.com/Melquisedeque-Marins/MCK-Clinic-Thymeleaf/main/utils/About-screen.png)
 ### ✅ Tela de Cadastro
 ![](https://raw.githubusercontent.com/Melquisedeque-Marins/MCK-Clinic-Thymeleaf/main/utils/Register-screen.png)
 ### ✅ Tela de Login
