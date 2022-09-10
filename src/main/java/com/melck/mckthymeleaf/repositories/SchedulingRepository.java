@@ -12,7 +12,7 @@ import com.melck.mckthymeleaf.models.user.User;
 
 @Repository
 public interface SchedulingRepository extends JpaRepository<Scheduling, Long>{
-
+    
        
     @Query("SELECT obj FROM Scheduling obj INNER JOIN obj.user u WHERE "
             + "(u IN :users)"

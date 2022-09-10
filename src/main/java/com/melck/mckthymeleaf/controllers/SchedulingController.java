@@ -1,7 +1,15 @@
 package com.melck.mckthymeleaf.controllers;
 
 import com.melck.mckthymeleaf.dtos.SchedulingDTO;
+import com.melck.mckthymeleaf.models.doctor.Doctor;
+import com.melck.mckthymeleaf.models.doctor.Expertise;
+import com.melck.mckthymeleaf.repositories.DoctorRepository;
+import com.melck.mckthymeleaf.repositories.ExpertiseRepository;
+import com.melck.mckthymeleaf.services.ExpertiseService;
 import com.melck.mckthymeleaf.services.SchedulingService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +24,23 @@ public class SchedulingController {
     @Autowired
     private SchedulingService service;
 
+    @Autowired 
+    private ExpertiseService expertiseService;
+
+    @Autowired
+    private ExpertiseRepository expertiseRepository;
+
+    @Autowired
+    private DoctorRepository doctorRepository;
+
     @GetMapping("/form")
-    public ModelAndView formScheduling(SchedulingDTO schedulingDTO) {
+    public ModelAndView formScheduling(SchedulingDTO schedulingDTO, Expertise expertise) {
         ModelAndView mv = new ModelAndView("scheduling");
+        List<Expertise> expertises = expertiseRepository.findAll();
+      //  Expertise exp = expertiseService.findById(1L);
+        List<Doctor> doctors = doctorRepository.findByExpertise(expertise);
+        mv.addObject("expertises", expertises);
+        mv.addObject("doctors", doctors);
         return mv;
     }
 

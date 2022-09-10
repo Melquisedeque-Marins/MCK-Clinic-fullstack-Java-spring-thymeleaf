@@ -48,6 +48,21 @@
                     placeholder="id do médico"
                   />
 
+                  <select class="campo" th:object="${expertise}" >
+                    <option
+                      th:each="exp : ${expertises}"
+                      th:value="${exp.name}"
+                      th:text="${exp.name}"
+                    ></option>
+                  </select>
+                  <select class="campo">
+                    <option
+                      th:each="doctor : ${doctors}"
+                      th:value="${doctor.name}"
+                      th:text="${doctor.name}"
+                    ></option>
+                  </select>
+
                   <input class="botão" type="submit" value="Agendar" />
                   <div class="back">
                     <a th:href="@{/}"
@@ -62,9 +77,6 @@
                 method="post"
               >
                 <div class="campos">
-                  <label class="lbl">data</label>
-                  <input type="datetime-local" th:field="*{schedulingTime}" />
-
                   <input class="botão" type="submit" value="Doctors" />
                 </div>
               </form>

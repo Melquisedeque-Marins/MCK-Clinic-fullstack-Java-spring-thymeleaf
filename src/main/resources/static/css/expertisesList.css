@@ -38,16 +38,29 @@
 
   .card h1 {
     font-size: 3rem;
-    font-weight: 500;
+    letter-spacing: 0.05rem;
+    font-weight: 400;
     color: gray;
+    margin-bottom: 10px;
   }
 
   .card p {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    text-indent:2rem;
     color: gray;
   }
 
   .card img {
     margin: auto;
     width: 100%;
+  }
+
+  .button {
+    padding: 10px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    background-color: blue;
+    color: #FFF;
+    cursor: pointer;
+    border-style: none;
   }
