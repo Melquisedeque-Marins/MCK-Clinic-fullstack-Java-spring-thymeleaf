@@ -27,8 +27,6 @@ public class SchedulingController {
     @Autowired 
     private ExpertiseService expertiseService;
 
-    @Autowired
-    private ExpertiseRepository expertiseRepository;
 
     @Autowired
     private DoctorRepository doctorRepository;
@@ -36,13 +34,20 @@ public class SchedulingController {
     @GetMapping("/form")
     public ModelAndView formScheduling(SchedulingDTO schedulingDTO, Expertise expertise) {
         ModelAndView mv = new ModelAndView("scheduling");
-        List<Expertise> expertises = expertiseRepository.findAll();
-      //  Expertise exp = expertiseService.findById(1L);
-        List<Doctor> doctors = doctorRepository.findByExpertise(expertise);
+        List<Expertise> expertises = expertiseService.findAll();
         mv.addObject("expertises", expertises);
-        mv.addObject("doctors", doctors);
+        mv.addObject(new Expertise());
+        
+        //  Expertise exp = expertiseService.findById(1L);
+        //List<Doctor> doctors = doctorRepository.findByExpertise(expertise);
+        //mv.addObject("doctors", doctors);
         return mv;
     }
+
+    
+
+
+
 
     @PostMapping("/new")
     public ModelAndView newScheduling(SchedulingDTO schedulingDTO) {

@@ -31,7 +31,7 @@
             <div class="text">
                 <h1 th:text="${expertise.name}"></h1>
                 <p th:text="${expertise.description}"></p>
-                <a th:href="@{'/expertises/' + ${expertise.id}}"><input class="button" type="button" value="Agende sua consulta"></a>
+                <a th:href="@{'/expertises/' + ${expertise.id} + '/doctors'} "><input class="button" type="button" value="Agende sua consulta"></a>
             </div>
         </div>
     </div>

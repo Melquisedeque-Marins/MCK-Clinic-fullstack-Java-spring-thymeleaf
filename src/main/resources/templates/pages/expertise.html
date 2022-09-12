@@ -24,10 +24,16 @@
     <div th:replace="fragments/fragments :: header"></div>
 
     <section class="content">
-            <span th:text="${expertise.id}"></span>
-            <span th:text="${expertise.name}"></span>
-            <span th:text="${expertise.description}"></span>
-            <img th:src="${expertise.imgUrl}"/>
+            <div class="title">
+                <span th:text="${expertise.name}"> </span>
+            </div>
+            <div th:each="doctor : ${doctors}">
+                  <div class="card">
+                    <h1 th:text="${doctor.name}"></h1>
+                    <p th:text="${doctor.registry}"></p>
+                    <p th:text="${expertise.name}"></p>
+                  </div>
+            </div>
     </section>
 
 

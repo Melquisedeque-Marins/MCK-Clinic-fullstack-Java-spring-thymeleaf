@@ -36,6 +36,12 @@ public class DoctorService {
         return doctors;
     }
 
+    @Transactional(readOnly = true)
+    public List<Doctor> findByExpertise(Expertise expertise){
+       List<Doctor> doctors = repository.findByExpertise(expertise);
+        return doctors;
+    }
+
 
 
 }
