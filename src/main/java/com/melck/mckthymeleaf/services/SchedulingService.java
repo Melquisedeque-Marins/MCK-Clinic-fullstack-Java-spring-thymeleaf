@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import com.melck.mckthymeleaf.dtos.SchedulingDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,7 +99,8 @@ public class SchedulingService {
     } 
 
 
-    public List<Scheduling> findFreeSchedules(Long doctorId){
+    @Transactional
+    public List<LocalTime> findFreeSchedules(Long doctorId){
         Doctor doctor = doctorRepository.getReferenceById(doctorId);
        
         List<LocalDateTime> schedules = new ArrayList<>();
@@ -106,12 +108,23 @@ public class SchedulingService {
         for (int i = 0; i < 360; i=i+10) {
             LocalDateTime toDay = LocalDateTime.of(LocalDate.now(), LocalTime.of(07, 00, 00));
             schedules.add(toDay.plusMinutes(i));
-
         }
         
-        System.out.println(schedules);
         List<Scheduling> schedulings = repository.findBySchedule(schedules, doctor);
-        System.out.println(schedulings);
-        return schedulings;
+
+        if (schedulings.isEmpty()) {
+            return schedules.stream().map(sch -> sch.toLocalTime()).collect(Collectors.toList());
+        }else {
+        List<LocalDateTime> freeSchedules = new ArrayList<>();
+        for (Scheduling scheduling : schedulings){
+            for (int i =0; i < schedules.size(); i++){
+                if (!scheduling.getSchedulingTime().equals(schedules.get(i))){
+                    freeSchedules.add(schedules.get(i));
+                }
+            }
+        }
+        
+        return freeSchedules.stream().map(sch -> sch.toLocalTime()).collect(Collectors.toList());
+    }
     }
 }

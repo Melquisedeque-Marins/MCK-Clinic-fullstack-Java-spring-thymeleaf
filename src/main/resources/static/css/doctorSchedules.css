@@ -1,0 +1,20 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 150px;
+}
+
+.schedules {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+    
+}
+
+.schedule h2 {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid gray;
+    margin: 10px 10px;
+}
