@@ -16,6 +16,7 @@ public class ExpertiseService {
     @Autowired
     private ExpertiseRepository repository;
 
+   
     @Transactional
     public Expertise insert(Expertise expertise){
         Expertise exp = repository.save(expertise);

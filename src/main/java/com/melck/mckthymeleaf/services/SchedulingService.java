@@ -1,9 +1,14 @@
 package com.melck.mckthymeleaf.services;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.melck.mckthymeleaf.models.Scheduling;
 import com.melck.mckthymeleaf.models.doctor.Doctor;
+import com.melck.mckthymeleaf.models.enums.OfficeHours;
 import com.melck.mckthymeleaf.models.enums.Status;
 import com.melck.mckthymeleaf.models.enums.Type;
 import com.melck.mckthymeleaf.models.user.User;
@@ -37,6 +43,7 @@ public class SchedulingService {
     @Autowired
     private DoctorRepository doctorRepository;
 
+   
     @Autowired
     private AuthService authService;
 
@@ -83,5 +90,28 @@ public class SchedulingService {
         scheduling.setUser(user);
         scheduling.setDoctor(doctor);
         return scheduling;
+    }
+
+    public List<Scheduling> findByDoctor(Doctor doctor){
+        List<Scheduling> schedulings = repository.findByDoctor(doctor);
+         return schedulings;
+    } 
+
+
+    public List<Scheduling> findFreeSchedules(Long doctorId){
+        Doctor doctor = doctorRepository.getReferenceById(doctorId);
+       
+        List<LocalDateTime> schedules = new ArrayList<>();
+      // for (LocalDateTime toDay = LocalDateTime.of(LocalDate.now(), LocalTime.of(07, 00, 00)); toDay.isBefore(toDay.plusHours(1)); toDay.plusMinutes(10)){
+        for (int i = 0; i < 360; i=i+10) {
+            LocalDateTime toDay = LocalDateTime.of(LocalDate.now(), LocalTime.of(07, 00, 00));
+            schedules.add(toDay.plusMinutes(i));
+
+        }
+        
+        System.out.println(schedules);
+        List<Scheduling> schedulings = repository.findBySchedule(schedules, doctor);
+        System.out.println(schedulings);
+        return schedulings;
     }
 }

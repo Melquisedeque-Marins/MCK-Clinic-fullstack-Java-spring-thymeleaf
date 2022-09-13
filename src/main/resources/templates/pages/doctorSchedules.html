@@ -24,21 +24,17 @@
     <div th:replace="fragments/fragments :: header"></div>
 
     <section class="content">
-
-        <div class="cards">
-            <div th:each="doctor : ${doctors}">
-              <div
-                class="main-schedulings"
-                th:each="expertise : ${doctor.expertises}"
-              >
-                <div class="card">
-                  <h1 th:text="${doctor.name}"></h1>
-                  <p th:text="${doctor.registry}"></p>
-                  <p th:text="${expertise.name}"></p>
-                  <a th:href="@{'/schedulings/' + ${expertise.id} + '/doctors/' + ${doctor.id}  } "><input class="button" type="button" value="Ver horarios disponiveis"></a>
-                </div>
-              </div>
+            <h1 th:text="${doctor.name}"></h1>
+            <p th:text="${doctor.registry}"></p>
+            <p th:text="${expertise.name}"></p>
+            <div th:each=" schedules : ${schedules}">
+                <span th:text="${schedules.value}"></span>
             </div>
+           
+            <div th:each=" schedulings : ${schedulings}" >
+                <span th:text="${schedulings.schedulingTime}"></span>
+            </div>
+        </div>
     </section>
     <div th:replace="fragments/fragments :: footer"></div>
 

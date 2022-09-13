@@ -3,6 +3,9 @@ package com.melck.mckthymeleaf.models.doctor;
 import lombok.*;
 
 import javax.persistence.*;
+
+import com.melck.mckthymeleaf.models.enums.OfficeHours;
+
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
@@ -30,12 +33,13 @@ public class Doctor implements Serializable {
     @Column(name = "registry", nullable = false)
     private String registry;
 
+    private OfficeHours officeHours;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "tb_doctor_expertise",
     joinColumns = @JoinColumn(name = "doctor_id"),
     inverseJoinColumns = @JoinColumn(name = "expertise_id"))
     private Set<Expertise> expertises = new HashSet<>();
-
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant createdAt;

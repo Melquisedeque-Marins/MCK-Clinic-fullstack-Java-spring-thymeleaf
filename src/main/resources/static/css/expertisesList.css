@@ -24,9 +24,10 @@
   .card {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    border-bottom: 3px solid gray;
-    margin: 25px 0;
-    padding: 20px 40px;
+    border-bottom: 1px solid gray;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    padding: 40px 40px;
     
   }
 
@@ -53,14 +54,16 @@
   .card img {
     margin: auto;
     width: 100%;
+    padding: 30px 0;
   }
 
   .button {
-    padding: 10px;
-    font-size: 2rem;
+    padding: 10px 20px;
+    font-size: 1.5rem;
     text-transform: uppercase;
     background-color: blue;
     color: #FFF;
     cursor: pointer;
     border-style: none;
+    margin: 20px 0;
   }

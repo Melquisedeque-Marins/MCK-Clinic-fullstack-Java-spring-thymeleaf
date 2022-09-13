@@ -10,7 +10,7 @@ public class AboutController {
 
     @GetMapping("/about")
     public ModelAndView about() {
-        ModelAndView mv = new ModelAndView("/pages/about");
+        ModelAndView mv = new ModelAndView("/pages/alterAbout");
         return mv;
     }
 }
