@@ -74,11 +74,12 @@ public class SchedulingController {
 
     @GetMapping("/{expertiseId}/doctors/{doctorId}")
     public ModelAndView doctorSchedule(@PathVariable Long expertiseId, @PathVariable Long doctorId){
-        ModelAndView mv = new ModelAndView("/pages/doctorSchedules");
         Expertise expertise = expertiseService.findById(expertiseId);
         Doctor doctor = doctorService.findById(doctorId);
-        List<LocalTime> schedulings = service.findFreeSchedules(doctorId);
-        mv.addObject("schedulings", schedulings);
+        List<LocalTime> freeSchedules = service.findFreeSchedules(doctorId);
+        System.out.println(freeSchedules);
+        ModelAndView mv = new ModelAndView("/pages/doctorSchedules");
+        mv.addObject("freeSchedules", freeSchedules);
         mv.addObject("expertise", expertise);
         mv.addObject("doctor", doctor);
         return mv;

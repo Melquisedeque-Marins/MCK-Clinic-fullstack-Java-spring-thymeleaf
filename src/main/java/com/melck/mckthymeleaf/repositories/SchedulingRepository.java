@@ -34,9 +34,9 @@ public interface SchedulingRepository extends JpaRepository<Scheduling, Long>{
 
     
     @Query("SELECT obj FROM Scheduling obj WHERE "
-            + "(obj.doctor = :doctor) AND (obj.schedulingTime IN :schedules)"
+            + "(obj.doctor.id = :doctorId) AND (obj.schedulingTime IN :schedules)"
             + "ORDER BY obj.schedulingTime")
-    List<Scheduling> findBySchedule(List<LocalDateTime> schedules, Doctor doctor);
+    List<Scheduling> findBySchedule(List<LocalDateTime> schedules, Long doctorId);
 
 
     

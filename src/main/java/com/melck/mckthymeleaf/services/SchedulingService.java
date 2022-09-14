@@ -54,7 +54,6 @@ public class SchedulingService {
         User user = authService.authenticated();
         dto.setUserId(user.getId());
         Scheduling scheduling = toScheduling(dto);
-
         scheduling.setSchedulingTime(LocalDateTime.parse(dto.getSchedulingTime(), DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")));
         scheduling.setStatus(Status.SCHEDULED);
         scheduling.setType(Type.CONSULT);
@@ -84,6 +83,38 @@ public class SchedulingService {
         return schedulings;
     }
 
+    
+    public List<Scheduling> findByDoctor(Doctor doctor){
+        List<Scheduling> schedulings = repository.findByDoctor(doctor);
+        return schedulings;
+    } 
+
+    
+    @Transactional
+    public List<LocalTime> findFreeSchedules(Long doctorId){
+        
+        List<LocalDateTime> schedules = new ArrayList<>();
+        List<LocalDateTime> freeSchedules = new ArrayList<>();
+
+        for (int i = 0; i < 360; i=i+10) {
+              LocalDateTime toDay = LocalDateTime.of(LocalDate.now(), LocalTime.of(12, 00, 00));
+            schedules.add(toDay.plusMinutes(i));
+        }
+
+        List<LocalDateTime> schedulings = (repository.findBySchedule(schedules, doctorId)).stream().map(s -> s.getSchedulingTime()).collect(Collectors.toList());
+        
+        if (schedulings.isEmpty()) {
+            return schedules.stream().map(sch -> sch.toLocalTime()).collect(Collectors.toList());
+        }
+       
+        
+
+
+        System.out.println(freeSchedules);
+        return freeSchedules.stream().map(sch -> sch.toLocalTime()).collect(Collectors.toList());
+    }
+
+
     public Scheduling toScheduling(SchedulingDTO dto){
         User user = userRepository.getReferenceById(dto.getUserId());
         Doctor doctor = doctorRepository.getReferenceById(dto.getDoctorId());
@@ -91,40 +122,5 @@ public class SchedulingService {
         scheduling.setUser(user);
         scheduling.setDoctor(doctor);
         return scheduling;
-    }
-
-    public List<Scheduling> findByDoctor(Doctor doctor){
-        List<Scheduling> schedulings = repository.findByDoctor(doctor);
-         return schedulings;
-    } 
-
-
-    @Transactional
-    public List<LocalTime> findFreeSchedules(Long doctorId){
-        Doctor doctor = doctorRepository.getReferenceById(doctorId);
-       
-        List<LocalDateTime> schedules = new ArrayList<>();
-      // for (LocalDateTime toDay = LocalDateTime.of(LocalDate.now(), LocalTime.of(07, 00, 00)); toDay.isBefore(toDay.plusHours(1)); toDay.plusMinutes(10)){
-        for (int i = 0; i < 360; i=i+10) {
-            LocalDateTime toDay = LocalDateTime.of(LocalDate.now(), LocalTime.of(07, 00, 00));
-            schedules.add(toDay.plusMinutes(i));
-        }
-        
-        List<Scheduling> schedulings = repository.findBySchedule(schedules, doctor);
-
-        if (schedulings.isEmpty()) {
-            return schedules.stream().map(sch -> sch.toLocalTime()).collect(Collectors.toList());
-        }else {
-        List<LocalDateTime> freeSchedules = new ArrayList<>();
-        for (Scheduling scheduling : schedulings){
-            for (int i =0; i < schedules.size(); i++){
-                if (!scheduling.getSchedulingTime().equals(schedules.get(i))){
-                    freeSchedules.add(schedules.get(i));
-                }
-            }
-        }
-        
-        return freeSchedules.stream().map(sch -> sch.toLocalTime()).collect(Collectors.toList());
-    }
     }
 }
