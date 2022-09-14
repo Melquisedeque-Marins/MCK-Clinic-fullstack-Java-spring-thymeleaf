@@ -1,14 +1,64 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: "roboto", Helvetica, sans-serif;
+    font-size: 62.5%;
+  }
+
 .content {
     display: flex;
     flex-direction: column;
-    padding-top: 150px;
+    padding-top: 100px;
+    background-color: rgb(14, 14, 83);
+   
 }
+
+.title-container {
+    display: flex;
+    background-color: rgba(253, 248, 248, 0.925);
+    padding: 20px;
+    margin: auto;
+    width: 100%;
+    margin-bottom: 30px;
+
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+}
+
+.title h1 {
+    font-size: 5rem;
+    color: rgb(238, 84, 7);
+}
+
+.title p {
+    font-size: 2.5rem;
+    color: gray;
+}
+
+
 
 .schedules {
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 70%;
     margin: auto;
+    margin-bottom: 50px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #FFF;
+
     
 }
 
@@ -16,5 +66,16 @@
     font-size: 16px;
     padding: 10px;
     border: 1px solid gray;
+    border-radius: 5px;
     margin: 10px 10px;
 }
+
+.schedule a {
+    cursor: pointer;
+}
+
+.schedule a:hover {
+    font-size: #FFF;
+    
+}
+

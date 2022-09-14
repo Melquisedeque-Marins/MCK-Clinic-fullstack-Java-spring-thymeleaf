@@ -94,7 +94,6 @@ public class SchedulingService {
     public List<LocalTime> findFreeSchedules(Long doctorId){
         
         List<LocalDateTime> schedules = new ArrayList<>();
-        List<LocalDateTime> freeSchedules = new ArrayList<>();
 
         for (int i = 0; i < 360; i=i+10) {
               LocalDateTime toDay = LocalDateTime.of(LocalDate.now(), LocalTime.of(12, 00, 00));
@@ -102,16 +101,14 @@ public class SchedulingService {
         }
 
         List<LocalDateTime> schedulings = (repository.findBySchedule(schedules, doctorId)).stream().map(s -> s.getSchedulingTime()).collect(Collectors.toList());
-        
+        System.out.println(schedulings);
         if (schedulings.isEmpty()) {
             return schedules.stream().map(sch -> sch.toLocalTime()).collect(Collectors.toList());
         }
        
-        
+        schedules.removeAll(schedulings);
 
-
-        System.out.println(freeSchedules);
-        return freeSchedules.stream().map(sch -> sch.toLocalTime()).collect(Collectors.toList());
+        return schedules.stream().distinct().map(sch -> sch.toLocalTime()).collect(Collectors.toList());
     }
 
 

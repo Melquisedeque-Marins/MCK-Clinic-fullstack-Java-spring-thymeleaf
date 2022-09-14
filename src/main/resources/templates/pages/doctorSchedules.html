@@ -25,14 +25,18 @@
 
     <section class="content">
 
-            <div class="title">
-                <h1 th:text="${doctor.name}"></h1>
-                <p th:text="${doctor.registry}"></p>
-                <p th:text="${expertise.name}"></p>
+            <div class="title-container">
+                <div class="title">
+                    <h1 th:text="'Dr. ' + ${doctor.name}"></h1>
+                    <p th:text="${doctor.registry}"></p>
+                    <p th:text="${expertise.name}"></p>
+                </div>
             </div>
             <div class="schedules">
                 <div class="schedule" th:each=" schedule : ${freeSchedules}" >
-                    <h2 th:text="${schedule}"></h2>
+                    <a href="">
+                        <h2 th:text="${schedule}"></h2>
+                    </a>
                 </div>
             </div>
            

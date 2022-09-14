@@ -77,7 +77,7 @@ public class SchedulingController {
         Expertise expertise = expertiseService.findById(expertiseId);
         Doctor doctor = doctorService.findById(doctorId);
         List<LocalTime> freeSchedules = service.findFreeSchedules(doctorId);
-        System.out.println(freeSchedules);
+        
         ModelAndView mv = new ModelAndView("/pages/doctorSchedules");
         mv.addObject("freeSchedules", freeSchedules);
         mv.addObject("expertise", expertise);
