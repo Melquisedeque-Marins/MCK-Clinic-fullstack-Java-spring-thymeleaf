@@ -79,3 +79,13 @@
     
 }
 
+.content button {
+    cursor: pointer;
+    width: 50px;
+    margin: 10px auto;
+}
+
+.id {
+    display: none;
+}
+

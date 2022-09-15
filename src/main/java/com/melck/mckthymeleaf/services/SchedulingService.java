@@ -101,7 +101,6 @@ public class SchedulingService {
         }
 
         List<LocalDateTime> schedulings = (repository.findBySchedule(schedules, doctorId)).stream().map(s -> s.getSchedulingTime()).collect(Collectors.toList());
-        System.out.println(schedulings);
         if (schedulings.isEmpty()) {
             return schedules.stream().map(sch -> sch.toLocalTime()).collect(Collectors.toList());
         }

@@ -14,8 +14,6 @@
             
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
     <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/954f0760ed.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -30,11 +28,11 @@
                       <form th:action="@{/login}" method="post" >
                               <div class="campos">
                                   <label class="lbl" for="cpf">CPF</label>
-                                  <input class="campo" type="text" name="username" id="">
+                                  <input class="campo" type="text" name="username" >
                                   <label class="lbl" for="password">Password</label>
-                                  <input class="campo" type="password" name="password" id="">
+                                  <input class="campo" type="password" name="password" >
                                   <p>Não tem cadastro? <span><a th:href="@{/users/form}">clique aqui</a></span></p>
-                                  <input class="botão"type="submit" value="Login">
+                                  <input class="botão" type="submit" value="Login">
                                   <a th:href="@{/}"><input class="botão"type="button" value="Voltar"></a>
                               </div>
                       </form>

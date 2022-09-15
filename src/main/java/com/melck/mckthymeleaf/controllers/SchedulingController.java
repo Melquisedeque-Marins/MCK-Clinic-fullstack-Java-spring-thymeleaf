@@ -73,7 +73,7 @@ public class SchedulingController {
     }
 
     @GetMapping("/{expertiseId}/doctors/{doctorId}")
-    public ModelAndView doctorSchedule(@PathVariable Long expertiseId, @PathVariable Long doctorId){
+    public ModelAndView doctorSchedule(@PathVariable Long expertiseId, @PathVariable Long doctorId, SchedulingDTO schedulingDTO){
         Expertise expertise = expertiseService.findById(expertiseId);
         Doctor doctor = doctorService.findById(doctorId);
         List<LocalTime> freeSchedules = service.findFreeSchedules(doctorId);
