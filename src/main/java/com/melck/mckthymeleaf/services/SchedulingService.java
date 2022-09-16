@@ -91,12 +91,17 @@ public class SchedulingService {
 
     
     @Transactional
-    public List<LocalTime> findFreeSchedules(Long doctorId){
+    public List<LocalTime> findFreeSchedules(Long doctorId, String localDate){
+        LocalDate date;
+        
+        if(localDate == null){
+            date = LocalDate.now();
+        }
+        date = LocalDate.parse(localDate);
         
         List<LocalDateTime> schedules = new ArrayList<>();
-
         for (int i = 0; i < 360; i=i+10) {
-            LocalDateTime toDay = LocalDateTime.of(LocalDate.now(), LocalTime.of(12, 00, 00));
+            LocalDateTime toDay = LocalDateTime.of(date, LocalTime.of(12, 00, 00));
             schedules.add(toDay.plusMinutes(i));
         }
 

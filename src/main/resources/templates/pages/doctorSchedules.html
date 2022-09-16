@@ -15,24 +15,29 @@
     <link rel="stylesheet" th:href="@{/css/doctorSchedules.css}" />
   </head>
 
-  <body onload="actualDate()">
+  <body>
     <div th:replace="fragments/fragments :: header"></div>
 
     <section class="content">
-        <form class="form" th:object="${schedulingDTO}"
-        th:action="@{/schedulings/new}" method="post" >
+      <div class="title-container">
+        <div class="title">
+          <h1 th:text="'Dr. ' + ${doctor.name}"></h1>
+          <p th:text="${doctor.registry}"></p>
+          <p th:text="${expertise.name}"></p> 
+        </div>
+      </div>
+      <form class="form" th:object="${schedulingDTO}"
+      th:action="@{'/schedulings/' + ${expertise.id} + '/doctors/' + ${doctor.id}}" method="get" >
+        <div class="calendar">
+          <input type="date" th:field="*{schedulingDate}" th:value="${date}" id="calendar">
+          <input type="submit" value="pesquisar">
+        </div>
+      </form>
 
-            <div class="title-container">
-                <div class="title">
-                    <h1 th:text="'Dr. ' + ${doctor.name}"></h1>
-                    <p th:text="${doctor.registry}"></p>
-                    <p th:text="${expertise.name}"></p> 
-                </div>
-            </div>
-            <div class="calendar">
-              <input type="date" name="" id="calendar">
-            </div>
-            <div class="schedules">
+      <form class="form" th:object="${schedulingDTO}"
+      th:action="@{/schedulings/new}" method="post" >
+            
+      <div class="schedules">
             
                 <div class="schedule" th:each=" schedule : ${freeSchedules}">
                   <h2 th:onclick="choiceSchedule([[${schedule}]])" id="schedule" th:text="${schedule}"></h2> 

@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 
@@ -22,5 +24,6 @@ public class SchedulingDTO {
     private String schedulingTime;
     private Long userId;
     private Long doctorId;
+    private String schedulingDate;
 
 }

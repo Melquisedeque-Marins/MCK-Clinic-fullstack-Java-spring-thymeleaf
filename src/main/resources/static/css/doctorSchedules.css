@@ -93,7 +93,7 @@
     display: none;
 }
 
-.active {
+#schedule.active {
     color: white;
     background-color: rgb(14, 14, 83);
 }

@@ -13,10 +13,12 @@ import com.melck.mckthymeleaf.services.SchedulingService;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.datetime.DateFormatter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -77,10 +79,17 @@ public class SchedulingController {
     public ModelAndView doctorSchedule(@PathVariable Long expertiseId, @PathVariable Long doctorId, SchedulingDTO schedulingDTO){
         Expertise expertise = expertiseService.findById(expertiseId);
         Doctor doctor = doctorService.findById(doctorId);
-        List<LocalTime> freeSchedules = service.findFreeSchedules(doctorId);
-        
-        ModelAndView mv = new ModelAndView("/pages/doctorSchedules");
+        System.out.println(schedulingDTO.getSchedulingDate());
 
+        LocalDate localDate = LocalDate.now();//For reference
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        if (schedulingDTO.getSchedulingDate() == null ){
+            schedulingDTO.setSchedulingDate(localDate.format(formatter));
+        }
+        List<LocalTime> freeSchedules = service.findFreeSchedules(doctorId, schedulingDTO.getSchedulingDate());
+       
+        ModelAndView mv = new ModelAndView("/pages/doctorSchedules");
+        mv.addObject("date", schedulingDTO.getSchedulingDate());
         mv.addObject("freeSchedules", freeSchedules);
         mv.addObject("expertise", expertise);
         mv.addObject("doctor", doctor);
@@ -88,5 +97,4 @@ public class SchedulingController {
     }
 
 
-    
 }
