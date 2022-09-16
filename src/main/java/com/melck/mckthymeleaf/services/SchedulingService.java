@@ -96,7 +96,7 @@ public class SchedulingService {
         List<LocalDateTime> schedules = new ArrayList<>();
 
         for (int i = 0; i < 360; i=i+10) {
-              LocalDateTime toDay = LocalDateTime.of(LocalDate.now(), LocalTime.of(12, 00, 00));
+            LocalDateTime toDay = LocalDateTime.of(LocalDate.now(), LocalTime.of(12, 00, 00));
             schedules.add(toDay.plusMinutes(i));
         }
 

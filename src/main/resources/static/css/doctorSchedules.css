@@ -44,7 +44,17 @@
     color: gray;
 }
 
+.calendar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+}
 
+.calendar input {
+    font-size: 3rem;
+    color: rgb(14, 14, 83) ;
+}
 
 .schedules {
     display: flex;
@@ -62,22 +72,16 @@
     
 }
 
-.schedule h2 {
+ h2 {
     font-size: 16px;
     padding: 10px;
     border: 1px solid gray;
     border-radius: 5px;
     margin: 10px 10px;
-}
-
-.schedule a {
     cursor: pointer;
+    transition: .3s;
 }
 
-.schedule a:hover {
-    font-size: #FFF;
-    
-}
 
 .content button {
     cursor: pointer;
@@ -89,3 +93,7 @@
     display: none;
 }
 
+.active {
+    color: white;
+    background-color: rgb(14, 14, 83);
+}

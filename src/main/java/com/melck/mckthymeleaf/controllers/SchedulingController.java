@@ -10,6 +10,7 @@ import com.melck.mckthymeleaf.services.DoctorService;
 import com.melck.mckthymeleaf.services.ExpertiseService;
 import com.melck.mckthymeleaf.services.SchedulingService;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Arrays;
@@ -79,6 +80,7 @@ public class SchedulingController {
         List<LocalTime> freeSchedules = service.findFreeSchedules(doctorId);
         
         ModelAndView mv = new ModelAndView("/pages/doctorSchedules");
+
         mv.addObject("freeSchedules", freeSchedules);
         mv.addObject("expertise", expertise);
         mv.addObject("doctor", doctor);

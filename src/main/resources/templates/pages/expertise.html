@@ -19,21 +19,19 @@
   <body>
       <div th:replace="fragments/fragments :: header"></div>
 
-      <section class="content">
-
+      <section class="container">
+          <div class="title">
+            <h1>Nossos profissionais:</h1>
+          </div>
           <div class="cards">
-              <div th:each="doctor : ${doctors}">
-                <div
-                  class="main-schedulings"
-                  th:each="expertise : ${doctor.expertises}"  >
-                  <div class="card">
-                    <h1 th:text="${doctor.name}"></h1>
-                    <p th:text="${doctor.registry}"></p>
-                    <p th:text="${expertise.name}"></p>
-                    <a th:href="@{'/schedulings/' + ${expertise.id} + '/doctors/' + ${doctor.id}  } "><input class="button" type="button" value="Ver horarios disponiveis"></a>
-                  </div>
-                </div>
-              </div>
+            <div class="card"  th:each="doctor : ${doctors}">
+                    <div class="card-content" th:each="expertise : ${doctor.expertises}">
+                      <h1 th:text="'Dr. ' + ${doctor.name}"></h1>
+                      <p th:text="${doctor.registry}"></p>
+                      <p th:text="${expertise.name}"></p>
+                      <a th:href="@{'/schedulings/' + ${expertise.id} + '/doctors/' + ${doctor.id}  } ">Ver horarios disponiveis</a>
+                    </div>
+            </div>
           </div>
       </section>
 

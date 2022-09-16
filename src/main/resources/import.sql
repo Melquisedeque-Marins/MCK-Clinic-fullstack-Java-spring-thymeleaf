@@ -32,8 +32,11 @@ INSERT INTO tb_doctor_expertise (doctor_id, expertise_id) VALUES (7, 4);
 INSERT INTO tb_doctor_expertise (doctor_id, expertise_id) VALUES (8, 4);
 
 
-INSERT INTO tb_scheduling (created_At, scheduling_time, status, type, doctor_id, user_id) VALUES (NOW(), '2022-09-14 15:00:00Z', 'SCHEDULED', 'CONSULT', 1L, 1L);
-INSERT INTO tb_scheduling (created_At, scheduling_time, status, type, doctor_id, user_id) VALUES (NOW(), '2022-09-14 15:10:00Z', 'SCHEDULED', 'CONSULT', 1L, 2L);
+INSERT INTO tb_scheduling (created_At, scheduling_time, status, type, doctor_id, user_id) VALUES (NOW(), '2022-09-16 11:00:00Z', 'SCHEDULED', 'CONSULT', 1L, 1L);
+INSERT INTO tb_scheduling (created_At, scheduling_time, status, type, doctor_id, user_id) VALUES (NOW(), '2022-09-16 12:00:00Z', 'SCHEDULED', 'CONSULT', 1L, 2L);
+INSERT INTO tb_scheduling (created_At, scheduling_time, status, type, doctor_id, user_id) VALUES (NOW(), '2022-09-16 13:00:00Z', 'SCHEDULED', 'CONSULT', 1L, 2L);
+INSERT INTO tb_scheduling (created_At, scheduling_time, status, type, doctor_id, user_id) VALUES (NOW(), '2022-09-16 14:00:00Z', 'SCHEDULED', 'CONSULT', 1L, 2L);
+INSERT INTO tb_scheduling (created_At, scheduling_time, status, type, doctor_id, user_id) VALUES (NOW(), '2022-09-16 15:00:00Z', 'SCHEDULED', 'CONSULT', 1L, 2L);
 INSERT INTO tb_scheduling (created_At, scheduling_time, status, type, doctor_id, user_id) VALUES (NOW(), '2022-09-10 11:20:00Z', 'SCHEDULED', 'CONSULT', 2L, 1L);
 INSERT INTO tb_scheduling (created_At, scheduling_time, status, type, doctor_id, user_id) VALUES (NOW(), '2022-09-10 11:30:00Z', 'SCHEDULED', 'CONSULT', 2L, 2L);
 INSERT INTO tb_scheduling (created_At, scheduling_time, status, type, doctor_id, user_id) VALUES (NOW(), '2022-09-01 10:00:00Z', 'SCHEDULED', 'CONSULT', 3L, 1L);
