@@ -20,10 +20,9 @@
 .title-container {
     display: flex;
     background-color: rgba(253, 248, 248, 0.925);
-    padding: 20px;
+    padding: 10px;
     margin: auto;
     width: 100%;
-    margin-bottom: 30px;
 
 }
 
@@ -35,13 +34,22 @@
 }
 
 .title h1 {
-    font-size: 5rem;
+    font-size: 4rem;
     color: rgb(238, 84, 7);
 }
 
 .title p {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: gray;
+}
+
+.form-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5rem;
+    color: orangered;
+    margin-top: 30px;
 }
 
 .calendar {
@@ -49,19 +57,48 @@
     align-items: center;
     justify-content: center;
     margin: 20px auto;
+    margin-bottom: 40px;
 }
 
 .calendar input {
-    font-size: 3rem;
+    font-size: 2rem;
     color: rgb(14, 14, 83) ;
+    text-transform: uppercase;
+    font-family: 'roboto';
+}
+
+.calendar .form-button {
+    background-color: orangered;
+    color: #FFF;
+    padding: 3px 20px;
+    border-style: none;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+.calendar .form-button:hover {
+  opacity: 0.75;
+    
+
+}
+
+.calendar .form-date {
+    padding: 0 20px;
+    cursor: text;
+    
+}
+
+.calendar .form-date::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    
 }
 
 .schedules {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
-    width: 70%;
+    justify-content: left;
+    width: 75%;
     margin: auto;
     margin-bottom: 50px;
     border: 1px solid gray;
@@ -73,9 +110,9 @@
 }
 
  h2 {
-    font-size: 16px;
+    font-size: 1.8rem;
     padding: 10px;
-    border: 1px solid gray;
+    border: 2px solid gray;
     border-radius: 5px;
     margin: 10px 10px;
     cursor: pointer;
@@ -96,4 +133,16 @@
 #schedule.active {
     color: white;
     background-color: rgb(14, 14, 83);
+}
+
+.schedule-sumary {
+    width: 20%;
+    text-align: left;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #FFF;
+    padding: 10px 20px;
 }

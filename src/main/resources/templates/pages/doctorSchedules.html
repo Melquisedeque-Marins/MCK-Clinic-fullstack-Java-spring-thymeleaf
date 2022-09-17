@@ -26,11 +26,12 @@
           <p th:text="${expertise.name}"></p> 
         </div>
       </div>
+      <h1 class="form-text">Escolha uma data para sua consulta: </h1>
       <form class="form" th:object="${schedulingDTO}"
       th:action="@{'/schedulings/' + ${expertise.id} + '/doctors/' + ${doctor.id}}" method="get" >
         <div class="calendar">
-          <input type="date" th:field="*{schedulingDate}" th:value="${date}" id="calendar">
-          <input type="submit" value="pesquisar">
+          <input class="form-date" type="date" th:field="*{schedulingDate}" th:value="${date}" id="calendar">
+          <input class="form-button" type="submit" value="Buscar">
         </div>
       </form>
 
@@ -43,9 +44,14 @@
                   <h2 th:onclick="choiceSchedule([[${schedule}]])" id="schedule" th:text="${schedule}"></h2> 
                 </div>
             </div>
-            <input class="id" type="text" th:field="*{doctorId}" />
-            <input id="time" type="datetime-local" th:field="*{schedulingTime}" />
-            <input class="botão" type="submit" value="Agendar" />
+            <div class="schedule-sumary">
+              <h1 th:text=" 'Médico: ' + ${doctor.name}"></h1>
+              <h1 th:text=" 'Especialidade: ' + ${expertise.name}"></h1>
+              <h1 th:text=" 'Horario: ' + ${schedulingTime}"></h1>
+              <input class="id" type="text" th:field="*{doctorId}" />
+              <input id="time" type="datetime-local" th:field="*{schedulingTime}" />
+              <input class="botão" type="submit" value="Agendar" />
+            </div>
         </form>
     </section>
     

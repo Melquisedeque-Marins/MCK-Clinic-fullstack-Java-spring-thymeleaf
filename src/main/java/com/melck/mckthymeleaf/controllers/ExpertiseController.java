@@ -29,7 +29,7 @@ public class ExpertiseController {
 
     @GetMapping
     public ModelAndView findAll(){
-        ModelAndView mv = new ModelAndView("/pages/expertisesList");
+        ModelAndView mv = new ModelAndView("/pages/expertises");
         List<Expertise> expertises = service.findAll();
         mv.addObject("listExpertises", expertises);
         return mv;

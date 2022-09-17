@@ -43,9 +43,20 @@ public class SchedulingController {
     @Autowired
     private DoctorService doctorService;
 
+    @GetMapping
+    public ModelAndView scheduling(SchedulingDTO schedulingDTO, Expertise expertise) {
+        ModelAndView mv = new ModelAndView("schedulings");
+        List<Expertise> expertises = expertiseService.findAll();
+        List<Doctor> doctors = doctorService.findAll();
+        mv.addObject("expertises", expertises);
+        mv.addObject(new Expertise());
+        mv.addObject("doctors", doctors);
+        return mv;
+    }
+
     @GetMapping("/form")
     public ModelAndView formScheduling(SchedulingDTO schedulingDTO, Expertise expertise) {
-        ModelAndView mv = new ModelAndView("scheduling");
+        ModelAndView mv = new ModelAndView("schedulingForm");
         List<Expertise> expertises = expertiseService.findAll();
         
         mv.addObject("expertises", expertises);
