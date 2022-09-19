@@ -60,7 +60,7 @@
 }
 
 .slogan h2{
-    color: #f66212;
+    color: orangered;
     font-size: 1.5rem;
     text-align: left;
     width: 50%;
@@ -95,7 +95,7 @@
 
 .card-link i {
     padding-bottom: 5px;
-    color: rgb(255, 98, 0);
+    color: orangered;
 }
 
 .card-link h3 {
@@ -124,7 +124,7 @@
 
 
 .info-text h3 {
-    color: rgb(255, 98, 0);
+    color: orangered;
     font-size: 2.8rem;
     text-align: center;
     padding-bottom: 10px;
@@ -342,10 +342,11 @@
     
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1250px) {
 
     .main-content-bg-color{
         background-color: rgba(241, 250, 247, 0.63);
+       /* background-color: rgba(14, 14, 83); */
         padding: 30px 20px;
         margin-bottom: 60px;
     }

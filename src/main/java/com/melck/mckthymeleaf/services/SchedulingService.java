@@ -104,11 +104,16 @@ public class SchedulingService {
 
         List<LocalDateTime> schedules = new ArrayList<>();
 
+        if (date.isBefore(LocalDate.now())){
+            throw new ResourceNotFoundException("Não pode agendar no passado");
+        }
+
         switch(officeHours){
             case "MORNING":
                 if (date.compareTo(LocalDate.now()) == 0){
-                    for (int i = 0; i < 360; i=i+10) {
+                    for (int i = 0; i < 310; i=i+10) {
                         LocalDateTime toDay = LocalDateTime.of(date, now.truncatedTo(ChronoUnit.HOURS).plusMinutes(30 + (10 * (now.getMinute() / 10))));
+                        if (toDay.plusMinutes(i).isBefore(LocalDateTime.of(LocalDate.now(), LocalTime.of(12, 10)))) 
                         schedules.add(toDay.plusMinutes(i));
                     }
                 } else {
@@ -120,8 +125,9 @@ public class SchedulingService {
             break;
             case "AFTERNOON":
                 if (date.compareTo(LocalDate.now()) == 0){
-                    for (int i = 0; i < 360; i=i+10) {
+                    for (int i = 0; i < 720; i=i+10) {
                         LocalDateTime toDay = LocalDateTime.of(date, now.truncatedTo(ChronoUnit.HOURS).plusMinutes(30 + (10 * (now.getMinute() / 10))));
+                        if (toDay.plusMinutes(i).isAfter(LocalDateTime.of(LocalDate.now(), LocalTime.of(12, 50))) && toDay.plusMinutes(i).isBefore(LocalDateTime.of(LocalDate.now(), LocalTime.of(18, 10))) ) 
                         schedules.add(toDay.plusMinutes(i));
                     }
                 } else {

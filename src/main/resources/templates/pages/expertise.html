@@ -29,7 +29,7 @@
                       <h1 th:text="'Dr. ' + ${doctor.name}"></h1>
                       <p th:text="${doctor.registry}"></p>
                       <p th:text="${expertise.name}"></p>
-                      <a th:href="@{'/schedulings/' + ${expertise.id} + '/doctors/' + ${doctor.id}  } ">Ver horarios disponiveis</a>
+                      <a th:href="@{'/schedulings/expertises/' + ${expertise.id} + '/doctors/' + ${doctor.id}  } ">Ver horarios disponiveis</a>
                     </div>
             </div>
           </div>

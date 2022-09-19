@@ -28,7 +28,7 @@
       </div>
       <h1 class="form-text">Escolha uma data para sua consulta: </h1>
       <form class="form" th:object="${schedulingDTO}"
-      th:action="@{'/schedulings/' + ${expertise.id} + '/doctors/' + ${doctor.id}}" method="get" >
+      th:action="@{'/schedulings/expertises/' + ${expertise.id} + '/doctors/' + ${doctor.id}}" method="get" >
         <div class="calendar">
           <input class="form-date" type="date" th:field="*{schedulingDate}" th:value="${date}" id="calendar">
           <input class="form-button" type="submit" value="Buscar">

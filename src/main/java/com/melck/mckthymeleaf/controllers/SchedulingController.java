@@ -76,7 +76,7 @@ public class SchedulingController {
         return new ModelAndView("redirect:/users/logged");
     }
 
-    @GetMapping("/{id}/doctors")
+    @GetMapping("/expertises/{id}/doctors")
     public ModelAndView doctorsPerExpertise(@PathVariable long id){
         ModelAndView mv = new ModelAndView("/pages/expertise");
         Expertise expertise = expertiseService.findById(id);
@@ -86,7 +86,7 @@ public class SchedulingController {
         return mv;
     }
 
-    @GetMapping("/{expertiseId}/doctors/{doctorId}")
+    @GetMapping("/expertises/{expertiseId}/doctors/{doctorId}")
     public ModelAndView doctorSchedule(@PathVariable Long expertiseId, @PathVariable Long doctorId, SchedulingDTO schedulingDTO){
         Expertise expertise = expertiseService.findById(expertiseId);
         Doctor doctor = doctorService.findById(doctorId);
@@ -104,6 +104,14 @@ public class SchedulingController {
         mv.addObject("freeSchedules", freeSchedules);
         mv.addObject("expertise", expertise);
         mv.addObject("doctor", doctor);
+        return mv;
+    }
+
+    @GetMapping("/expertises")
+    public ModelAndView expertises(){
+        ModelAndView mv = new ModelAndView("/pages/expertisesList");
+        List<Expertise> expertises = expertiseService.findAll();
+        mv.addObject("expertisesList", expertises);
         return mv;
     }
 
