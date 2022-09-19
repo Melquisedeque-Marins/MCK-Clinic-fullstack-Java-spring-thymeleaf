@@ -130,10 +130,6 @@
     display: none;
 }
 
-#schedule.active {
-    color: white;
-    background-color: rgb(14, 14, 83);
-}
 
 .schedule-sumary {
     width: 20%;
@@ -145,4 +141,9 @@
     justify-content: space-around;
     background-color: #FFF;
     padding: 10px 20px;
+}
+
+.active {
+    color: white;
+    background-color: rgb(14, 14, 83);
 }

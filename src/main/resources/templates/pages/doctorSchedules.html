@@ -40,8 +40,8 @@
             
       <div class="schedules">
             
-                <div class="schedule" th:each=" schedule : ${freeSchedules}">
-                  <h2 th:onclick="choiceSchedule([[${schedule}]])" id="schedule" th:text="${schedule}"></h2> 
+                <div class="schedule"  th:each=" schedule : ${freeSchedules}">
+                  <h2 th:onclick="choiceSchedule([[${schedule}]])"  id="schedule" th:text="${schedule}"></h2> 
                 </div>
             </div>
             <div class="schedule-sumary">

@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,7 +24,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.melck.mckthymeleaf.models.Scheduling;
 import com.melck.mckthymeleaf.models.doctor.Doctor;
-import com.melck.mckthymeleaf.models.enums.OfficeHours;
 import com.melck.mckthymeleaf.models.enums.Status;
 import com.melck.mckthymeleaf.models.enums.Type;
 import com.melck.mckthymeleaf.models.user.User;
@@ -91,28 +91,69 @@ public class SchedulingService {
 
     
     @Transactional
-    public List<LocalTime> findFreeSchedules(Long doctorId, String localDate){
+    public List<String> findFreeSchedules(Long doctorId, String localDate){
         LocalDate date;
-        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        LocalTime now = LocalTime.now();
+        Doctor doctor = doctorRepository.getReferenceById(doctorId);
+        String officeHours = doctor.getOfficeHours().toString();
         if(localDate == null){
             date = LocalDate.now();
         }
         date = LocalDate.parse(localDate);
-        
+
         List<LocalDateTime> schedules = new ArrayList<>();
-        for (int i = 0; i < 360; i=i+10) {
-            LocalDateTime toDay = LocalDateTime.of(date, LocalTime.of(12, 00, 00));
-            schedules.add(toDay.plusMinutes(i));
+
+        switch(officeHours){
+            case "MORNING":
+                if (date.compareTo(LocalDate.now()) == 0){
+                    for (int i = 0; i < 360; i=i+10) {
+                        LocalDateTime toDay = LocalDateTime.of(date, now.truncatedTo(ChronoUnit.HOURS).plusMinutes(30 + (10 * (now.getMinute() / 10))));
+                        schedules.add(toDay.plusMinutes(i));
+                    }
+                } else {
+                    for (int i = 0; i < 310; i=i+10) {
+                        LocalDateTime toDay = LocalDateTime.of(date, LocalTime.of(07, 00));
+                        schedules.add(toDay.plusMinutes(i));
+                    }
+                }
+            break;
+            case "AFTERNOON":
+                if (date.compareTo(LocalDate.now()) == 0){
+                    for (int i = 0; i < 360; i=i+10) {
+                        LocalDateTime toDay = LocalDateTime.of(date, now.truncatedTo(ChronoUnit.HOURS).plusMinutes(30 + (10 * (now.getMinute() / 10))));
+                        schedules.add(toDay.plusMinutes(i));
+                    }
+                } else {
+                    for (int i = 0; i < 310; i=i+10) {
+                        LocalDateTime toDay = LocalDateTime.of(date, LocalTime.of(13, 00));
+                        schedules.add(toDay.plusMinutes(i));
+                    }
+                }
+            break;
+            case "ALL_DAY":
+                if (date.compareTo(LocalDate.now()) == 0){
+                    for (int i = 0; i < 360; i=i+10) {
+                        LocalDateTime toDay = LocalDateTime.of(date, now.truncatedTo(ChronoUnit.HOURS).plusMinutes(30 + (10 * (now.getMinute() / 10))));
+                        schedules.add(toDay.plusMinutes(i));
+                    }
+                } else {
+                    for (int i = 0; i < 720; i=i+10) {
+                        LocalDateTime toDay = LocalDateTime.of(date, LocalTime.of(07, 00));
+                        schedules.add(toDay.plusMinutes(i));
+                    }
+                }
+            break;
+
         }
 
         List<LocalDateTime> schedulings = (repository.findBySchedule(schedules, doctorId)).stream().map(s -> s.getSchedulingTime()).collect(Collectors.toList());
         if (schedulings.isEmpty()) {
-            return schedules.stream().map(sch -> sch.toLocalTime()).collect(Collectors.toList());
+            return schedules.stream().map(sch -> formatter.format(sch)).collect(Collectors.toList());
         }
        
         schedules.removeAll(schedulings);
-
-        return schedules.stream().distinct().map(sch -> sch.toLocalTime()).collect(Collectors.toList());
+        return schedules.stream().distinct().map(sch -> formatter.format(sch)).collect(Collectors.toList());
     }
 
 

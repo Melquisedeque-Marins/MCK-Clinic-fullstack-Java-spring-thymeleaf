@@ -97,7 +97,7 @@ public class SchedulingController {
         if (schedulingDTO.getSchedulingDate() == null ){
             schedulingDTO.setSchedulingDate(localDate.format(formatter));
         }
-        List<LocalTime> freeSchedules = service.findFreeSchedules(doctorId, schedulingDTO.getSchedulingDate());
+        List<String> freeSchedules = service.findFreeSchedules(doctorId, schedulingDTO.getSchedulingDate());
        
         ModelAndView mv = new ModelAndView("/pages/doctorSchedules");
         mv.addObject("date", schedulingDTO.getSchedulingDate());

@@ -32,7 +32,8 @@ public class Doctor implements Serializable {
     private String email;
     @Column(name = "registry", nullable = false)
     private String registry;
-
+    
+    @Enumerated(EnumType.STRING)
     private OfficeHours officeHours;
 
     @ManyToMany(fetch = FetchType.EAGER)
