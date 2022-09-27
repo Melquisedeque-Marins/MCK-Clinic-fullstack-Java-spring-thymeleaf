@@ -1,0 +1,88 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: "roboto", Helvetica, sans-serif;
+    font-size: 62.5%;
+  }
+
+  .container {
+    padding-top: 100px;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    margin: auto;
+    padding-top: 40px;
+    
+  }
+
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 2fr;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    margin: 15px;
+    width: 250px;
+    height: 200px;
+    
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    margin: auto;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+  }
+
+  .card h1 {
+    font-size: 3rem;
+    letter-spacing: 0.05rem;
+    font-weight: 400;
+    color: rgb(110, 108, 108);
+    margin: 5px auto;
+  }
+
+  .card p {
+    text-align: left;
+    font-size: 1.6rem;
+    text-indent:2rem;
+    color: gray;
+  }
+
+  .card img {
+    margin: 0 auto;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .button {
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    background-color: blue;
+    color: #FFF;
+    cursor: pointer;
+    border-style: none;
+    border-radius: 15px;
+    margin: 5px 0;
+  }

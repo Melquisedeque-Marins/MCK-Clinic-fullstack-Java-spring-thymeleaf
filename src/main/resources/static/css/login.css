@@ -47,7 +47,7 @@
   .card h1 {
     text-align: center;
     font-size: 2.2rem;
-    color: #f66212;
+    color: orangered;
   }
   
   .form {
@@ -79,7 +79,7 @@
   .campos .botão {
     color: white;
     border: none;
-    background-color: #2b2ef6;
+    background-color: rgb(43, 0, 255);;
     font-size: 1.5rem;
     cursor: pointer;
     padding: 5px 20px;
@@ -87,7 +87,7 @@
   }
   
   .campos p {
-    color: #090deb;
+    color: rgb(43, 0, 255);;
     text-align: center;
     font-size: 1.5rem;
     text-decoration: none;

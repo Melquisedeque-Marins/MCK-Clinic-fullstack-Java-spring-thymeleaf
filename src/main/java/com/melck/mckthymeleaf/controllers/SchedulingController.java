@@ -115,5 +115,15 @@ public class SchedulingController {
         return mv;
     }
 
+    @GetMapping("/doctors")
+    public ModelAndView doctors(){
+        ModelAndView mv = new ModelAndView("/pages/doctorsList");
+        List<Doctor> doctors = doctorService.findAll();
+        List<Expertise> expertises = expertiseService.findAll();
+        mv.addObject("expertisesList", expertises);
+        mv.addObject("doctorsList", doctors);
+        return mv;
+    }
+
 
 }

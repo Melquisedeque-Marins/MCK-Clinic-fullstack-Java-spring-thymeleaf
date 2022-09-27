@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Schedulings</title>
+    <title>Expertises</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,28 +13,26 @@
     />
 
     <link rel="stylesheet" th:href="@{/css/fragment.css}" />
-    <link rel="stylesheet" href="/css/scheduling.css" />
+    <link rel="stylesheet" href="/css/doctorsList.css" />
   </head>
 
   <body>
     <div th:replace="fragments/fragments :: header"></div>
 
-    <div class="container">
-      <div class="content">
-        <h1 class="content-title">Como quer encontrar seu horário?</h1>
-        <div class="cards">
-          <a href="/schedulings/expertises">
-            <div class="card">
-                <h1>Especialidades</h1>
+    <div class="container">    
+      <div class="cards">
+        <div class="card" th:each="doctor : ${doctorsList}">
+          <div class="content">
+            <div class="card-content" th:each="expertise : ${doctor.expertises}">
+                <h1 th:text="${doctor.name}"></h1>
+                <p th:text="${doctor.registry}"></p>
+                <p th:text="${expertise.name}"></p>
+                <a th:href="@{'/schedulings/expertises/' + ${expertise.id} + '/doctors/' + ${doctor.id} } "
+                ><input class="button" type="button" value="Agende sua consulta"
+                /></a>
             </div>
-          </a>
-          <a href="/schedulings/doctors">
-            <div class="card">
-              <h1>Médicos</h1>
-            </div>
-          </a>
+          </div>
         </div>
-        <img src="/img/scheduling/searchpng.png" alt="search image" />
       </div>
     </div>
 
