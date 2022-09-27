@@ -27,7 +27,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
     <header th:fragment="header">
       <nav>
         <div class="logo-div">
-          <a th:href="@{/}" ><img class="logo-img" src="../img/header/logo-sem-fundo.png" alt="logo"></a>
+          <a th:href="@{/}" ><img class="logo-img" th:src="@{/img/header/logo-sem-fundo.png}" alt="logo"></a>
           <a class="logo" th:href="@{/}">MCK Clinic</a>
         </div>
         <div class="mobile-menu">
