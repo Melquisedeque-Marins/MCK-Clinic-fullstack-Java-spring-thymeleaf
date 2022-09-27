@@ -116,15 +116,22 @@
     border-radius: 5px;
     margin: 10px 10px;
     cursor: pointer;
-    transition: .3s;
+    transition: .4s;
 }
 
+.content h2:hover {
+    color: white;
+    background-color: rgb(14, 14, 83);
+}
 
 .content button {
     cursor: pointer;
     width: 50px;
     margin: 10px auto;
 }
+
+
+
 
 .id {
     display: none;

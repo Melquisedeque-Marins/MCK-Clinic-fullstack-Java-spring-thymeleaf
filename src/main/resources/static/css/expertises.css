@@ -11,6 +11,9 @@
 
   .container {
     padding-top: 100px;
+    max-width: 1400px;
+    width: 80%;
+    margin: auto;
   }
 
   .cards {
