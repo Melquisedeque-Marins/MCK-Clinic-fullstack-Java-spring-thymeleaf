@@ -33,15 +33,31 @@ Todas as imagens utilizadas possuem licença de utilização gratuita e foram ad
 - Confirmação da consulta pelo operador do sistema;
 - Envio de e-mail de confirmação de cadastro;
 - Envio de e-mail de notificação de agendamento de consultas;
+- Logging.
 
 <a id="Layout"></a>
 ## 💻 Layout da aplicação
+
 ### ✅ Tela Inicial
 ![](https://raw.githubusercontent.com/Melquisedeque-Marins/MCK-Clinic-Thymeleaf/main/utils/Home-screen.png)
+
 ### ✅ Tela de Cadastro
 ![](https://raw.githubusercontent.com/Melquisedeque-Marins/MCK-Clinic-Thymeleaf/main/utils/Register-screen.png)
+
 ### ✅ Tela de Login
 ![](https://raw.githubusercontent.com/Melquisedeque-Marins/MCK-Clinic-Thymeleaf/main/utils/Login-screen.png)
+
+### ✅ Tela de Especialidades
+![](https://raw.githubusercontent.com/Melquisedeque-Marins/MCK-Clinic-Thymeleaf/main/utils/Expertises-screen.png)
+
+### ✅ Tela de Agendamento
+![](https://raw.githubusercontent.com/Melquisedeque-Marins/MCK-Clinic-Thymeleaf/main/utils/schedullings-screen.png)
+
+### ✅ Tela de Horários
+![](https://raw.githubusercontent.com/Melquisedeque-Marins/MCK-Clinic-Thymeleaf/main/utils/schedules-screen.png)
+
+
+
 ## 🚧 Projeto em construção 🚧
 ### Demais telas em desenvolvimento 
 <a id="Tecnologias"></a>
@@ -57,6 +73,7 @@ Todas as imagens utilizadas possuem licença de utilização gratuita e foram ad
 - Postman
 - Heroku CLI
 - Docker
+- Flyway
 - InteliJ IDEA
 - VS Code IDE
 
