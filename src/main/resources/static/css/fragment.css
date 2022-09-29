@@ -110,14 +110,10 @@ nav {
     transition: 0.3s;
 }
 
-
-
 footer {
     font-size: 1.4rem;
     width: 100%;
-    height: 150px;
-    padding-top: 20px;
-   
+    height: 140px;
     bottom: 0;
     display: flex;
     flex-direction: column;

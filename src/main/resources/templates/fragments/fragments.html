@@ -37,24 +37,28 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
         </div>
         <ul class="nav-list">
           <li><a class="nav-item" th:href="@{/}">Home</a></li>
-                        <li> <a class="nav-item" th:href="@{/about}">Sobre</a></li>
-                        <li> <a class="nav-item" th:href="@{/expertises}">Especialidades</a></li>
-                        <li> <a class="nav-item" th:href="@{/schedulings}">Agendar</a></li>
-                        <li> <a class="nav-item" href="">Contatos</a></li>                      
-                      
-                        <li sec:authorize="isAnonymous()">
-                            <a class="nav-item" th:href="@{/login}">Entrar</a>
-                        </li>
-                        <li sec:authorize="isAnonymous()">
-                            <a class="nav-item" th:href="@{/users/form}">Cadastre-se</a>
-                        </li>
+          <li> <a class="nav-item" th:href="@{/about}">Sobre</a></li>
+          <li> <a class="nav-item" th:href="@{/expertises}">Especialidades</a></li>
+          <li> <a class="nav-item" th:href="@{/schedulings}">Agendar</a></li>
+          <li> <a class="nav-item" th:href="@{/contacts}">Contatos</a></li>                      
+        
+          <li sec:authorize="isAnonymous()">
+              <a class="nav-item" th:href="@{/login}">Entrar</a>
+          </li>
+          <li sec:authorize="isAnonymous()">
+              <a class="nav-item" th:href="@{/users/form}">Cadastre-se</a>
+          </li>
 
-                        <li sec:authorize="isAuthenticated()">
-                            <a class="nav-item" th:href="@{/logout}">Sair</a>
-                        </li>
-                        <li sec:authorize="isAuthenticated()">
-                          <a href="/users/logged" class="nav-item" sec:authentication="principal.name"></a>
-                        </li>
+          <li sec:authorize="isAuthenticated()">
+              <a class="nav-item" th:href="@{/logout}">Sair</a>
+          </li>
+          <li sec:authorize="isAuthenticated()">
+            <a href="/users/logged" class="nav-item" sec:authentication="principal.name"></a>
+          </li>
+
+          <li sec:authorize="hasAuthority('ROLE_ADMIN')">
+            <a class="nav-item" th:href="@{/users/admin}">admin</a>
+          </li>
         </ul>
       </nav>
     </header>

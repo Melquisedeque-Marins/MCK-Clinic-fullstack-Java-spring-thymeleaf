@@ -50,9 +50,9 @@ public class UserController {
         return new ModelAndView("redirect:/login");
     }
 
-    @GetMapping("/list")
+    @GetMapping("/admin")
     public ModelAndView findAll(){
-        ModelAndView mv = new ModelAndView("/clients/clients");
+        ModelAndView mv = new ModelAndView("/clients/clientsList");
         mv.addObject("listClients", service.findAll());
         return mv;
     }

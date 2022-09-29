@@ -1,0 +1,28 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    align-items: center;
+  }
+
+  html {
+    font-family: "roboto", Helvetica, sans-serif;
+    font-size: 62.5%;
+  }
+
+
+.container {
+    padding-top: 100px;
+    display: flex;
+    align-items: center;
+    max-width: 2000px;
+    width: 100%;
+    margin: auto;
+}
+
+.content {
+    height: 500px;
+    width: 80%;
+    display: flex;
+    margin: auto;
+    align-items: center;
+}

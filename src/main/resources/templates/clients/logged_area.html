@@ -31,22 +31,20 @@
       <h1>Suas consultas:</h1>
       <div class="cards">
         <div th:each="sch : ${schedulings}">
-          <div
-            class="main-schedulings"
-            th:each="exp : ${sch.doctor.expertises}"
-          >
+          <div class="main-schedulings" th:each="exp : ${sch.doctor.expertises}" >
+          <!--  <div th:if= "${sch.status} == SCHEDULED">
+          </div>  -->
             <div class="card">
-              <p th:text=" 'Especialidade: ' + ${exp.name}">Especialidade:</p>
-              <p th:text=" 'Médico: ' + ${sch.doctor.name}">Médico:</p>
-              <p th:text=" 'Horario: ' + ${sch.schedulingTime}">Data:</p>
-              <p th:text=" 'Status: ' + ${sch.status}">Status:</p>
+                <p th:text=" 'Especialidade: ' + ${exp.name}"></p>
+                <p th:text=" 'Médico: ' + ${sch.doctor.name}"></p>
+                <p th:text=" 'Horario: ' + ${sch.schedulingTime}"></p>
+                <p th:text=" 'Status: ' + ${sch.status}"></p>
+              </div>
             </div>
-          </div>
         </div>
       </div>
       <div class="actions">
-        <button>Agendamentos em aberto</button>
-        <input type="text" name="" id=""><button></button>
+        <a th:href="@{/schedulings}">Agendar</a></li>
       </div>
     </div>
 

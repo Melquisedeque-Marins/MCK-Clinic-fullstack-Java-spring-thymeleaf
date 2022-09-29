@@ -1,16 +1,32 @@
 package com.melck.mckthymeleaf.models.doctor;
 
-import lombok.*;
-
-import javax.persistence.*;
-
-import com.melck.mckthymeleaf.models.enums.OfficeHours;
-
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.Table;
+
+import com.melck.mckthymeleaf.models.enums.Gender;
+import com.melck.mckthymeleaf.models.enums.OfficeHours;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @Getter
@@ -25,6 +41,9 @@ public class Doctor implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
     //@Column(unique = true)
     private String cpf;

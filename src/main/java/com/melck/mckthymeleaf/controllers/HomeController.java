@@ -9,9 +9,16 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
 
     @GetMapping("/")
-    public ModelAndView ModelAndView (){
+    public ModelAndView home (){
         ModelAndView mv = new ModelAndView("index");
         return mv;
     }
+
+    @GetMapping("/contacts")
+    public ModelAndView contacts (){
+        ModelAndView mv = new ModelAndView("/pages/contacts");
+        return mv;
+    }
+
 
 }
