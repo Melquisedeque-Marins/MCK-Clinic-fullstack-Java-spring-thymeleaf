@@ -38,21 +38,24 @@
       <form class="form" th:object="${schedulingDTO}"
       th:action="@{/schedulings/new}" method="post" >
             
-      <div class="schedules">
+        <div class="schedules">
+          <div th:if="${#lists.isEmpty(freeSchedules)}">
+            <h1>Infelizmente este médico não possui mais horários disponiveis para esta data. Escolha uma outra data para pesquisar!</h1>
+          </div>
             
-                <div class="schedule"  th:each=" schedule : ${freeSchedules}">
-                  <h2 th:onclick="choiceSchedule([[${schedule}]])"  id="schedule" th:text="${schedule}"></h2> 
-                </div>
-            </div>
-            <div class="schedule-sumary">
-              <h1 th:text=" 'Médico: ' + ${doctor.name}"></h1>
-              <h1 th:text=" 'Especialidade: ' + ${expertise.name}"></h1>
-              <h1 th:text=" 'Horario: ' + ${schedulingTime}"></h1>
-              <input class="id" type="text" th:field="*{doctorId}" />
-              <input id="time" type="datetime-local" th:field="*{schedulingTime}" />
-              <input class="botão" type="submit" value="Agendar" />
-            </div>
-        </form>
+          <div class="schedule"  th:each=" schedule : ${freeSchedules}">
+            <h2 th:onclick="choiceSchedule([[${schedule}]])"  id="schedule" th:text="${schedule}"></h2> 
+          </div>
+        </div>
+        <div class="schedule-sumary">
+          <h1 th:text=" 'Médico: ' + ${doctor.name}"></h1>
+          <h1 th:text=" 'Especialidade: ' + ${expertise.name}"></h1>
+          <h1 th:text=" 'Horario: ' + ${schedulingTime}"></h1>
+          <input class="id" type="text" th:field="*{doctorId}" />
+          <input id="time" type="datetime-local" th:field="*{schedulingTime}" />
+          <input class="botão" type="submit" value="Agendar" />
+        </div>
+      </form>
     </section>
     
   
