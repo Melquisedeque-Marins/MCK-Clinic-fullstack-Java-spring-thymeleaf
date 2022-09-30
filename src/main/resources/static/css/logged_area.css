@@ -22,8 +22,15 @@ h1 {
     color: orangered;
 }
 .user {
+    margin: 20px 0;
     align-items: flex-end;
     justify-content: flex-end;
+    font-size: 1.6rem;
+}
+
+.user i {
+    color: red;
+    font-size: 2rem;
 }
 
 .user span {
@@ -32,20 +39,21 @@ h1 {
 }
 
 .cards {
-    display: grid;
-    grid-template-columns: 2fr 2fr 2fr 2fr;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .card {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    border: 2px solid gray;
+    align-items: center;
+    border: 1px solid gray;
     border-radius: 10px;
-   
     margin: 20px;
     padding: 20px 10px;
     text-align: left;
+    width: 250px;
 }
 
 .card p {

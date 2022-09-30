@@ -13,8 +13,11 @@
     />
 
     <link rel="stylesheet" th:href="@{/css/fragment.css}" />
-    <link rel="stylesheet" href="/css/logged_area.css" />
-   
+    <link rel="stylesheet" th:href="@{/css/logged_area.css}" />
+    <script
+    src="https://kit.fontawesome.com/954f0760ed.js"
+    crossorigin="anonymous"
+  ></script>
   </head>
 
   <body>
@@ -25,7 +28,7 @@
         <div class="user">
           <span>Seja bem vindo!</span>
           <a sec:authentication="principal.name"></a>
-          <a th:href="@{/logout}">sair</a>
+          <a th:href="@{/logout}"><i class="fa-solid fa-right-from-bracket"></i></a>
         </div>
       </div>
       <h1>Suas consultas:</h1>
