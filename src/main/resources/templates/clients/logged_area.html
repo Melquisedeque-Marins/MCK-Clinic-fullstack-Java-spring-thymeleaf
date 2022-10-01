@@ -30,27 +30,30 @@
           <a sec:authentication="principal.name"></a>
           <a th:href="@{/logout}"><i class="fa-solid fa-right-from-bracket"></i></a>
         </div>
-      </div>
-      <h1>Suas consultas:</h1>
-      <div class="cards">
-        <div th:each="sch : ${schedulings}">
-          <div class="main-schedulings" th:each="exp : ${sch.doctor.expertises}" >
-          <!--  <div th:if= "${sch.status} == SCHEDULED">
-          </div>  -->
-            <div class="card">
-                <p th:text=" 'Especialidade: ' + ${exp.name}"></p>
-                <p th:text=" 'Médico: ' + ${sch.doctor.name}"></p>
-                <p th:text=" 'Horario: ' + ${sch.schedulingTime}"></p>
-                <p th:text=" 'Status: ' + ${sch.status}"></p>
-              </div>
+        <h1>Suas consultas:</h1>
+        <div class="cards">
+          <div th:each="sch : ${schedulings}">
+            <div th:if= "${sch.status} != 'SCHEDULED'">
+              <div class="main-schedulings" th:each="exp : ${sch.doctor.expertises}" >
+                <div th:if="${#lists.isEmpty(schedulings)}">
+                  <h1>Você não possui consultas agendadas.</h1>
+                </div>
+                <div class="card">
+                    <p th:text=" 'Especialidade: ' + ${exp.name}"></p>
+                    <p th:text=" 'Médico: ' + ${sch.doctor.name}"></p>
+                    <p th:text=" 'Horario: ' + ${sch.schedulingTime}"></p>
+                    <p th:text=" 'Status: ' + ${sch.status}"></p>
+                </div>
+              </div>  
             </div>
+          </div>
+        </div>
+        <div class="actions">
+          <a th:href="@{/schedulings}"> <button>Agendar </button> </a></li>
         </div>
       </div>
-      <div class="actions">
-        <a th:href="@{/schedulings}">Agendar</a></li>
-      </div>
     </div>
-
+      
     <div th:replace="fragments/fragments :: footer"></div>
 
     <script type="text/javascript" th:src="@{/js/navbar.js}"></script>

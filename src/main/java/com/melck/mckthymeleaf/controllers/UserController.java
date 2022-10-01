@@ -4,6 +4,7 @@ package com.melck.mckthymeleaf.controllers;
 import com.melck.mckthymeleaf.dtos.UserDTO;
 import com.melck.mckthymeleaf.models.Scheduling;
 import com.melck.mckthymeleaf.models.enums.Gender;
+import com.melck.mckthymeleaf.models.enums.Status;
 import com.melck.mckthymeleaf.models.user.User;
 import com.melck.mckthymeleaf.services.SchedulingService;
 import com.melck.mckthymeleaf.services.UserService;
@@ -66,6 +67,7 @@ public class UserController {
         Page<Scheduling> schedulings  = schedulingService.findAllByUser(pageable);
         mv.addObject("userLogged", user);
         mv.addObject("schedulings", schedulings);
+        mv.addObject("listStatus", Status.values());
         return mv;
     }
 

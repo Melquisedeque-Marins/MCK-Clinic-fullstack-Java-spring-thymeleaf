@@ -14,16 +14,24 @@ html {
     display: flex;
     padding-top: 100px;
     flex-direction: column;
-    height: 600px
-   
+    align-items: center;
+    margin: auto;
+}
+
+.content {
+    width: 80%;
+    max-width: 1400px;
+    padding: 10px 50px;
 }
 
 h1 {
     color: orangered;
+    font-size: 3rem;
 }
 .user {
-    margin: 20px 0;
-    align-items: flex-end;
+    display: flex;
+    margin: 20px auto;
+    align-items: center;
     justify-content: flex-end;
     font-size: 1.6rem;
 }
@@ -36,6 +44,12 @@ h1 {
 .user span {
     font-size: 1.5rem;
     color: blue;
+    
+}
+
+.user a {
+    cursor: pointer;
+    margin-left: 10px;
 }
 
 .cards {
@@ -47,13 +61,12 @@ h1 {
 .card {
     display: flex;
     flex-direction: column;
-    align-items: center;
     border: 1px solid gray;
     border-radius: 10px;
-    margin: 20px;
-    padding: 20px 10px;
+    margin: 10px;
+    padding: 10px 10px;
     text-align: left;
-    width: 250px;
+    width: 220px;
 }
 
 .card p {
@@ -61,7 +74,26 @@ h1 {
     padding: 5px 0;
     text-align: left;
 }
+
 .actions {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
 }
+
+.actions button {
+    display: flex;
+    justify-content: center;
+    background-color: blue;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    color: #FFF;
+    border-style: none;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: bold;
+
+}
+
 
