@@ -11,10 +11,11 @@ html {
 }
 
 .container {
-    display: flex;
     padding-top: 100px;
-    flex-direction: column;
+    display: flex;
     align-items: center;
+    max-width: 2000px;
+    width: 100%;
     margin: auto;
 }
 
@@ -22,6 +23,9 @@ html {
     width: 80%;
     max-width: 1400px;
     padding: 10px 50px;
+    display: flex;
+    margin: auto;
+    align-items: center;
 }
 
 h1 {

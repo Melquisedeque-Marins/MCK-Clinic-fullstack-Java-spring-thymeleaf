@@ -51,21 +51,15 @@ public class UserController {
         return new ModelAndView("redirect:/login");
     }
 
-    @GetMapping("/admin")
-    public ModelAndView findAll(){
-        ModelAndView mv = new ModelAndView("/clients/clientsList");
-        mv.addObject("listClients", service.findAll());
-        return mv;
-    }
-
-
-
     @GetMapping("/logged")
     public ModelAndView loggedArea(Pageable pageable){
         ModelAndView mv = new ModelAndView("/clients/logged_area");
         User user = service.userLogged();
         Page<Scheduling> schedulings  = schedulingService.findAllByUser(pageable);
+        String[] userName = user.getName().toLowerCase().split(" ", 0);
+        String firstName = userName[0];
         mv.addObject("userLogged", user);
+        mv.addObject("userName", firstName);
         mv.addObject("schedulings", schedulings);
         mv.addObject("listStatus", Status.values());
         return mv;

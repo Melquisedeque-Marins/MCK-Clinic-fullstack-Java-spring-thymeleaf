@@ -83,6 +83,11 @@ public class UserService implements UserDetailsService {
        return user;
     }
 
+    public void delete(Long id){
+        User user = findById(id);
+        repository.delete(user);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = repository.findByCpf(username);
