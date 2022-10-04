@@ -42,6 +42,7 @@ public class AdminController {
         mv.addObject("user", user);
         mv.addObject("schedulings", schedulings);
         return mv;
+
     }
 
     @DeleteMapping("/delete/{id}")
