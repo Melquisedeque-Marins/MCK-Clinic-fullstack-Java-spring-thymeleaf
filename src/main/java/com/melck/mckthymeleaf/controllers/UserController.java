@@ -55,7 +55,7 @@ public class UserController {
 
     @GetMapping("/logged")
     public ModelAndView loggedArea(Pageable pageable){
-        ModelAndView mv = new ModelAndView("/clients/logged_area");
+        ModelAndView mv = new ModelAndView("/clients/clientArea");
         User user = service.userLogged();
         Page<Scheduling> schedulings  = schedulingService.findAllByUser(pageable);
         String[] userName = user.getName().toLowerCase().split(" ", 0);

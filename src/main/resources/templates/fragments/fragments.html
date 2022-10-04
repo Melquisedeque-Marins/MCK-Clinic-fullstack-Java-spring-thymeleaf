@@ -49,15 +49,14 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
               <a class="nav-item" th:href="@{/users/form}">Cadastre-se</a>
           </li>
 
-          <li sec:authorize="isAuthenticated()">
+          <li sec:authorize="hasAuthority('ROLE_CLIENT')">
             <a href="/users/logged" class="nav-item">Cliente</a>
+          </li>
+          <li sec:authorize="hasAuthority('ROLE_ADMIN')">
+            <a class="nav-item" th:href="@{/admins}">admin</a>
           </li>
           <li sec:authorize="isAuthenticated()">
               <a class="nav-item" th:href="@{/logout}">Sair</a>
-          </li>
-
-          <li sec:authorize="hasAuthority('ROLE_ADMIN')">
-            <a class="nav-item" th:href="@{/admins}">admin</a>
           </li>
         </ul>
       </nav>

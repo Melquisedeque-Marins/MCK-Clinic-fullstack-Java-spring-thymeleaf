@@ -74,6 +74,7 @@
                     class="campo"
                     th:errorclass="error-field"
                     type="date"
+                    max="9999-12-31"
                     th:field="*{birthDate}"
                   />
                   <div class="error-field alert" th:errors="*{birthDate}"></div>

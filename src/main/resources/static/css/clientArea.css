@@ -13,7 +13,6 @@ html {
 .container {
     padding-top: 100px;
     display: flex;
-    align-items: center;
     max-width: 2000px;
     width: 100%;
     margin: auto;
@@ -24,8 +23,9 @@ html {
     max-width: 1400px;
     padding: 10px 50px;
     display: flex;
+    flex-direction: column;
     margin: auto;
-    align-items: center;
+    min-height: calc(100vh - 240px);
 }
 
 h1 {
@@ -34,10 +34,10 @@ h1 {
 }
 .user {
     display: flex;
-    margin: 20px auto;
-    align-items: center;
+    align-items: flex-end;
     justify-content: flex-end;
     font-size: 1.6rem;
+    margin-bottom: 20px;
 }
 
 .user i {
@@ -96,8 +96,11 @@ h1 {
     border-style: none;
     cursor: pointer;
     font-size: 2rem;
-    font-weight: bold;
+}
 
+.teste {
+    height: 50px;
+    background-color: red;
 }
 
 

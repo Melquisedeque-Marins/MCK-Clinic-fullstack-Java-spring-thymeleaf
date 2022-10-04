@@ -13,7 +13,7 @@
     />
 
     <link rel="stylesheet" th:href="@{/css/fragment.css}" />
-    <link rel="stylesheet" th:href="@{/css/logged_area.css}" />
+    <link rel="stylesheet" th:href="@{/css/clientArea.css}" />
     <script
     src="https://kit.fontawesome.com/954f0760ed.js"
     crossorigin="anonymous"
@@ -26,28 +26,30 @@
     <div class="container">
       <div class="content">
         <div class="user">
-          <span>Seja bem vindo!</span>
-          <a th:text="${userName}"></a>
+          <span th:if="${#strings.toString(userLogged.gender)} == 'MALE'" >Seja bem-vindo,</span>
+          <span th:if="${#strings.toString(userLogged.gender)} == 'FEMALE'" >Seja bem-vinda,</span>
+          <a th:text="${userName} + '!'"></a>
           <a th:href="@{/logout}"><i class="fa-solid fa-right-from-bracket"></i></a>
         </div>
-        <h1>Suas consultas:</h1>
+        <h1>Seus agendamentos em aberto:</h1>
+        
         <div class="cards">
+          <div th:if="${#lists.isEmpty(schedulings)}" >
+            <span> Você não possui consultas agendadas.</span>
+          </div>
           <div th:each="sch : ${schedulings}">
             <div class="main-schedulings" th:each="exp : ${sch.doctor.expertises}" >
-              <div th:if="${#lists.isEmpty(schedulings)}">
-                <h1>Você não possui consultas agendadas.</h1>
-              </div>
-              <div class="card">
-                  <p th:text=" 'Especialidade: ' + ${exp.name}"></p>
-                  <p th:text=" 'Médico: ' + ${sch.doctor.name}"></p>
-                  <p th:text=" 'Horario: ' + ${sch.schedulingTime}"></p>
-                  <p th:text=" 'Status: ' + ${sch.status}"></p>
+              <div class="card" th:if="${#strings.toString(sch.status)} == 'SCHEDULED'">
+                <p th:text=" 'Especialidade: ' + ${exp.name}"></p>
+                <p th:text=" 'Médico: ' + ${sch.doctor.name}"></p>
+                <p th:text=" 'Horario: ' + ${sch.schedulingTime}"></p>
+                <p th:text=" 'Status: ' + ${sch.status}"></p>
               </div>
             </div>  
           </div>
         </div>
         <div class="actions">
-          <a th:href="@{/schedulings}"> <button>Agendar </button> </a></li>
+          <a th:href="@{/schedulings}"> <button>Agende sua consulta! </button> </a></li>
         </div>
       </div>
     </div>
