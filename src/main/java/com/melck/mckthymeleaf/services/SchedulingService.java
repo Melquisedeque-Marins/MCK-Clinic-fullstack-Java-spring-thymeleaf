@@ -19,6 +19,7 @@ import com.melck.mckthymeleaf.dtos.SchedulingDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,6 +31,7 @@ import com.melck.mckthymeleaf.models.user.User;
 import com.melck.mckthymeleaf.repositories.DoctorRepository;
 import com.melck.mckthymeleaf.repositories.SchedulingRepository;
 import com.melck.mckthymeleaf.repositories.UserRepository;
+import com.melck.mckthymeleaf.services.exceptions.InvalidDateException;
 import com.melck.mckthymeleaf.services.exceptions.ResourceNotFoundException;
 
 @Service
@@ -88,6 +90,20 @@ public class SchedulingService {
         List<Scheduling> schedulings = repository.findByDoctor(doctor);
         return schedulings;
     } 
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @Transactional
+    public void updateStatus(Long id) {
+        authService.validateSelfOrAdmin(id);
+        Scheduling scheduling = repository.getReferenceById(id);
+        if(scheduling.getSchedulingTime().plusHours(8).isBefore(LocalDateTime.now()) || scheduling.getStatus().equals(Status.CONFIRMED)){
+            throw new InvalidDateException("this record cannot be updated, as it has already been");
+        }
+        scheduling.setStatus(Status.CONFIRMED);
+        repository.save(scheduling);
+    }
+
+
 
     
     @Transactional

@@ -1,5 +1,7 @@
 package com.melck.mckthymeleaf.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.melck.mckthymeleaf.models.Scheduling;
+import com.melck.mckthymeleaf.models.doctor.Doctor;
 import com.melck.mckthymeleaf.models.user.User;
+import com.melck.mckthymeleaf.services.DoctorService;
 import com.melck.mckthymeleaf.services.SchedulingService;
 import com.melck.mckthymeleaf.services.UserService;
 
@@ -23,8 +27,12 @@ public class AdminController {
 
     @Autowired
     private UserService service;
+
     @Autowired
     private SchedulingService schedulingService;
+
+    @Autowired
+    private DoctorService doctorService;
 
     
     @GetMapping
@@ -50,4 +58,24 @@ public class AdminController {
         service.delete(id);
         return new ModelAndView("redirect:/admins");
     }
+
+    @GetMapping("/doctors")
+    public ModelAndView findAllDoctors() {
+        List<Doctor> doctors = doctorService.findAll();
+        ModelAndView mv = new ModelAndView("/managerDoctor");
+        mv.addObject("doctors", doctors);
+        return mv;
+    }
+
+    
+    @GetMapping("/doctors/{id}")
+    public ModelAndView findSchedulingsPerDoctor(@PathVariable Long id) {
+        Doctor doctor = doctorService.findById(id);
+        List<Scheduling> schedulings = schedulingService.findByDoctor(doctor);
+        ModelAndView mv = new ModelAndView("/managerDoctorSchedulings");
+        mv.addObject("schedulings", schedulings);
+        return mv;
+    }
+
+    
 }

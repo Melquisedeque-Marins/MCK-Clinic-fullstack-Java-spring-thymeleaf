@@ -4,11 +4,11 @@ INSERT INTO tb_user (name, email, cpf, password, phone_Number, birth_Date, gende
 
 INSERT INTO tb_role (authority) VALUES ('ROLE_ADMIN');
 INSERT INTO tb_role (authority) VALUES ('ROLE_CLIENT');
-INSERT INTO tb_role (authority) VALUES ('ROLE_CLIENT');
 
 
 INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 2);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 2);
 
 INSERT INTO tb_expertise (name, description, img_Url) VALUES ('Cardiologia', 'A cardiologia é uma especialidade da medicina que trata sobre o coração e suas doenças. Com o aumento do sedentarismo e a má alimentação, as doenças cardíacas estão sendo cada vez mais frequentes nas pessoas. Por isso, a importância da cardiologia vem crescendo cada vez mais.', 'https://portaldasaude.scmp.pt/assets/misc/img/especialidades/Cardiologia/Cora%C3%A7%C3%A3o.jpg');
 INSERT INTO tb_expertise (name, description, img_Url) VALUES ('Pediatria', 'A pediatria é o ramo da medicina que se especializa na saúde e nas doenças das crianças. Trata-se de uma especialidade médica que se centra nos pacientes desde o momento do nascimento até à adolescência, sem que exista um limite preciso que determine o final da sua validez.', 'https://www.grupohpa.com/uploads/media/ef782125f7767f925a992ad6e71c8177.jpg');

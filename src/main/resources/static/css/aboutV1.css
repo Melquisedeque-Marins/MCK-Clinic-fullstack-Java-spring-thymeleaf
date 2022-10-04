@@ -40,7 +40,7 @@
     padding: 20px 0;
     margin-bottom: 30px;
     padding-left: 20px;
-    background-color: rgb(43, 0, 255);
+    background-color: rgb(14, 14, 83);
     width: 100%;
   }
 
@@ -190,7 +190,7 @@
       }
    
       .about h2 {
-        font-size: 3rem;
+        font-size: 3.2rem;
         padding-left: 120px;
       }
     
@@ -213,7 +213,7 @@
         }
 
         .about h2 {
-          font-size: 3rem;
+          font-size: 3.5rem;
           padding-left: 200px;
         }
       
