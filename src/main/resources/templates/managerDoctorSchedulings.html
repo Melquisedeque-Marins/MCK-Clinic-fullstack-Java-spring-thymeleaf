@@ -41,7 +41,9 @@
                   <td th:text="${scheduling.user.name}"></td>
                   <td th:text="${#temporals.format(scheduling.schedulingTime, 'dd-MM-yyyy HH:mm')}"></td>
                   <td th:text="${scheduling.status}"></td>
-                  <td><a th:href="@{'/admins/doctors/' + ${scheduling.doctor.id} + '/schedulings/' + ${scheduling.id}}"><i class="fa-sharp fa-solid fa-check"></i></a></td>  
+                  <td><form th:action="@{'/admins/doctors/' + ${scheduling.doctor.id} + '/schedulings/' + ${scheduling.id}}" th:method="put">
+                    <button type="submit" value=""><i class="fa-sharp fa-solid fa-check"></i></button>
+                </form></td> 
               </tr>
           </tbody>
         </table>

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -79,7 +80,7 @@ public class AdminController {
         return mv;
     }
     
-    @GetMapping("/doctors/{doctorId}/schedulings/{schedulingId}")
+    @PutMapping("/doctors/{doctorId}/schedulings/{schedulingId}")
     public ModelAndView confirmScheduling(@PathVariable Long doctorId, @PathVariable Long schedulingId) {
         schedulingService.updateStatus(schedulingId);
         return new ModelAndView("redirect:/admins/doctors/{doctorId}");

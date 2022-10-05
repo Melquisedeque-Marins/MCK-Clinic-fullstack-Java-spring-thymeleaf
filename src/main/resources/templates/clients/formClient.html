@@ -76,6 +76,7 @@
                     type="date"
                     max="9999-12-31"
                     th:field="*{birthDate}"
+                    th:value="${#temporals.format(birthDate,'yyyy-MM-dd')}"
                   />
                   <div class="error-field alert" th:errors="*{birthDate}"></div>
                   <label class="lbl">Sexo</label>

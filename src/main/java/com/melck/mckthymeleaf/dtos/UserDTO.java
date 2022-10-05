@@ -5,9 +5,11 @@ import com.melck.mckthymeleaf.models.user.User;
 import com.melck.mckthymeleaf.models.enums.Gender;
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 
 @Getter
@@ -38,10 +40,12 @@ public class UserDTO implements Serializable {
     @Size(min = 9, max = 15, message = "A senha deve conter 8 digitos")
     private String phoneNumber;
 
-    @NotEmpty(message =  "O campo data de nascimento é obrigatório")
-    //@Past(message = "enter a valid date of birth")
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private String birthDate;
+  //  @NotEmpty(message =  "O campo data de nascimento é obrigatório")
+    @NotNull
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+   // @JsonFormat(pattern = "yyyy-MM-dd")
+    @Past(message = "enter a valid date of birth")
+    private LocalDate birthDate;
     private Long age;
 
     private Gender gender;
@@ -54,7 +58,7 @@ public class UserDTO implements Serializable {
         this.cpf = client.getCpf();
         this.password = client.getPassword();
         this.phoneNumber = client.getPhoneNumber();
-        this.birthDate = client.getBirthDate().toString();
+        this.birthDate = client.getBirthDate();
         this.gender = client.getGender();
     } 
 

@@ -27,7 +27,7 @@ public class Scheduling implements Serializable {
     private Long id;
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-    @Future(message = "invalid date")
+   // @Future(message = "invalid date")
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime schedulingTime;
 

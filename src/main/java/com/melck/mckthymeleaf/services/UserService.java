@@ -4,6 +4,7 @@ import javax.persistence.EntityNotFoundException;
 
 import com.melck.mckthymeleaf.models.user.Role;
 import com.melck.mckthymeleaf.repositories.RoleRepository;
+import com.melck.mckthymeleaf.services.exceptions.InvalidDateException;
 import com.melck.mckthymeleaf.services.exceptions.ObjectIsAlreadyInUseException;
 import com.melck.mckthymeleaf.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.BeanUtils;
@@ -57,7 +58,7 @@ public class UserService implements UserDetailsService {
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
         Role role = roleRepository.getReferenceById(2L);
         user.getRoles().add(role);
-        user.setBirthDate(LocalDate.parse(dto.getBirthDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        user.setBirthDate(dto.getBirthDate());
         UserDTO newUser = new UserDTO(repository.save(user));
         Long years = ChronoUnit.YEARS.between(user.getBirthDate(), LocalDate.now());
         newUser.setAge(years);
