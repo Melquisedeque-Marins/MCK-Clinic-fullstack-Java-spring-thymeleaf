@@ -12,10 +12,11 @@
       rel="stylesheet" />
 
     <link rel="stylesheet" th:href="@{/css/fragment.css}" />
-    <link rel="stylesheet" href="/css/indexx.css" />
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
     <script
       src="https://kit.fontawesome.com/954f0760ed.js"
       crossorigin="anonymous"
+
     ></script>
   </head>
 
@@ -72,28 +73,32 @@
         </div>
       </div>
       <section class="container-info">
+        <div class="info-baner two">
+          <div class="info-text">
+            <h3>Agende a sua consulta</h3>
+            <p>
+              Cadastre-se aqui e tenha acesso a nossa plataforma de agendamento
+              de consultas on-line.
+            </p>
+            <div class="register">
+              <a th:href="@{/users/form}"><button>faça seu cadastro!</button></a>
+            </div>
+          </div>
+          <div class="info-img">
+            <picture>
+              <img src="img/index/info-agendamento-300.jpg" alt="médicos" />
+            </picture>
+          </div>
+        </div>
         <div class="info-baner one">
           <div class="info-text">
             <h3>Venha nos visitar</h3>
             <p>Temos uma equipe especializada para atendê-lo!</p>
           </div>
           <div class="info-img">
-            <picture>
-              <img src="img/index/banner-index-rodapé-300.jpg" alt="médicos" />
-            </picture>
-          </div>
-        </div>
-        <div class="info-baner two">
-          <div class="info-text">
-            <h3>Agende a sua consulta</h3>
-            <p>
-              Cadastre-se aqui e tenha acesso a nossa plataforma de agendamento
-              de consultas on-line
-            </p>
-          </div>
-          <div class="info-img">
-            <picture>
-              <img src="img/index/info-agendamento-300.jpg" alt="médicos" />
+            <picture class="img">
+              <source media="(min-width:1200px)" srcset="img/index/visit-us-700.jpg">
+              <img src="img/index/visit-us-300.jpg" alt="médicos" />
             </picture>
           </div>
         </div>

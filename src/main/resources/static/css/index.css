@@ -144,6 +144,23 @@
     padding: 10px 0;
 }
 
+.register {
+    display: flex;
+    justify-content: center;
+}
+
+.register a button {
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    background-color: blue;
+    color: #FFF;
+    cursor: pointer;
+    border-style: none;
+    border-radius: 15px;
+    margin: 10px 0;
+}
+
 @media (min-width: 425px) {
 
     .main-baner {
@@ -258,6 +275,8 @@
         padding-bottom: 60px;
         width: 60%;
     }
+
+   
 }
 
 @media (min-width: 1000px) {
@@ -337,6 +356,11 @@
         font-size: 3rem;
         width: 100%;
     }  
+
+    .register a button {
+        font-size: 2rem;
+        margin: 20px 0;
+    }
     
 }
 

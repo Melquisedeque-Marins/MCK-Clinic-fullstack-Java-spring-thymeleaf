@@ -103,6 +103,22 @@ public class SchedulingService {
         repository.save(scheduling);
     }
 
+    @Transactional
+    public List<Scheduling> findSchedulesPerDoctor(Long doctorId){
+        LocalDate date = LocalDate.now();
+        LocalTime now = LocalTime.of(7, 0);
+        List<LocalDateTime> schedules = new ArrayList<>();
+
+        for (int i = 0; i < 720; i=i+10) {
+            LocalDateTime toDay = LocalDateTime.of(date, now.truncatedTo(ChronoUnit.HOURS).plusMinutes(30 + (10 * (now.getMinute() / 10))));
+            schedules.add(toDay.plusMinutes(i));
+        }
+          
+
+        List<Scheduling> schedulings = repository.findBySchedule(schedules, doctorId);
+    
+        return schedulings;
+    }
 
 
     

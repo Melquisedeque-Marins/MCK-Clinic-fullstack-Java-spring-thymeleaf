@@ -39,7 +39,7 @@
                   <td th:text="${scheduling.id}"></td>
                   <td th:text="${scheduling.doctor.name}"></td>
                   <td th:text="${scheduling.user.name}"></td>
-                  <td th:text="${scheduling.schedulingTime}"></td>
+                  <td th:text="${#temporals.format(scheduling.schedulingTime, 'dd-MM-yyyy HH:mm')}"></td>
                   <td th:text="${scheduling.status}"></td>
                   <td><a th:href="@{'/admins/doctors/' + ${scheduling.doctor.id} + '/schedulings/' + ${scheduling.id}}"><i class="fa-sharp fa-solid fa-check"></i></a></td>  
               </tr>

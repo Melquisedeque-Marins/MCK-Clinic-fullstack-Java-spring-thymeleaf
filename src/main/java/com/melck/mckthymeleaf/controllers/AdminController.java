@@ -1,6 +1,8 @@
 package com.melck.mckthymeleaf.controllers;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -62,6 +64,7 @@ public class AdminController {
     @GetMapping("/doctors")
     public ModelAndView findAllDoctors() {
         List<Doctor> doctors = doctorService.findAll();
+        
         ModelAndView mv = new ModelAndView("/managerDoctor");
         mv.addObject("doctors", doctors);
         return mv;
@@ -70,12 +73,19 @@ public class AdminController {
     
     @GetMapping("/doctors/{id}")
     public ModelAndView findSchedulingsPerDoctor(@PathVariable Long id) {
-        Doctor doctor = doctorService.findById(id);
-        List<Scheduling> schedulings = schedulingService.findByDoctor(doctor);
+        List<Scheduling> schedulings = schedulingService.findSchedulesPerDoctor(id);
         ModelAndView mv = new ModelAndView("/managerDoctorSchedulings");
         mv.addObject("schedulings", schedulings);
         return mv;
     }
+    
+    @GetMapping("/doctors/{doctorId}/schedulings/{schedulingId}")
+    public ModelAndView confirmScheduling(@PathVariable Long doctorId, @PathVariable Long schedulingId) {
+        schedulingService.updateStatus(schedulingId);
+        return new ModelAndView("redirect:/admins/doctors/{doctorId}");
+    }
+
+
 
     
 }
