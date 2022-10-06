@@ -31,9 +31,9 @@
     margin: auto;
     width: 100%;
     max-width: 1400px;
+    min-height: calc(100vh - 100px);
     height: 100%;
     background-image: url("../img/login/form-login-1200.jpg");
-    background-size: cover;
   }
   
   .card {
@@ -45,7 +45,7 @@
     background-color: #4e4e5ccf;
     align-items: center;
     width: 280px;
-    height: 680px;
+    min-height: calc(100vh - 140px);
   }
 
 .card h1{
@@ -58,7 +58,7 @@
     display: flex;
     flex-direction: column; 
     width: 90%;
-    margin: auto;
+    margin: 10px auto;
 }
 
 .campos{
@@ -121,6 +121,7 @@
 
 .back .botão{
     text-align: center;
+    text-transform: uppercase;
 }
 
 @media (min-width: 425px) {
@@ -136,7 +137,6 @@
 
     .card {
         width: 350px;
-        height: 680px;
         padding: 10px;
       }
 
@@ -145,7 +145,6 @@
 @media (min-width: 500px) {
     .card {
         width: 70%;
-        height: 720px;
         padding: 10px 20px;
       }
 }
@@ -153,7 +152,6 @@
 @media (min-width: 700px) {
     .card {
         width: 60%;
-        height: 720px;
         padding: 10px 50px;
       }
       .card h1{
@@ -164,7 +162,6 @@
 @media (min-width: 850px) {
     .card {
         width: 50%;
-        height: 720px;
         padding: 10px 50px;
       }
       .card h1{
@@ -183,7 +180,6 @@
     }
     .card {
         width: 50%;
-        height: 700px;
         padding: 0px 70px;
       }
 

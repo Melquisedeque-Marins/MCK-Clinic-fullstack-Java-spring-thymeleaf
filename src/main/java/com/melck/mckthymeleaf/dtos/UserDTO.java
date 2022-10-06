@@ -21,7 +21,7 @@ public class UserDTO implements Serializable {
     private Long id;
 
     @NotBlank(message = "Campo obrigatório")
-    @Size(min = 5, max = 100, message = "Insira o nome completo")
+    @Size(min = 7, max = 100, message = "Insira o nome completo")
     private String name;
 
     @Email(message = "Insira um email valido. Ex: nome@email.com")
@@ -41,7 +41,7 @@ public class UserDTO implements Serializable {
     private String phoneNumber;
 
   //  @NotEmpty(message =  "O campo data de nascimento é obrigatório")
-    @NotNull
+    @NotNull(message = "Preencha o campo data de nascimento")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
    // @JsonFormat(pattern = "yyyy-MM-dd")
     @Past(message = "enter a valid date of birth")

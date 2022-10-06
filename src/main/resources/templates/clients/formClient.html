@@ -13,7 +13,7 @@
     />
 
     <link rel="stylesheet" th:href="@{/css/fragment.css}" />
-    <link rel="stylesheet" href="/css/formClient.css" />
+    <link rel="stylesheet" th:href="@{/css/formClient.css}" />
   </head>
 
   <body>
@@ -46,6 +46,7 @@
                     type="text"
                     th:field="*{cpf}"
                     placeholder="Digite seu CPF"
+                    maxlength="11"
                   />
                   <div class="error-field alert" th:errors="*{cpf}"></div>
                   <label class="lbl">E-mail</label>
@@ -84,8 +85,13 @@
                     <option
                       th:each="gender : ${listGender}"
                       th:value="${gender}"
-                      th:text="${gender}"
-                    ></option>
+                      th:if="${#strings.toString(gender)} == 'MALE'"
+                    >MASCULINO</option>
+                    <option
+                      th:each="gender : ${listGender}"
+                      th:value="${gender}"
+                      th:if="${#strings.toString(gender)} == 'FEMALE'"
+                    >FEMININO</option>
                   </select>
                   <label class="lbl">Password</label>
                   <input
@@ -95,6 +101,7 @@
                     th:field="*{password}"
                     placeholder="Escolha uma senha com 8 digitos"
                     id=""
+                    maxlength="8"
                   />
                   <div class="error-field alert" th:errors="*{password}"></div>
                   <input class="botão" type="submit" value="Cadastrar" />
