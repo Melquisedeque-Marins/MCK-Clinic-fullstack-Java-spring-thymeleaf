@@ -6,9 +6,12 @@ import com.melck.mckthymeleaf.repositories.DoctorRepository;
 import com.melck.mckthymeleaf.repositories.ExpertiseRepository;
 import com.melck.mckthymeleaf.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +20,9 @@ public class DoctorService {
 
     @Autowired
     private DoctorRepository repository;
+
+    @Autowired
+    private ExpertiseRepository expertiseRepository;
 
     @Transactional
     public Doctor insert(Doctor doctor){
@@ -35,6 +41,14 @@ public class DoctorService {
        List<Doctor> doctors = repository.findAll();
         return doctors;
     }
+
+    @Transactional(readOnly = true)
+	public Page<Doctor> findAllPaged(Long expertiseId, String name, Pageable pageable) {
+		List<Expertise> expertises = (expertiseId == 0) ? null : Arrays.asList(expertiseRepository.getReferenceById(expertiseId));
+		Page<Doctor> page = repository.findAllPaged(expertises, name, pageable);
+		repository.findDoctorsWithexpertises(page.getContent());
+		return page;
+	}
 
     @Transactional(readOnly = true)
     public List<Doctor> findByExpertise(Expertise expertise){

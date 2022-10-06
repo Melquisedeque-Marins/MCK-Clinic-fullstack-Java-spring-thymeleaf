@@ -79,7 +79,7 @@
   .campos .botão {
     color: white;
     border: none;
-    background-color: rgb(43, 0, 255);;
+    background-color: rgb(43, 0, 255);
     font-size: 1.5rem;
     cursor: pointer;
     padding: 5px 20px;
@@ -185,7 +185,7 @@
   
         .campos .lbl {
           margin-top: 10px;
-          font-size: 2rem;
+          font-size: 1.6rem;
         }
         
         .campos .campo {
@@ -197,7 +197,7 @@
         }
   
         .campos .botão {
-          font-size: 2.5rem;
+          font-size: 2rem;
           padding: 5px 20px;
           margin-top: 10px;
         }
