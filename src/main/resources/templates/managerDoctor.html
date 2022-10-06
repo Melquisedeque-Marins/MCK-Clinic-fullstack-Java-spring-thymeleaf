@@ -13,7 +13,7 @@
     />
 
     <link rel="stylesheet" th:href="@{/css/fragment.css}" />
-    <link rel="stylesheet" th:href="@{/css/clientsList.css}" />
+    <link rel="stylesheet" th:href="@{/css/managerDoctor.css}" />
     <script
     src="https://kit.fontawesome.com/954f0760ed.js"
     crossorigin="anonymous"
@@ -24,25 +24,33 @@
     <div th:replace="fragments/fragments :: header"></div>
     <div class="container">
       <div class="content">
-        <table class="tb" >
-          <thead>
-                  <th>#</th>
-                  <th>Nome</th>
-                  <th>Especialidade</th>
-                  <th>Verificar consultas</th>
-          </thead>
+        <div class="search">
+          <h1>Insira o nome do médico</h1>
+          <form class="seach-field" action="">
+            <div class="box">
+              <input type="search" name="" id="">
+              <button type="submit" value="buscar"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+            </div>
+          </form>
+        </div>
+          <table class="tb" >
+            <thead>
+              <th>#</th>
+              <th>Nome</th>
+              <th>Especialidade</th>
+              <th>Verificar consultas</th>
+            </thead>
           <tbody>
-              <tr th:each="doctor : ${doctors}">
-                  <td th:text="${doctor.id}"></td>
-                  <td th:text="${doctor.name}"></td>
-                  <td th:each="exp : ${doctor.expertises}" th:text="${exp}"></td>
-                  <td><a th:href="@{'/admins/doctors/' + ${doctor.id}}" ><i class="fa-sharp fa-solid fa-rotate-right"></i></a></td>
-              </tr>
+            <tr th:each="doctor : ${doctors}">
+              <td th:text="${doctor.id}"></td>
+              <td th:text="${doctor.name}"></td>
+              <td th:each="exp : ${doctor.expertises}" th:text="${exp}"></td>
+              <td><a th:href="@{'/admins/doctors/' + ${doctor.id}}" ><i class="fa-solid fa-calendar-check"></i></a></td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
-      
     <div th:replace="fragments/fragments :: footer"></div>
 
     <script type="text/javascript" th:src="@{/js/navbar.js}"></script>

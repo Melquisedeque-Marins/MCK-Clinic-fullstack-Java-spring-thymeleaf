@@ -37,7 +37,10 @@
 
       <form class="form" th:object="${schedulingDTO}"
       th:action="@{/schedulings/new}" method="post" >
-            
+        <div class="clientId-field" sec:authorize="hasAuthority('ROLE_ADMIN')">
+          <h1>id do cliente</h1>
+          <input type="text" th:field="*{userId}">
+        </div>
         <div class="schedules">
           <div th:if="${#lists.isEmpty(freeSchedules)}">
             <h1>Infelizmente este médico não possui mais horários disponiveis para esta data. Escolha uma outra data para pesquisar!</h1>
@@ -50,7 +53,7 @@
         <div class="schedule-sumary">
           <h1 th:text=" 'Médico: ' + ${doctor.name}"></h1>
           <h1 th:text=" 'Especialidade: ' + ${expertise.name}"></h1>
-          <h1 th:text=" 'Horario: ' + ${schedulingTime}"></h1>
+          <h1>Horario</h1>
           <input class="id" type="text" th:field="*{doctorId}" />
           <input id="time" type="datetime-local" th:field="*{schedulingTime}" />
           <input class="botão" type="submit" value="Agendar" />

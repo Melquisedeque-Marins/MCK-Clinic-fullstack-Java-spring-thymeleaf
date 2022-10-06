@@ -31,9 +31,9 @@
     margin: auto;
     width: 100%;
     max-width: 1400px;
-    min-height: calc(100vh - 100px);
     height: 100%;
     background-image: url("../img/login/form-login-1200.jpg");
+    background-size: cover;
   }
   
   .card {
@@ -119,7 +119,7 @@
     justify-content: center;
 }
 
-.back .botão{
+.botão{
     text-align: center;
     text-transform: uppercase;
 }

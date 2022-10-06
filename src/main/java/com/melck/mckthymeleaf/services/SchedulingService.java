@@ -54,7 +54,9 @@ public class SchedulingService {
    @Transactional
     public Scheduling insert(SchedulingDTO dto){
         User user = authService.authenticated();
-        dto.setUserId(user.getId());
+        if (dto.getUserId() == null){
+            dto.setUserId(user.getId());
+        }
         Scheduling scheduling = toScheduling(dto);
         scheduling.setSchedulingTime(LocalDateTime.parse(dto.getSchedulingTime(), DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")));
         scheduling.setStatus(Status.SCHEDULED);

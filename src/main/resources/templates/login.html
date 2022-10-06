@@ -28,9 +28,9 @@
                       <form th:action="@{/login}" method="post" >
                               <div class="campos">
                                   <label class="lbl" for="cpf">CPF</label>
-                                  <input class="campo" type="text" name="username" >
+                                  <input class="campo" type="text" name="username" placeholder="Digite somente números" >
                                   <label class="lbl" for="password">Password</label>
-                                  <input class="campo" type="password" name="password" >
+                                  <input class="campo" type="password" name="password" placeholder="Digite sua senha" >
                                   <p>Não tem cadastro? <span><a th:href="@{/users/form}">clique aqui</a></span></p>
                                   <input class="botão" type="submit" value="Login">
                                   <a th:href="@{/}"><input class="botão"type="button" value="Voltar"></a>

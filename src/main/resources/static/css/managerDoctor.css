@@ -15,6 +15,7 @@ html {
     max-width: 2000px;
     background-color: rgba(206, 241, 228, 0.63);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: auto;
@@ -24,15 +25,39 @@ html {
     min-height: calc(100vh - 240px);
     width: 90%;  
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
 }
+
+.box {
+    margin: 20px 0;
+    display: flex;
+    padding: 0 10px;
+    justify-content: space-between;
+    border: 1px solid rgba(128, 128, 128, 0.623);
+    border-radius: 10px;
+    background-color: #FFF;
+}
+
+.box input {
+    border: 0;
+    outline: 0;
+    padding: 5px;
+}
+
+.box button {
+    border: none;
+    background-color: unset;
+    padding: 5px;
+}
+
+
 
 .tb{
     width: 100%;
     margin: 20px auto;
- 
+    text-align: center;
 }
 
 .tb thead{
@@ -47,13 +72,11 @@ html {
     font-size: 1.5rem;
     padding: 2px 0;
     margin: 2px 0;
-    text-align: center;
-   
 }
 
 form button {
     border-style: none;
-    background-color: unset;
+    background-color: #FFF;
     padding: 2px;
     cursor: pointer;
 }
@@ -62,13 +85,4 @@ i {
     margin: 2px;
     font-size: 2rem;
     font-weight: bold;
-}
-
-.fa-rotate-right {
-    color: green;
-  
-}
-
-.fa-ban {
-    color: red;
 }
