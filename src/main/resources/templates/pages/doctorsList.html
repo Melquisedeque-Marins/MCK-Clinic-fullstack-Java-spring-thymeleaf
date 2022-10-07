@@ -13,13 +13,22 @@
     />
 
     <link rel="stylesheet" th:href="@{/css/fragment.css}" />
-    <link rel="stylesheet" href="/css/doctorsList.css" />
+    <link rel="stylesheet" th:href="@{/css/doctorsList.css}" />
   </head>
 
   <body>
     <div th:replace="fragments/fragments :: header"></div>
 
-    <div class="container">    
+    <div class="container"> 
+      <div class="search">
+        <h1>Insira o nome do médico</h1>
+        <form class="seach-field" th:action="@{/schedulings/doctors}" method="get">
+          <div class="box">
+            <input type="search" th:name="name" id="">
+            <button type="submit" value="buscar"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+          </div>
+        </form>
+      </div>   
       <div class="cards">
         <div class="card" th:each="doctor : ${doctorsList}">
           <div class="content">

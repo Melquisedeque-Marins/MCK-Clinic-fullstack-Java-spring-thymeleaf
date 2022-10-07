@@ -27,9 +27,11 @@
       <div class="side-menu">
         <div class="user">
           <i class="fa-solid fa-circle-user"></i>
-          <span th:if="${#strings.toString(userLogged.gender)} == 'MALE'" >Seja bem-vindo,</span>
-          <span th:if="${#strings.toString(userLogged.gender)} == 'FEMALE'" >Seja bem-vinda,</span>
-          <a th:text="${userName} + '!'"></a>
+          <div>
+            <span th:if="${#strings.toString(userLogged.gender)} == 'MALE'" >Seja bem-vindo,</span>
+            <span th:if="${#strings.toString(userLogged.gender)} == 'FEMALE'" >Seja bem-vinda,</span>
+            <span th:text="${userName} + '!'"></span>
+          </div>
         </div>
         <ul>
           <li><a href="">Meus dados</a></li>

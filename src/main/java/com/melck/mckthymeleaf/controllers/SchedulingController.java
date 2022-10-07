@@ -18,12 +18,15 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.format.datetime.DateFormatter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -73,7 +76,7 @@ public class SchedulingController {
     public ModelAndView newScheduling(SchedulingDTO schedulingDTO) {
        
         service.insert(schedulingDTO);
-        return new ModelAndView("redirect:/users/logged");
+        return new ModelAndView("redirect:/users");
     }
 
     @GetMapping("/expertises/{id}/doctors")
@@ -115,6 +118,7 @@ public class SchedulingController {
         return mv;
     }
 
+    /* 
     @GetMapping("/doctors")
     public ModelAndView doctors(){
         ModelAndView mv = new ModelAndView("/pages/doctorsList");
@@ -124,6 +128,21 @@ public class SchedulingController {
         mv.addObject("doctorsList", doctors);
         return mv;
     }
+    */
+
+    @GetMapping("/doctors")
+	public ModelAndView findAllDoctorsPaged(
+			@RequestParam(value = "expertiseId", defaultValue = "0") Long expertiseId,
+			@RequestParam(value = "name", defaultValue = "") String name,
+			Pageable pageable
+	) {
+		Page<Doctor> page = doctorService.findAllPaged(expertiseId, name.trim(), pageable);
+        ModelAndView mv = new ModelAndView("/pages/doctorsList");
+        List<Expertise> expertises = expertiseService.findAll();
+        mv.addObject("expertisesList", expertises);
+        mv.addObject("doctorsList", page);
+        return mv;
+	}
 
 
 }

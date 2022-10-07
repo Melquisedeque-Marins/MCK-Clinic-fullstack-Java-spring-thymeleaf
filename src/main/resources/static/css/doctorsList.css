@@ -36,7 +36,7 @@
     height: 200px;
     
   }
-
+  
   .content {
     display: flex;
     flex-direction: column;
@@ -44,6 +44,35 @@
     justify-content: space-between;
     height: 100%;
     margin: auto;
+  }
+
+  .search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+    .box {
+      margin: 20px 0;
+      display: flex;
+      padding: 0 10px;
+      justify-content: space-between;
+      border: 1px solid rgba(128, 128, 128, 0.623);
+      border-radius: 10px;
+      background-color: #FFF;
+  }
+  
+  .box input {
+      border: 0;
+      outline: 0;
+      padding: 5px;
+  }
+  
+  .box button {
+      border: none;
+      background-color: unset;
+      padding: 5px;
   }
 
   .card-content {

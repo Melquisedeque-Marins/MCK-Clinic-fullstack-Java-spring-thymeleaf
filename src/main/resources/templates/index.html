@@ -81,7 +81,12 @@
               de consultas on-line.
             </p>
             <div class="register">
-              <a th:href="@{/users/form}"><button>faça seu cadastro!</button></a>
+              <div sec:authorize="isAnonymous()">
+                <a th:href="@{/users/form}"><button>faça seu cadastro!</button></a>
+              </div>
+              <div sec:authorize="isAuthenticated()">
+                <a th:href="@{/schedulings}"><button>agende sua consulta!</button></a>
+              </div>
             </div>
           </div>
           <div class="info-img">

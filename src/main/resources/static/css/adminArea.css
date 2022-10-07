@@ -15,7 +15,7 @@ html {
     display: flex;
     justify-content: center;
     max-width: 2000px;
-    width: 90%;
+    width: 100%;
     margin: auto;
 }
 
@@ -25,8 +25,8 @@ html {
     padding: 30px 40px;
     display: flex;
     flex-direction: column;
-    min-height: calc(100vh - 240px);
-    background: rgba(219, 211, 211, 0.459);
+    min-height: calc(100vh - 100px);
+    background: rgb(14, 14, 83);
 }
 
 h1 {
@@ -35,89 +35,43 @@ h1 {
     margin-bottom: 20px;
 }
 
-.cards {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid gray;
-    background-color: #FFF;
-    border-radius: 10px;
-    margin: 10px;
-    padding: 10px 10px;
-    text-align: left;
-    width: 220px;
-}
-
-.card p {
-    font-size: 1.5rem;
-    padding: 5px 0;
-    text-align: left;
-}
-
-.actions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 50px 0;
-}
-
-.actions button {
-    display: flex;
-    justify-content: center;
-    background-color: blue;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    color: #FFF;
-    border-style: none;
-    cursor: pointer;
-    font-size: 2rem;
-}
-
-.teste {
-    height: 50px;
-    background-color: red;
-}
-
 .side-menu {
-    color: #FFF;
     display: flex;
     flex-direction: column;
     float: left;
-    border-right: 1px solid rgba(128, 128, 128, 0.512);
+    border-left: 1px solid rgba(128, 128, 128, 0.963);
     background-color: orangered;
-    border: none;
 }
 
 .user {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 1.8rem;
-    padding: 20px;
+    font-size: 1.5rem;
+    padding: 10px;
     width: 100%;
-    background-color: blue;
+    background-color: rgb(2, 2, 47);
+
 }
 
 .user span {
+    display: flex;
     font-size: 1.5rem;
+    justify-self: center;
     color: #FFF;
+    text-transform: capitalize;
 }
 
 .user a {
     cursor: pointer;
     margin-left: 10px;
-    text-transform: capitalize;
 }
 
 .user i {
     font-size: 5rem;
     color: #FFF;
     padding: 5px;
+    margin-right: 5px;
 }
 
 .side-menu ul {
@@ -135,13 +89,38 @@ h1 {
     text-transform: uppercase;
     font-size: 1.6rem;
     color: #FFF;
-    text-align: center;
+    text-align: left;
 }
 
 .side-menu a {
     color: #FFF;
+    font-weight: bold;
 }
 
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
 
+.card {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFF;
+    margin: 40px;
+    padding: 0;
+    width: 300px;
+    
+}
 
-
+.card span {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px 0;
+    text-align: center;
+    color: blue;
+    justify-self: center;
+}

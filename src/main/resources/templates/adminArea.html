@@ -43,8 +43,19 @@
         <h1>Bem-vindo a área do administrador!</h1>
         
         <div class="cards">
-            <img th:src="@{img/index/visit-us-500.jpg}" alt="médicos" />
-            <img th:src="@{img/index/visit-us-500.jpg}" alt="médicos" />
+            <a href="/admins/doctors">
+              <div class="card">
+                <img th:src="@{img/index/visit-us-300.jpg}" alt="médicos" />
+                <span>Médicos e especialidades</span>
+              </div>
+            </a>
+            <a href="/admins/users">
+              <div class="card">
+                <img th:src="@{img/index/visit-us-300.jpg}" alt="médicos" />
+                <span>Pacientes</span>
+              </div>
+            </a>
+            
           
         </div>
       </div>
