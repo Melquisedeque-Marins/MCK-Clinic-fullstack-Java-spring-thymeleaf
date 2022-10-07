@@ -14,9 +14,9 @@ public class DefaultController {
     @GetMapping
     public ModelAndView defaultSucessUrl(HttpServletRequest request){
         if (request.isUserInRole("ROLE_ADMIN")) {
-            return new ModelAndView("redirect:/admins/doctors");
+            return new ModelAndView("redirect:/admins");
         }
-        return new ModelAndView("redirect:/users/logged");
+        return new ModelAndView("redirect:/users");
       
     }
     

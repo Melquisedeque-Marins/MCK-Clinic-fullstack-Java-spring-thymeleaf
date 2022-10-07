@@ -13,7 +13,7 @@
     />
 
     <link rel="stylesheet" th:href="@{/css/fragment.css}" />
-    <link rel="stylesheet" th:href="@{/css/clientArea.css}" />
+    <link rel="stylesheet" th:href="@{/css/adminArea.css}" />
     <script
     src="https://kit.fontawesome.com/954f0760ed.js"
     crossorigin="anonymous"
@@ -40,25 +40,12 @@
       </div>
       <div class="content">
         
-        <h1>Seus agendamentos em aberto:</h1>
+        <h1>Bem-vindo a área do administrador!</h1>
         
         <div class="cards">
-          <div th:if="${#lists.isEmpty(schedulings)}" >
-            <span> Você não possui consultas agendadas.</span>
-          </div>
-          <div th:each="sch : ${schedulings}">
-            <div class="main-schedulings" th:each="exp : ${sch.doctor.expertises}" >
-              <div class="card" th:if="${#strings.toString(sch.status)} == 'SCHEDULED'">
-                <p th:text=" 'Especialidade: ' + ${exp.name}"></p>
-                <p th:text=" 'Médico: ' + ${sch.doctor.name}"></p>
-                <p th:text=" 'Horario: ' + ${#temporals.format(sch.schedulingTime, 'dd-MM-yyyy HH:mm')}"></p>
-                <p th:text=" 'Status: ' + ${sch.status}"></p>
-              </div>
-            </div>  
-          </div>
-        </div>
-        <div class="actions">
-          <a th:href="@{/schedulings}"> <button>Agende sua consulta! </button> </a></li>
+            <img th:src="@{img/index/visit-us-500.jpg}" alt="médicos" />
+            <img th:src="@{img/index/visit-us-500.jpg}" alt="médicos" />
+          
         </div>
       </div>
     </div>

@@ -38,6 +38,17 @@ public class AdminController {
 
     
     @GetMapping
+    public ModelAndView adminScreen(){
+        User user = service.userLogged();
+        String[] userName = user.getName().toLowerCase().split(" ", 0);
+        String firstName = userName[0];
+        ModelAndView mv = new ModelAndView("/adminArea");
+        mv.addObject("userLogged", user);
+        mv.addObject("userName", firstName);
+        return mv;
+    }
+    
+    @GetMapping("/users")
     public ModelAndView findAll(){
         ModelAndView mv = new ModelAndView("/clients/clientsList");
         mv.addObject("listClients", service.findAll());
@@ -52,7 +63,6 @@ public class AdminController {
         mv.addObject("user", user);
         mv.addObject("schedulings", schedulings);
         return mv;
-
     }
 
     @DeleteMapping("/delete/{id}")
@@ -60,17 +70,6 @@ public class AdminController {
         service.delete(id);
         return new ModelAndView("redirect:/admins");
     }
-
-    /* 
-    @GetMapping("/doctors")
-    public ModelAndView findAllDoctors() {
-        List<Doctor> doctors = doctorService.findAll();
-        
-        ModelAndView mv = new ModelAndView("/managerDoctor");
-        mv.addObject("doctors", doctors);
-        return mv;
-    }
-    */
 
     @GetMapping("/doctors")
 	public ModelAndView findAllDoctorsPaged(
@@ -84,9 +83,6 @@ public class AdminController {
         return mv;
 	}
 
-
-
-    
     @GetMapping("/doctors/{id}")
     public ModelAndView findSchedulingsPerDoctor(@PathVariable Long id) {
         List<Scheduling> schedulings = schedulingService.findSchedulesPerDoctor(id);
@@ -100,8 +96,5 @@ public class AdminController {
         schedulingService.updateStatus(schedulingId);
         return new ModelAndView("redirect:/admins/doctors/{doctorId}");
     }
-
-
-
     
 }

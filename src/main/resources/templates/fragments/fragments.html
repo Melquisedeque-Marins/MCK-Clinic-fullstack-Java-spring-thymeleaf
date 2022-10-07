@@ -50,7 +50,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
           </li>
 
           <li sec:authorize="hasAuthority('ROLE_CLIENT')">
-            <a href="/users/logged" class="nav-item">Cliente</a>
+            <a href="/users" class="nav-item">Cliente</a>
           </li>
           
           <li sec:authorize="hasAuthority('ROLE_ADMIN')">

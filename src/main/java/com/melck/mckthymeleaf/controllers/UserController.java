@@ -53,7 +53,7 @@ public class UserController {
         return new ModelAndView("redirect:/login");
     }
 
-    @GetMapping("/logged")
+    @GetMapping
     public ModelAndView loggedArea(Pageable pageable){
         ModelAndView mv = new ModelAndView("/clients/clientArea");
         User user = service.userLogged();
