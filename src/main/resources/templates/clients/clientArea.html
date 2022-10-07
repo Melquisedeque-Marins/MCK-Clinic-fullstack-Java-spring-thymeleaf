@@ -25,19 +25,21 @@
 
     <div class="container">
       <div class="side-menu">
+        <div class="user">
+          <i class="fa-solid fa-circle-user"></i>
+          <span th:if="${#strings.toString(userLogged.gender)} == 'MALE'" >Seja bem-vindo,</span>
+          <span th:if="${#strings.toString(userLogged.gender)} == 'FEMALE'" >Seja bem-vinda,</span>
+          <a th:text="${userName} + '!'"></a>
+        </div>
         <ul>
           <li><a href="">Meus dados</a></li>
           <li><a href="">Minhas consultas</a></li>
           <li><a href="">Agendar</a></li>
+          <li><a th:href="@{/logout}">sair<i class="fa-solid fa-person-running"></i></a></li>
         </ul>
       </div>
       <div class="content">
-        <div class="user">
-          <span th:if="${#strings.toString(userLogged.gender)} == 'MALE'" >Seja bem-vindo,</span>
-          <span th:if="${#strings.toString(userLogged.gender)} == 'FEMALE'" >Seja bem-vinda,</span>
-          <a th:text="${userName} + '!'"></a>
-          <a th:href="@{/logout}"><i class="fa-solid fa-right-from-bracket"></i></a>
-        </div>
+        
         <h1>Seus agendamentos em aberto:</h1>
         
         <div class="cards">
