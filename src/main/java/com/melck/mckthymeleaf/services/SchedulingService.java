@@ -105,6 +105,19 @@ public class SchedulingService {
         repository.save(scheduling);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @Transactional
+    public void setCanceledStatus() {
+        List<Scheduling> scheduling = repository.findAll();
+        for (Scheduling sch : scheduling) {
+            if(sch.getSchedulingTime().plusHours(8).isAfter(LocalDateTime.of(LocalDate.now(), LocalTime.of(01, 00))) && sch.getStatus().equals(Status.SCHEDULED)){
+                sch.setStatus(Status.CANCELED);
+                repository.save(sch); 
+            }
+            
+        }
+    }
+
     @Transactional
     public List<Scheduling> findSchedulesPerDoctor(Long doctorId){
         LocalDate date = LocalDate.now();

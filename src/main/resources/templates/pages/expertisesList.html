@@ -13,7 +13,7 @@
     />
 
     <link rel="stylesheet" th:href="@{/css/fragment.css}" />
-    <link rel="stylesheet" href="/css/expertisesList.css" />
+    <link rel="stylesheet" th:href="@{/css/expertisesList.css}" />
   </head>
 
   <body>
@@ -24,10 +24,10 @@
         <div class="card" th:each="expertise : ${expertisesList}">
           <div class="content">
             <h1 th:text="${expertise.name}"></h1>
+            <img th:src="${expertise.imgUrl}" alt="especialidade" />
             <a th:href="@{'/schedulings/expertises/' + ${expertise.id} + '/doctors'} "
               ><input class="button" type="button" value="Agende sua consulta"
             /></a>
-            <img th:src="${expertise.imgUrl}" alt="especialidade" />
           </div>
         </div>
       </div>

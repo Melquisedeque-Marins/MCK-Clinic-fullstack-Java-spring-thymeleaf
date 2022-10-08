@@ -44,6 +44,9 @@
                   <td><form th:action="@{'/admins/doctors/' + ${scheduling.doctor.id} + '/schedulings/' + ${scheduling.id}}" th:method="put">
                     <button type="submit" value=""><i class="fa-sharp fa-solid fa-check"></i></button>
                 </form></td> 
+                  <td><form th:action="@{/schedulings/canceleds}" th:method="put">
+                    <button type="submit" value=""><i class="fa-sharp fa-solid fa-check"></i></button>
+                </form></td> 
               </tr>
           </tbody>
         </table>

@@ -68,7 +68,7 @@ public class AdminController {
     @DeleteMapping("/delete/{id}")
     public ModelAndView removeUser(@PathVariable Long id) {
         service.delete(id);
-        return new ModelAndView("redirect:/admins");
+        return new ModelAndView("redirect:/admins/users");
     }
 
     @GetMapping("/doctors")
@@ -96,5 +96,5 @@ public class AdminController {
         schedulingService.updateStatus(schedulingId);
         return new ModelAndView("redirect:/admins/doctors/{doctorId}");
     }
-    
+
 }

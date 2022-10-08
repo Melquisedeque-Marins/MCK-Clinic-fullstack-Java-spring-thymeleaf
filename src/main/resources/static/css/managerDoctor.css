@@ -30,6 +30,10 @@ html {
     margin: 20px auto;
 }
 
+.search h1 {
+    color: orangered;
+}
+
 .box {
     margin: 20px 0;
     display: flex;
@@ -52,7 +56,11 @@ html {
     padding: 5px;
 }
 
+table {
+    border: 1px solid blue;
+    background-color: #FFF;
 
+}
 
 .tb{
     width: 100%;
@@ -60,7 +68,7 @@ html {
     text-align: center;
 }
 
-.tb thead{
+.tb th{
     color: white;
     background-color: blue;
     font-weight: bold;
