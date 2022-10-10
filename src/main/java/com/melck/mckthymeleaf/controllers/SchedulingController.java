@@ -111,14 +111,7 @@ public class SchedulingController {
         return mv;
     }
 
-    @GetMapping("/expertises")
-    public ModelAndView expertises(){
-        ModelAndView mv = new ModelAndView("/pages/expertisesList");
-        List<Expertise> expertises = expertiseService.findAll();
-        mv.addObject("expertisesList", expertises);
-        return mv;
-    }
-
+    
     /* 
     @GetMapping("/doctors")
     public ModelAndView doctors(){
@@ -130,20 +123,41 @@ public class SchedulingController {
         return mv;
     }
     */
-
+    
     @GetMapping("/doctors")
 	public ModelAndView findAllDoctorsPaged(
 			@RequestParam(value = "expertiseId", defaultValue = "0") Long expertiseId,
 			@RequestParam(value = "name", defaultValue = "") String name,
 			Pageable pageable
 	) {
-		Page<Doctor> page = doctorService.findAllPaged(expertiseId, name.trim(), pageable);
+        Page<Doctor> page = doctorService.findAllPaged(expertiseId, name.trim(), pageable);
         ModelAndView mv = new ModelAndView("/pages/doctorsList");
         List<Expertise> expertises = expertiseService.findAll();
         mv.addObject("expertisesList", expertises);
         mv.addObject("doctorsList", page);
         return mv;
 	}
+    
+    @GetMapping("/expertises")
+	public ModelAndView findAllExpertisesPaged(
+        @RequestParam(value = "name", defaultValue = "") String name,
+        Pageable pageable
+        ) {
+            Page<Expertise> page = expertiseService.findAllPaged( name.trim(), pageable);
+            ModelAndView mv = new ModelAndView("/pages/expertisesList");
+            mv.addObject("expertisesList", page);
+            return mv;
+        }
+
+        /* 
+        @GetMapping("/expertises")
+        public ModelAndView expertises(){
+            ModelAndView mv = new ModelAndView("/pages/expertisesList");
+            List<Expertise> expertises = expertiseService.findAll();
+            mv.addObject("expertisesList", expertises);
+            return mv;
+        }
+        */
 
     @PutMapping("/canceleds")
     public ModelAndView setCanceledStatus (){

@@ -37,8 +37,6 @@
     font-size: 4rem;
     margin-bottom: 5px;
     color: orangered;
-    
-
   }
 
   .cards {
@@ -50,7 +48,6 @@
     width: 90%;
     margin: auto;
     padding: 30px 0;
-    
   }
 
   .card {
@@ -130,7 +127,7 @@
     letter-spacing: 0.05rem;
     font-weight: 400;
     text-align: center;
-    color: rgb(110, 108, 108);
+    color: orangered;
     margin: 2px auto;
   }
 
