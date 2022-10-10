@@ -87,6 +87,13 @@ public class SchedulingService {
         return schedulings;
     }
 
+    @Transactional
+    public Page<Scheduling> findAllByUser(Long id, Pageable pageable) {
+        List<User> users = Arrays.asList(userRepository.getReferenceById(id));
+        Page<Scheduling> schedulings = repository.find(users, pageable);
+        return schedulings;
+    }
+
     
     public List<Scheduling> findByDoctor(Doctor doctor){
         List<Scheduling> schedulings = repository.findByDoctor(doctor);

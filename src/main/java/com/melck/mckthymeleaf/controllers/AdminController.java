@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.melck.mckthymeleaf.models.Scheduling;
 import com.melck.mckthymeleaf.models.doctor.Doctor;
+import com.melck.mckthymeleaf.models.enums.Status;
 import com.melck.mckthymeleaf.models.user.User;
 import com.melck.mckthymeleaf.services.DoctorService;
 import com.melck.mckthymeleaf.services.SchedulingService;
@@ -96,5 +97,17 @@ public class AdminController {
         schedulingService.updateStatus(schedulingId);
         return new ModelAndView("redirect:/admins/doctors/{doctorId}");
     }
+
+    @GetMapping("/schedulings/users/{id}")
+    public ModelAndView schedulingsPerClient(@PathVariable Long id, Pageable pageable){
+        ModelAndView mv = new ModelAndView("/clients/clientsSchedulings");
+        Page<Scheduling> schedulings  = schedulingService.findAllByUser(id, pageable);
+        User client = service.findById(id);
+        mv.addObject("client", client);
+        mv.addObject("schedulings", schedulings);
+        mv.addObject("listStatus", Status.values());
+        return mv;
+    }
+
 
 }

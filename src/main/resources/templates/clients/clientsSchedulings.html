@@ -26,31 +26,26 @@
 
     <div class=  "container">
         <section class="content">
+            <div class="banner">
+                <h1 th:text="${client.name}"></h1>
+            </div>
             <table class="tb">
                 <thead>
                         <th>#</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
-                        <th>E-mail</th>
-                        <th>Editar</th>
-                        <th>Detalhes</th>
-                        <th>Consultas</th>
-                        <th>Excluir</th>
+                        <th>Médico</th>
+                        <th>Horario</th>
+                        <th>Status</th>
+                        <th>confirmar</th>
                 </thead>
                 <tbody>
-                    <tr th:each="client : ${listClients}">
-                        <td th:text="${client.id}"></td>
-                        <td th:text="${client.name}"></td>
-                        <td th:text="${client.cpf}"></td>
-                        <td th:text="${client.email}"></td>
-                        <td> <a href=""><i class="fa-solid fa-user-pen"></i></a></td>  
-                        <td> <a href=""><i class="fa-solid fa-circle-info"></i></a></td> 
-                        <td><form th:action="@{'/admins/schedulings/users/' + ${client.id}}" th:method="get">
-                            <button type="submit" value=""><i class="fa-solid fa-calendar-days"></i></button>
-                        </form></td> 
-                        <td><form th:action="@{'/admins/delete/' + ${client.id}}" th:method="delete">
-                            <button type="submit" value=""><i class="fa-solid fa-ban"></i></button>
-                        </form></td>  
+                    <tr th:each="scheduling : ${schedulings}">
+                        <td th:text="${scheduling.id}"></td>
+                        <td th:text="${scheduling.doctor.name}"></td>
+                        <td th:text="${#temporals.format(scheduling.schedulingTime, 'dd-MM-yyyy HH:mm')}"></td>
+                        <td th:text="${scheduling.status}"></td>
+                        <td><form th:action="@{'/admins/doctors/' + ${scheduling.doctor.id} + '/schedulings/' + ${scheduling.id}}" th:method="put">
+                            <button type="submit" value=""><i class="fa-sharp fa-solid fa-check"></i></button>
+                          </form></td>
                     </tr>
                 </tbody>
             </table>

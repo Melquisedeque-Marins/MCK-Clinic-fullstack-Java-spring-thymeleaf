@@ -54,7 +54,7 @@
                 <p th:text=" 'Especialidade: ' + ${exp.name}"></p>
                 <p th:text=" 'Médico: ' + ${sch.doctor.name}"></p>
                 <p th:text=" 'Horario: ' + ${#temporals.format(sch.schedulingTime, 'dd-MM-yyyy HH:mm')}"></p>
-                <p th:text=" 'Status: ' + ${sch.status}"></p>
+                <p th:if="${#strings.toString(sch.status)} == 'SCHEDULED'">Status: Agendada</p>
               </div>
             </div>  
           </div>
