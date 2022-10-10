@@ -13,15 +13,42 @@
     padding-top: 100px;
   }
 
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: calc(100vh - 240px);
+    margin: 0 auto;
+    background-color: rgb(14, 14, 83);
+  }
+
+  .banner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    background-color: rgba(253, 248, 248, 0.925);
+  }
+
+  .banner h1 {
+    font-size: 4rem;
+    color: orangered;
+    
+
+  }
+
   .cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 90%;
     margin: auto;
-    padding-top: 40px;
+    padding: 30px 0;
     
   }
 
@@ -31,36 +58,48 @@
     justify-content: center;
     grid-template-columns: 1fr 2fr;
     border: 1px solid rgba(128, 128, 128, 0.5);
-    margin: 15px;
-    width: 250px;
+    margin: 20px;
+    width: 200px;
     height: 200px;
-    
-  }
-  
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    margin: auto;
+    border-radius: 50%;
+    background-color: #FFF;
   }
 
-  .search {
+  .card i {
+    font-size: 5rem;
+    color: gray;
+  }
+  
+  .content-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+
+  .search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search h1 {
+    margin-right: 10px;
+    font-size: 2.4rem;
+    color: orangered;
   }
   
-    .box {
-      margin: 20px 0;
-      display: flex;
-      padding: 0 10px;
-      justify-content: space-between;
-      border: 1px solid rgba(128, 128, 128, 0.623);
-      border-radius: 10px;
-      background-color: #FFF;
+  .box {
+    display: flex;
+    padding: 0 10px;
+    justify-content: space-between;
+    border: 1px solid rgba(128, 128, 128, 0.623);
+    border-radius: 10px;
+    background-color: #FFF;
   }
   
   .box input {
@@ -85,29 +124,30 @@
   }
 
   .card h1 {
-    font-size: 3rem;
+    font-size: 2.2rem;
     letter-spacing: 0.05rem;
     font-weight: 400;
+    text-align: center;
     color: rgb(110, 108, 108);
-    margin: 5px auto;
+    margin: 2px auto;
   }
 
   .card p {
     text-align: left;
-    font-size: 1.6rem;
-    text-indent:2rem;
+    font-size: 1.4rem;
     color: gray;
+    text-transform: uppercase;
+    text-align: center;
   }
 
-  .card img {
-    margin: 0 auto;
-    max-width: 500px;
-    width: 100%;
+  a {
+    cursor: pointer;
+    text-decoration: none;
   }
 
   .button {
-    padding: 10px 20px;
-    font-size: 1.5rem;
+    padding: 10px 10px;
+    font-size: 1.3rem;
     text-transform: uppercase;
     background-color: blue;
     color: #FFF;

@@ -51,10 +51,7 @@
         </table>
       </div>
     </div>
-    <h1 th:text="${doctors.pageable.pageSize}"></h1>
-    <h1 th:text="${doctors.pageable.pageNumber}"></h1>
-    <h1 th:text="${doctors.totalPages}"></h1>
-    <h1 th:text="${doctors.totalElements}"></h1>
+
     <div th:replace="fragments/fragments :: footer"></div>
 
     <script type="text/javascript" th:src="@{/js/navbar.js}"></script>

@@ -24,25 +24,31 @@
     <div th:replace="fragments/fragments :: header"></div>
 
     <div class="container"> 
-      <div class="search">
-        <h1>Insira o nome do médico</h1>
-        <form class="seach-field" th:action="@{/schedulings/doctors}" method="get">
-          <div class="box">
-            <input type="search" th:name="name" id="">
-            <button type="submit" value="buscar"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+      <div class="content">
+        <div class="banner">
+          <h1>Nossos Especialistas</h1>
+          <div class="search">
+            <h1>Buscar médico</h1>
+            <form class="seach-field" th:action="@{/schedulings/doctors}" method="get">
+              <div class="box">
+                <input type="search" th:name="name" id="">
+                <button type="submit" value="buscar"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+              </div>
+            </form>
           </div>
-        </form>
-      </div>   
-      <div class="cards">
-        <div class="card" th:each="doctor : ${doctorsList}">
-          <div class="content">
-            <div class="card-content" th:each="expertise : ${doctor.expertises}">
-                <h1 th:text="${doctor.name}"></h1>
-                <p th:text="${doctor.registry}"></p>
-                <p th:text="${expertise.name}"></p>
-                <a th:href="@{'/schedulings/expertises/' + ${expertise.id} + '/doctors/' + ${doctor.id} } "
-                ><input class="button" type="button" value="Agende sua consulta"
-                /></a>
+        </div>
+        <div class="cards">
+          <div class="card" th:each="doctor : ${doctorsList}">
+            <div class="content-card" th:each="expertise : ${doctor.expertises}">
+              <a th:href="@{'/schedulings/expertises/' + ${expertise.id} + '/doctors/' + ${doctor.id} } ">
+              <div class="card-content" >
+                <i class="fa-solid fa-user-doctor"></i>
+                <h1 th:if="${#strings.toString(doctor.gender)} == 'MALE'" th:text="'Dr. ' + ${doctor.name}"></h1>
+                <h1 th:if="${#strings.toString(doctor.gender)} == 'FEMALE'" th:text="'Dra. ' + ${doctor.name}"></h1>
+                  <p th:text="${doctor.registry}"></p>
+                  <p th:text="${expertise.name}"></p>
+              </div>
+              </a>
             </div>
           </div>
         </div>

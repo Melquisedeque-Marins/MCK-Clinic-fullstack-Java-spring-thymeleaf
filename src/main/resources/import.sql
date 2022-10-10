@@ -16,15 +16,16 @@ INSERT INTO tb_expertise (name, description, img_Url) VALUES ('Ortopedia', 'Orto
 INSERT INTO tb_expertise (name, description, img_Url) VALUES ('Neurologia', 'Neurologia é a especialidade médica que trata dos distúrbios estruturais do sistema nervoso. Especificamente, ela lida com o diagnóstico e tratamento de todas as categorias de doenças que envolvem os sistemas nervoso central, periférico e autônomo, parassimpático e simpático incluindo os seus revestimentos, vasos sanguíneos, e todos os tecidos efetores, como os músculos.[1] O correspondente cirúrgico da especialidade é a neurocirurgia.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnOQF7OSO14qk_v6SzwXobqmYMMWjRdBi1ZQ&usqp=CAU');
 INSERT INTO tb_expertise (name, description, img_Url) VALUES ('Oftalmologia', 'A oftalmologia (grego: ophthalmós (olho) + logos (estudo): estudo do olho) é uma especialidade da medicina que estuda e trata as doenças relacionadas ao olho, à refração e aos olhos e seus anexos. O médico oftalmologista realiza cirurgias, prescreve tratamentos e correções para os distúrbios de visão. A oftalmologia tem várias sub-especialidades, entre elas a oftalmo-pediatria, a plástica ocular, doenças orbitárias, doenças das vias lacrimais, o estrabismo, o glaucoma, a cirurgia refrativa, retina, córnea, etc.', 'https://d3043uog1ad1l6.cloudfront.net/uploads/2019/06/oftalmologia.jpg');
 
-INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours)  VALUES ('House', '29663434007', 'house@gmail.com', '+351935893129', 'CRM 2012-MEDICINA', 'MORNING');
-INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours)  VALUES ('Strange', '20063282046', 'strange@gmail.com', '+351935893129', 'CRM 1175-MEDICINA', 'AFTERNOON');
-INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours) VALUES ('Stone', '86338370051', 'stone@gmail.com', '+351935893129', 'CRM 2950-MEDICINA', 'MORNING');
-INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours) VALUES ('Watson', '69007111035', 'watson@gmail.com', '+351935893129', 'CRM 6824-MEDICINA', 'AFTERNOON');
-INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours) VALUES ('Dolittle', '67021770030', 'dolittle@gmail.com', '+351935893129', 'CRM 3475-MEDICINA', 'MORNING');
-INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours) VALUES ('Raissa', '80196224039', 'raissa@gmail.com', '+351935893129', 'CRM 3764-MEDICINA', 'AFTERNOON');
-INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours) VALUES ('Maria', '28693704079', 'maria@gmail.com', '+351935893129', 'CRM 2321-MEDICINA', 'MORNING');
-INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours) VALUES ('Inacio', '61901087093', 'inacio@gmail.com', '+351935893129', 'CRM 1987-MEDICINA', 'AFTERNOON');
-INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours) VALUES ('Jack Shephard', '25400122051', 'shephard@gmail.com', '+351935893129', 'CRM 2004-MEDICINA', 'AFTERNOON');
+INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours, gender)  VALUES ('House', '29663434007', 'house@gmail.com', '+351935893129', 'CRM 2012-MEDICINA', 'MORNING', 'MALE');
+INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours, gender) VALUES ('Stone', '86338370051', 'stone@gmail.com', '+351935893129', 'CRM 2950-MEDICINA', 'MORNING', 'MALE');
+INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours, gender)  VALUES ('Strange', '20063282046', 'strange@gmail.com', '+351935893129', 'CRM 1175-MEDICINA', 'AFTERNOON', 'MALE');
+INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours, gender) VALUES ('Watson', '69007111035', 'watson@gmail.com', '+351935893129', 'CRM 6824-MEDICINA', 'AFTERNOON', 'MALE');
+INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours, gender) VALUES ('Dolittle', '67021770030', 'dolittle@gmail.com', '+351935893129', 'CRM 3475-MEDICINA', 'MORNING', 'MALE');
+INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours, gender) VALUES ('Raissa', '80196224039', 'raissa@gmail.com', '+351935893129', 'CRM 3764-MEDICINA', 'AFTERNOON', 'FEMALE');
+INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours, gender) VALUES ('Maria', '28693704079', 'maria@gmail.com', '+351935893129', 'CRM 2321-MEDICINA', 'MORNING', 'FEMALE');
+INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours, gender) VALUES ('Inacio', '61901087093', 'inacio@gmail.com', '+351935893129', 'CRM 1987-MEDICINA', 'AFTERNOON', 'MALE');
+INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours, gender) VALUES ('Jack Shephard', '25400122051', 'shephard@gmail.com', '+351935893129', 'CRM 2004-MEDICINA', 'AFTERNOON', 'MALE');
+INSERT INTO tb_doctor (name, cpf, email, phone_number, registry, office_hours, gender) VALUES ('Melquisedeque Marins', '66000625090', 'melqui@gmail.com', '+351935893129', 'CRM 1989-MEDICINA', 'AFTERNOON', 'MALE');
 
 INSERT INTO tb_doctor_expertise (doctor_id, expertise_id) VALUES (1, 1);
 INSERT INTO tb_doctor_expertise (doctor_id, expertise_id) VALUES (2, 1);
@@ -35,6 +36,7 @@ INSERT INTO tb_doctor_expertise (doctor_id, expertise_id) VALUES (6, 3);
 INSERT INTO tb_doctor_expertise (doctor_id, expertise_id) VALUES (7, 4);
 INSERT INTO tb_doctor_expertise (doctor_id, expertise_id) VALUES (8, 4);
 INSERT INTO tb_doctor_expertise (doctor_id, expertise_id) VALUES (9, 5);
+INSERT INTO tb_doctor_expertise (doctor_id, expertise_id) VALUES (10, 5);
 
 
 

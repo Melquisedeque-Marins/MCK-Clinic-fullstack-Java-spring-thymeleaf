@@ -82,7 +82,7 @@ public class SchedulingController {
 
     @GetMapping("/expertises/{id}/doctors")
     public ModelAndView doctorsPerExpertise(@PathVariable long id){
-        ModelAndView mv = new ModelAndView("/pages/expertise");
+        ModelAndView mv = new ModelAndView("/pages/doctorPerExpertise");
         Expertise expertise = expertiseService.findById(id);
         List<Doctor> doctors = doctorRepository.findByExpertise(expertise);
         mv.addObject("doctors", doctors);

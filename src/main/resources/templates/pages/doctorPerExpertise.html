@@ -13,7 +13,7 @@
     />
 
     <link rel="stylesheet" th:href="@{/css/fragment.css}" />
-    <link rel="stylesheet" href="/css/expertise.css" />
+    <link rel="stylesheet" th:href="@{/css/doctorPerExpertise.css}" />
   </head>
 
   <body>
@@ -26,7 +26,8 @@
           <div class="cards">
             <div class="card"  th:each="doctor : ${doctors}">
                     <div class="card-content" th:each="expertise : ${doctor.expertises}">
-                      <h1 th:text="'Dr. ' + ${doctor.name}"></h1>
+                      <h1 th:if="${#strings.toString(doctor.gender)} == 'MALE'" th:text="'Dr. ' + ${doctor.name}"></h1>
+                      <h1 th:if="${#strings.toString(doctor.gender)} == 'FEMALE'" th:text="'Dra. ' + ${doctor.name}"></h1>
                       <p th:text="${doctor.registry}"></p>
                       <p th:text="${expertise.name}"></p>
                       <a th:href="@{'/schedulings/expertises/' + ${expertise.id} + '/doctors/' + ${doctor.id}  } ">Ver horarios disponiveis</a>
