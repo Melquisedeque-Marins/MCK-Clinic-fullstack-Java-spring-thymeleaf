@@ -14,7 +14,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -67,6 +69,24 @@ public class UserController {
         return mv;
     }
 
+    @GetMapping("/info")
+    public ModelAndView loggedAreaInfo(UserDTO userDTO){
+        ModelAndView mv = new ModelAndView("/clients/clientAreaSelfData");
+        User user = service.userLogged();
+        String[] userName = user.getName().toLowerCase().split(" ", 0);
+        String firstName = userName[0];
+        mv.addObject("userLogged", user);
+        mv.addObject("userName", firstName);
+        return mv;
+    }
+
+    @GetMapping("/update")
+    public ModelAndView updateUserInfo(UserDTO userDTO){
+        service.updateUser(userDTO);
+        return new ModelAndView("redirect:/users");
+    }
+
+  
   
 
    

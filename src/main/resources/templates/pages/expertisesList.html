@@ -40,7 +40,7 @@
         <div class="cards">
           <div class="card" th:each="expertise : ${expertisesList}">
             <a th:href="@{'/schedulings/expertises/' + ${expertise.id} + '/doctors'} ">
-              <div class="content-card">
+              <div class="content-card" >
                 <h1 th:text="${expertise.name}"></h1>
                 <img th:src="${expertise.imgUrl}" alt="especialidade" />
               </div>

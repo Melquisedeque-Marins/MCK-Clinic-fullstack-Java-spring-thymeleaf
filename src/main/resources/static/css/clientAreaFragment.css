@@ -10,31 +10,6 @@ html {
     font-size: 62.5%;
 }
 
-.container {
-    padding-top: 100px;
-    display: flex;
-    justify-content: center;
-    max-width: 2000px;
-    width: 100%;
-    margin: auto;
-}
-
-.content {
-    width: 80%;
-    max-width: 1400px;
-    padding: 30px 40px;
-    display: flex;
-    flex-direction: column;
-    min-height: calc(100vh - 100px);
-    background: rgb(14, 14, 83);
-}
-
-h1 {
-    color: orangered;
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-}
-
 .side-menu {
     display: flex;
     flex-direction: column;
@@ -59,13 +34,12 @@ h1 {
     font-size: 1.5rem;
     justify-self: center;
     color: #FFF;
-   
+    text-transform: capitalize;
 }
 
 .user a {
     cursor: pointer;
     margin-left: 10px;
-    text-transform: capitalize;
 }
 
 .user i {
@@ -98,30 +72,6 @@ h1 {
     font-weight: bold;
 }
 
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-}
 
-.card {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #FFF;
-    margin: 40px;
-    padding: 0;
-    width: 300px;
-    
-}
 
-.card span {
-    font-size: 2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 5px 0;
-    text-align: center;
-    color: blue;
-    justify-self: center;
-}
+

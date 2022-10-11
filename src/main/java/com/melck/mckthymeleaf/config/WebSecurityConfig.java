@@ -36,6 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
+                .antMatchers("/users/update").hasAnyRole("CLIENT", "ADMIN")
                 .antMatchers("/users/form").permitAll()
                 .antMatchers("/about").permitAll()
                 .antMatchers("/expertises/**").permitAll()

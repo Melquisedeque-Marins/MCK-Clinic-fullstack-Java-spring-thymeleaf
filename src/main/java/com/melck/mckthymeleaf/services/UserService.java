@@ -98,6 +98,16 @@ public class UserService implements UserDetailsService {
         repository.delete(user);
     }
 
+    @Transactional
+    public void updateUser(UserDTO userDTO) {
+        User user = authService.authenticated();
+        User userEx = findById(user.getId());
+        userEx.setName(userDTO.getName());
+        repository.save(userEx);
+    }
+
+
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = repository.findByCpf(username);

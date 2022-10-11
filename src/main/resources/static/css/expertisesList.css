@@ -70,6 +70,16 @@ html {
   color: gray;
 }
 
+
+.cards a:hover {
+  opacity: 1;
+   
+}
+
+.card :hover {
+  background-color: aqua;
+}
+
 .content-card {
   display: flex;
   flex-direction: column;

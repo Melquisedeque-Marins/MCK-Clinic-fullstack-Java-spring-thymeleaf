@@ -27,25 +27,16 @@
       <div th:replace="fragments/clientAreaFragment :: side-menu"></div>
       <div class="content">
         
-        <h1>Seus agendamentos em aberto:</h1>
-        
-        <div class="cards">
-          <div th:if="${#lists.isEmpty(schedulings.content)}" >
-            <span th:class="info"> Você não possui consultas agendadas.</span>
-          </div>
-          <div th:each="sch : ${schedulings}">
-            <div class="main-schedulings" th:each="exp : ${sch.doctor.expertises}" >
-              <div class="card" th:if="${#strings.toString(sch.status)} == 'SCHEDULED'">
-                <p th:text=" 'Especialidade: ' + ${exp.name}"></p>
-                <p th:text=" 'Médico: ' + ${sch.doctor.name}"></p>
-                <p th:text=" 'Horario: ' + ${#temporals.format(sch.schedulingTime, 'dd-MM-yyyy HH:mm')}"></p>
-                <p th:if="${#strings.toString(sch.status)} == 'SCHEDULED'">Status: Agendada</p>
-              </div>
-            </div>  
-          </div>
-        </div>
-        <div class="actions">
-          <a th:href="@{/schedulings}"> <button>Agende sua consulta! </button> </a></li>
+        <h1>Seus dados pessoais:</h1>
+       
+        <div>
+          <form 
+              th:action="@{/users/update}"
+              th:object="${userDTO}"
+              method="PUT">
+            <input type="text" th:field="*{name}" >
+            <button type="submit">Atualizar dados</button>
+          </form>
         </div>
       </div>
     </div>
