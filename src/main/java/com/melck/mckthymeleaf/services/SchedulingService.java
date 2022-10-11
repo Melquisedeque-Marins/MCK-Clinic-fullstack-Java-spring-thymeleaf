@@ -33,6 +33,7 @@ import com.melck.mckthymeleaf.repositories.SchedulingRepository;
 import com.melck.mckthymeleaf.repositories.UserRepository;
 import com.melck.mckthymeleaf.services.exceptions.InvalidDateException;
 import com.melck.mckthymeleaf.services.exceptions.ResourceNotFoundException;
+import com.melck.mckthymeleaf.services.exceptions.UnauthorizedException;
 
 @Service
 public class SchedulingService {
@@ -54,6 +55,9 @@ public class SchedulingService {
    @Transactional
     public Scheduling insert(SchedulingDTO dto){
         User user = authService.authenticated();
+        if (user == null) {
+            throw new UnauthorizedException("Faça o login para poder realizar seu agendamento");
+        }
         if (dto.getUserId() == null){
             dto.setUserId(user.getId());
         }
