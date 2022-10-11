@@ -48,11 +48,23 @@ public class AdminController {
         mv.addObject("userName", firstName);
         return mv;
     }
-    
+    /*
     @GetMapping("/users")
     public ModelAndView findAll(){
         ModelAndView mv = new ModelAndView("/clients/clientsList");
         mv.addObject("listClients", service.findAll());
+        return mv;
+    }
+     */
+
+    @GetMapping("/users")
+    public ModelAndView findUserPerCpf(
+            @RequestParam(value = "cpf", defaultValue = "") String cpf,
+            Pageable pageable
+    ) {
+        Page<User> page = service.findUser(cpf.trim(), pageable);
+        ModelAndView mv = new ModelAndView("/clients/clientsList");
+        mv.addObject("listClients", page);
         return mv;
     }
 
@@ -105,7 +117,6 @@ public class AdminController {
         User client = service.findById(id);
         mv.addObject("client", client);
         mv.addObject("schedulings", schedulings);
-        mv.addObject("listStatus", Status.values());
         return mv;
     }
 

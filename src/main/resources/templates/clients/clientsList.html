@@ -26,31 +26,32 @@
 
     <div class=  "container">
         <section class="content">
+            <div class="search">
+                <h1>Digite o CPF no paciente</h1>
+                <form class="seach-field" th:action="@{/admins/users}" method="get">
+                  <div class="box">
+                    <input type="search" th:name="cpf" id="">
+                    <button type="submit" value="buscar"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+                  </div>
+                </form>
+            </div>
             <table class="tb">
                 <thead>
                         <th>#</th>
                         <th>Nome</th>
                         <th>CPF</th>
-                        <th>E-mail</th>
-                        <th>Editar</th>
                         <th>Detalhes</th>
                         <th>Consultas</th>
-                        <th>Excluir</th>
                 </thead>
                 <tbody>
                     <tr th:each="client : ${listClients}">
                         <td th:text="${client.id}"></td>
                         <td th:text="${client.name}"></td>
                         <td th:text="${client.cpf}"></td>
-                        <td th:text="${client.email}"></td>
-                        <td> <a href=""><i class="fa-solid fa-user-pen"></i></a></td>  
-                        <td> <a href=""><i class="fa-solid fa-circle-info"></i></a></td> 
+                        <td> <a href=""><i class="fa-solid fa-address-card"></i></a></td> 
                         <td><form th:action="@{'/admins/schedulings/users/' + ${client.id}}" th:method="get">
                             <button type="submit" value=""><i class="fa-solid fa-calendar-days"></i></button>
                         </form></td> 
-                        <td><form th:action="@{'/admins/delete/' + ${client.id}}" th:method="delete">
-                            <button type="submit" value=""><i class="fa-solid fa-ban"></i></button>
-                        </form></td>  
                     </tr>
                 </tbody>
             </table>

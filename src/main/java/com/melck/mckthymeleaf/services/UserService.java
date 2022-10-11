@@ -9,6 +9,8 @@ import com.melck.mckthymeleaf.services.exceptions.ObjectIsAlreadyInUseException;
 import com.melck.mckthymeleaf.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -71,6 +73,13 @@ public class UserService implements UserDetailsService {
         List<User> users = repository.findAll();
         return users.stream().map(c -> new UserDTO(c)).collect(Collectors.toList());
     }
+
+    @Transactional(readOnly = true)
+	public Page<User> findUser( String cpf, Pageable pageable) {
+		Page<User> page = repository.find(cpf, pageable);
+		return page;
+	}
+
 
     @Transactional(readOnly = true)
     public User findById(Long id){

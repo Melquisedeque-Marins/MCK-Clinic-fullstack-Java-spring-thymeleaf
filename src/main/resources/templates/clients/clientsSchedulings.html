@@ -13,7 +13,7 @@
             rel="stylesheet">
     
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
-    <link rel="stylesheet" th:href="@{/css/clientsList.css}">
+    <link rel="stylesheet" th:href="@{/css/clientsSchedulings.css}">
     <script
     src="https://kit.fontawesome.com/954f0760ed.js"
     crossorigin="anonymous"
@@ -27,7 +27,17 @@
     <div class=  "container">
         <section class="content">
             <div class="banner">
-                <h1 th:text="${client.name}"></h1>
+                <div class="user">
+                    <i class="fa-solid fa-user"></i>
+                    <div>
+                        <h1 th:text="'Nome: ' + ${client.name}"></h1>
+                        <h1 th:text="'Id: ' + ${client.id}"></h1>
+                    </div>
+                </div>
+                <div class="new-scheduling">
+                    <h1>Agendar consulta</h1>
+                    <a th:href="@{/schedulings}"><i class="fa-solid fa-calendar-plus"></i></a>
+                </div>
             </div>
             <table class="tb">
                 <thead>
