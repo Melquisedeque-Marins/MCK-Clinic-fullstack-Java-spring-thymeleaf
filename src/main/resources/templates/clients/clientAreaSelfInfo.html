@@ -13,7 +13,7 @@
     />
 
     <link rel="stylesheet" th:href="@{/css/fragment.css}" />
-    <link rel="stylesheet" th:href="@{/css/clientArea.css}" />
+    <link rel="stylesheet" th:href="@{/css/clientAreaSelfInfo.css}" />
     <script
     src="https://kit.fontawesome.com/954f0760ed.js"
     crossorigin="anonymous"
@@ -34,13 +34,13 @@
             th:action="@{/users/update}"
             th:object="${userDTO}"
             method="PUT">
-            <label for="name">phoneNumber:</label>
-            <input type="text" th:field="*{phoneNumber}" >
-            <label for="name">email:</label>
-            <input type="text" th:field="*{email}" >
-            <label for="name">rua:</label>
+            <label for="">phoneNumber:</label>
+            <input type="text" name="phoneNumber" th:value="${userLogged.phoneNumber}" >
+            <label for="">email:</label>
+            <input type="text" name="email" th:value="${userLogged.email}" >
+            <label for="">rua:</label>
             <input type="text" th:field="*{address.street}" >
-            <label for="name">numero:</label>
+            <label for="">numero:</label>
             <input type="text" th:field="*{address.number}" >
             <button type="submit">Atualizar dados</button>
           </form>

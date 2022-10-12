@@ -4,6 +4,7 @@ import javax.persistence.EntityNotFoundException;
 
 import com.melck.mckthymeleaf.models.user.Address;
 import com.melck.mckthymeleaf.models.user.Role;
+import com.melck.mckthymeleaf.repositories.AddressRepository;
 import com.melck.mckthymeleaf.repositories.RoleRepository;
 import com.melck.mckthymeleaf.services.exceptions.InvalidDateException;
 import com.melck.mckthymeleaf.services.exceptions.ObjectIsAlreadyInUseException;
@@ -47,6 +48,9 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private EmailService emailService;
+
+    @Autowired
+    private AddressRepository addressRepository;
 
     @Transactional
     public UserDTO insert(UserDTO dto){
@@ -106,9 +110,11 @@ public class UserService implements UserDetailsService {
         userEx.setPhoneNumber(userDTO.getPhoneNumber());
         userEx.setEmail(userDTO.getEmail());
        // userEx.setName(userDTO.getName());
-       Address address = new Address();
-       address.setStreet(userDTO.getAddress().getStreet());
-       address.setNumber(userDTO.getAddress().getNumber());
+        Address address = new Address();
+        address.setStreet(userDTO.getAddress().getStreet());
+        address.setNumber(userDTO.getAddress().getNumber());
+        address = addressRepository.save(address);
+        userEx.setAddress(address);
        repository.save(userEx);
     }
 
