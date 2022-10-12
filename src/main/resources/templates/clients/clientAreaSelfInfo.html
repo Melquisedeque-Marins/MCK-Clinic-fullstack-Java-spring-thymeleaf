@@ -57,14 +57,41 @@
               <span>Telemóvel:</span>
               <p th:text="${userLogged.phoneNumber}"></p>
             </div>
-            <div class="info">
+            <div class="info address" >
               <span>Endereço:</span>
               <div th:if="${userLogged.address} == null" >
                 <p th:class="info"> Não informado</p>
               </div>
-              <p th:text="${userLogged.address}"></p>
+              <div class="address-info" th:unless="${userLogged.address} == null" >
+                <div class="info">
+                  <span>Rua:</span>
+                  <p th:text="${userLogged.address.street}"></p>
+                </div>
+                <div class="info">
+                  <span>Numero:</span>
+                  <p th:text="${userLogged.address.number}"></p>
+                </div>
+                <div class="info">
+                  <span>Cep:</span>
+                  <p th:text="${userLogged.address.postalCode}"></p>
+                </div>
+                <div class="info">
+                  <span>Cidade:</span>
+                  <p th:text="${userLogged.address.city}"></p>
+                </div>
+                <div class="info">
+                  <span>Estado:</span>
+                  <p th:text="${userLogged.address.state}"></p>
+                </div>
+                <div class="info">
+                  <span>País:</span>
+                  <p th:text="${userLogged.address.country}"></p>
+                </div>
+              </div>
             </div>
-            <a th:href="@{/users/info/update}"><button>Complementar dados pessoais</button></a>
+            <div class="button"  th:if="${userLogged.address} == null" >
+             <a th:href="@{/users/info/update}"><button>Complementar dados pessoais</button></a>
+            </div>
         </div>
       </div>
     </div>

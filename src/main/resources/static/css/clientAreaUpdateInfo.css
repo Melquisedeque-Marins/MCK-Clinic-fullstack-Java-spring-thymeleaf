@@ -24,8 +24,8 @@ html {
     max-width: 1400px;
     padding: 30px 40px;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     min-height: calc(100vh - 100px);
     background: rgb(14, 14, 83);
 }
@@ -36,37 +36,47 @@ html {
     margin-bottom: 20px;
 }
 
-.user-info {
+.form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    width: 80%;
 }
 
-.info {
-   display: flex;
-   flex-direction: row;
-   color: rgb(219, 210, 210);
-   font-size: 2rem;
-   margin-bottom: 4px;
-}
-
-.info p {
-    letter-spacing: -0.015rem;
-}
-
-.info span {
-    margin-right: 10px;
-}
-
-.info.address {
+form {
+    width: 80%;
+    margin: auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.address-info p span{
-   font-size: 1.6rem;
+.form-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 10px;
 }
 
-.button button {
+label {
+    color: #FFF;
+    font-size: 1.5rem;
+    margin-bottom: 3px;
+}
+
+input {
+    width: 100%;
+    margin: auto;
+    font-size: 1.5rem;
+    padding: 2px;
+}
+
+button {
+    justify-self: center;
     margin-top: 10px;
     padding: 5px 20px;
     font-size: 2rem;
@@ -75,13 +85,3 @@ html {
     border: none;
     cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-

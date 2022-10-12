@@ -107,18 +107,29 @@ public class UserService implements UserDetailsService {
     public void updateUser(UserDTO userDTO) {
         User user = authService.authenticated();
         User userEx = findById(user.getId());
-        userEx.setPhoneNumber(userDTO.getPhoneNumber());
-        userEx.setEmail(userDTO.getEmail());
-       // userEx.setName(userDTO.getName());
-        Address address = new Address();
-        address.setStreet(userDTO.getAddress().getStreet());
-        address.setNumber(userDTO.getAddress().getNumber());
-        address = addressRepository.save(address);
-        userEx.setAddress(address);
+        if (userEx.getAddress() == null){
+            Address address = new Address();
+            address.setStreet(userDTO.getAddress().getStreet());
+            address.setNumber(userDTO.getAddress().getNumber());
+            address.setPostalCode(userDTO.getAddress().getPostalCode());
+            address.setCity(userDTO.getAddress().getCity());
+            address.setState(userDTO.getAddress().getState());
+            address.setCountry(userDTO.getAddress().getCountry());
+            address = addressRepository.save(address);
+            userEx.setAddress(address);
+        }else {
+            Address address = addressRepository.getReferenceById(userEx.getAddress().getId());
+            address.setStreet(userDTO.getAddress().getStreet());
+            address.setNumber(userDTO.getAddress().getNumber());
+            address.setPostalCode(userDTO.getAddress().getPostalCode());
+            address.setCity(userDTO.getAddress().getCity());
+            address.setState(userDTO.getAddress().getState());
+            address.setCountry(userDTO.getAddress().getCountry());
+            address = addressRepository.save(address);
+            userEx.setAddress(address); 
+        }
        repository.save(userEx);
     }
-
-
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

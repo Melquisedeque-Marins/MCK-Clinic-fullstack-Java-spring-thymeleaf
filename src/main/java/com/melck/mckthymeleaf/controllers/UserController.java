@@ -87,7 +87,7 @@ public class UserController {
     @GetMapping("/update")
     public ModelAndView updateUserInfo(UserDTO userDTO){
         service.updateUser(userDTO);
-        return new ModelAndView("redirect:/users");
+        return new ModelAndView("redirect:/users/info");
     }
 
 }

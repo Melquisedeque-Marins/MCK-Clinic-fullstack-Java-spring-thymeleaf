@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" th:href="@{/css/fragment.css}" />
     <link rel="stylesheet" th:href="@{/css/clientAreaFragment.css}" />
-    <link rel="stylesheet" th:href="@{/css/clientAreaSelfInfo.css}" />
+    <link rel="stylesheet" th:href="@{/css/clientAreaUpdateInfo.css}" />
     <script
     src="https://kit.fontawesome.com/954f0760ed.js"
     crossorigin="anonymous"
@@ -29,48 +29,38 @@
       <div class="content">
         
         <div class="title">
-          <h1>Seus dados pessoais:</h1>
+          <h1>Conclua seu cadastro:</h1>
         </div>
        
-        <div class="user-info" >
+        <div class="form" >
           <form 
             th:action="@{/users/update}"
             th:object="${userDTO}"
             method="PUT">
-            <div class="info">
-              <span>Nome:</span>
-              <p th:text="${userLogged.name}"></p>
+            <div class="form-field">
+              <label for="">Rua:</label>
+              <input type="text" th:field="*{address.street}" >
             </div>
-            <div class="info">
-              <span>CPF:</span>
-              <p th:text="${userLogged.cpf}"></p>
+            <div class="form-field">
+              <label for="">Número:</label>
+              <input type="text" th:field="*{address.number}" >
             </div>
-            <div class="info">
-              <span>E-mail:</span>
-              <p th:text="${userLogged.email}"></p>
+            <div class="form-field">
+              <label for="">Cep:</label>
+              <input type="text" th:field="*{address.postalCode}" >
             </div>
-            <div class="info">
-              <span>Telemóvel:</span>
-              <p th:text="${userLogged.phoneNumber}"></p>
+            <div class="form-field">
+              <label for="">Cidade:</label>
+              <input type="text" th:field="*{address.city}" >
             </div>
-            <div class="info">
-              <span>Data de nascimento:</span>
-              <p th:text="${#temporals.format(userLogged.birthDate, 'dd/MM/yyyy')}"></p>
+            <div class="form-field">
+              <label for="">Estado:</label>
+              <input type="text" th:field="*{address.state}" >
             </div>
-            <div class="info">
-              <span>Sexo:</span>
-              <p th:if="${#strings.toString(userLogged.gender)} == 'MALE'">Masculino</p>
-              <p th:if="${#strings.toString(userLogged.gender)} == 'FEMALE'">Feminino</p>
+            <div class="form-field">
+              <label for="">País:</label>
+              <input type="text" th:field="*{address.country}" >
             </div>
-           
-            <label for="">phoneNumber:</label>
-            <input type="text" name="phoneNumber" th:value="${userLogged.phoneNumber}" >
-            <label for="">email:</label>
-            <input type="text" name="email" th:value="${userLogged.email}" >
-            <label for="">rua:</label>
-            <input type="text" th:field="*{address.street}" >
-            <label for="">numero:</label>
-            <input type="text" th:field="*{address.number}" >
             <button type="submit">Atualizar dados</button>
           </form>
         </div>
