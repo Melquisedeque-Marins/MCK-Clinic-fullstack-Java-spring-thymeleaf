@@ -2,6 +2,7 @@ package com.melck.mckthymeleaf.services;
 
 import javax.persistence.EntityNotFoundException;
 
+import com.melck.mckthymeleaf.models.user.Address;
 import com.melck.mckthymeleaf.models.user.Role;
 import com.melck.mckthymeleaf.repositories.RoleRepository;
 import com.melck.mckthymeleaf.services.exceptions.InvalidDateException;
@@ -102,8 +103,13 @@ public class UserService implements UserDetailsService {
     public void updateUser(UserDTO userDTO) {
         User user = authService.authenticated();
         User userEx = findById(user.getId());
-        userEx.setName(userDTO.getName());
-        repository.save(userEx);
+        userEx.setPhoneNumber(userDTO.getPhoneNumber());
+        userEx.setEmail(userDTO.getEmail());
+       // userEx.setName(userDTO.getName());
+       Address address = new Address();
+       address.setStreet(userDTO.getAddress().getStreet());
+       address.setNumber(userDTO.getAddress().getNumber());
+       repository.save(userEx);
     }
 
 

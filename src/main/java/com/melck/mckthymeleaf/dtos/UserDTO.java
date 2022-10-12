@@ -1,6 +1,7 @@
 package com.melck.mckthymeleaf.dtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.melck.mckthymeleaf.models.user.Address;
 import com.melck.mckthymeleaf.models.user.User;
 import com.melck.mckthymeleaf.models.enums.Gender;
 import lombok.*;
@@ -50,6 +51,8 @@ public class UserDTO implements Serializable {
 
     private Gender gender;
 
+    private Address address;
+
 
     public UserDTO(User client) {
         this.id = client.getId();
@@ -60,6 +63,7 @@ public class UserDTO implements Serializable {
         this.phoneNumber = client.getPhoneNumber();
         this.birthDate = client.getBirthDate();
         this.gender = client.getGender();
+        this.address = client.getAddress();
     } 
 
 }

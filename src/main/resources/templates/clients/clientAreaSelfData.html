@@ -31,10 +31,17 @@
        
         <div>
           <form 
-              th:action="@{/users/update}"
-              th:object="${userDTO}"
-              method="PUT">
-            <input type="text" th:field="*{name}" >
+            th:action="@{/users/update}"
+            th:object="${userDTO}"
+            method="PUT">
+            <label for="name">phoneNumber:</label>
+            <input type="text" th:field="*{phoneNumber}" >
+            <label for="name">email:</label>
+            <input type="text" th:field="*{email}" >
+            <label for="name">rua:</label>
+            <input type="text" th:field="*{address.street}" >
+            <label for="name">numero:</label>
+            <input type="text" th:field="*{address.number}" >
             <button type="submit">Atualizar dados</button>
           </form>
         </div>
