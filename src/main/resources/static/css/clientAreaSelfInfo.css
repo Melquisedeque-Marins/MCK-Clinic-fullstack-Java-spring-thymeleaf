@@ -29,127 +29,37 @@ html {
     background: rgb(14, 14, 83);
 }
 
-h1 {
+.title h1 {
     color: orangered;
     font-size: 3.5rem;
     margin-bottom: 20px;
 }
 
-.cards {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    
-}
-
-span .info {
-    font-size: 2.5rem;
-    color:#FFF;
-}
-
-.card {
+.user-info {
     display: flex;
     flex-direction: column;
-    border: 1px solid gray;
-    background-color: #FFF;
-    border-radius: 10px;
-    margin: 10px;
-    padding: 10px 10px;
-    text-align: left;
-    width: 220px;
 }
 
-.card p {
-    font-size: 1.5rem;
-    padding: 5px 0;
-    text-align: left;
-}
-
-.actions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 50px 0;
-}
-
-.actions button {
-    display: flex;
-    justify-content: center;
-    background-color: orangered;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    color: #FFF;
-    border-style: none;
-    cursor: pointer;
-    font-size: 2rem;
-}
-
-.teste {
-    height: 50px;
-    background-color: red;
-}
-
-.side-menu {
-    display: flex;
-    flex-direction: column;
-    float: left;
-    border-left: 1px solid rgba(128, 128, 128, 0.963);
-    background-color: orangered;
-}
-
-.user {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1.5rem;
-    padding: 10px;
-    width: 100%;
-    background-color: rgb(2, 2, 47);
-
-}
-
-.user span {
-    display: flex;
-    font-size: 1.5rem;
-    justify-self: center;
-    color: #FFF;
-    text-transform: capitalize;
-}
-
-.user a {
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-.user i {
-    font-size: 5rem;
-    color: #FFF;
-    padding: 5px;
-    margin-right: 5px;
-}
-
-.side-menu ul {
+.info {
    display: flex;
-   flex-direction: column;
-   align-items: flex-start;
-   padding: 0 30px;
-   margin-top: 20px;
+   flex-direction: row;
+   color: #FFF;
+   font-size: 2rem;
+   margin-bottom: 2px;
 }
 
-.side-menu li {
-    margin-bottom: 20px;
-    text-decoration: none;
-    list-style: none;
-    text-transform: uppercase;
-    font-size: 1.6rem;
-    color: #FFF;
-    text-align: left;
+.info p {
+    letter-spacing: -0.015rem;
 }
 
-.side-menu a {
-    color: #FFF;
-    font-weight: bold;
+.info span {
+    margin-right: 10px;
 }
+
+
+
+
+
 
 
 

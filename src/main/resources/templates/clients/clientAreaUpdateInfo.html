@@ -31,7 +31,12 @@
         <div class="title">
           <h1>Seus dados pessoais:</h1>
         </div>
+       
         <div class="user-info" >
+          <form 
+            th:action="@{/users/update}"
+            th:object="${userDTO}"
+            method="PUT">
             <div class="info">
               <span>Nome:</span>
               <p th:text="${userLogged.name}"></p>
@@ -39,15 +44,6 @@
             <div class="info">
               <span>CPF:</span>
               <p th:text="${userLogged.cpf}"></p>
-            </div>
-            <div class="info">
-              <span>Sexo:</span>
-              <p th:if="${#strings.toString(userLogged.gender)} == 'MALE'">Masculino</p>
-              <p th:if="${#strings.toString(userLogged.gender)} == 'FEMALE'">Feminino</p>
-            </div>
-            <div class="info">
-              <span>Data de nascimento:</span>
-              <p th:text="${#temporals.format(userLogged.birthDate, 'dd/MM/yyyy')}"></p>
             </div>
             <div class="info">
               <span>E-mail:</span>
@@ -58,13 +54,25 @@
               <p th:text="${userLogged.phoneNumber}"></p>
             </div>
             <div class="info">
-              <span>Endereço:</span>
-              <div th:if="${userLogged.address} == null" >
-                <p th:class="info"> Não informado</p>
-              </div>
-              <p th:text="${userLogged.address}"></p>
+              <span>Data de nascimento:</span>
+              <p th:text="${#temporals.format(userLogged.birthDate, 'dd/MM/yyyy')}"></p>
             </div>
-            <a th:href="@{/users/info/update}"><button>Complementar dados pessoais</button></a>
+            <div class="info">
+              <span>Sexo:</span>
+              <p th:if="${#strings.toString(userLogged.gender)} == 'MALE'">Masculino</p>
+              <p th:if="${#strings.toString(userLogged.gender)} == 'FEMALE'">Feminino</p>
+            </div>
+           
+            <label for="">phoneNumber:</label>
+            <input type="text" name="phoneNumber" th:value="${userLogged.phoneNumber}" >
+            <label for="">email:</label>
+            <input type="text" name="email" th:value="${userLogged.email}" >
+            <label for="">rua:</label>
+            <input type="text" th:field="*{address.street}" >
+            <label for="">numero:</label>
+            <input type="text" th:field="*{address.number}" >
+            <button type="submit">Atualizar dados</button>
+          </form>
         </div>
       </div>
     </div>

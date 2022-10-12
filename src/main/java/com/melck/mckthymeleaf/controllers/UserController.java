@@ -73,6 +73,17 @@ public class UserController {
         return mv;
     }
 
+    @GetMapping("/info/update")
+    public ModelAndView updateInfo(UserDTO userDTO){
+        ModelAndView mv = new ModelAndView("/clients/clientAreaUpdateInfo");
+        User user = service.userLogged();
+        String[] userName = user.getName().toLowerCase().split(" ", 0);
+        String firstName = userName[0];
+        mv.addObject("userLogged", user);
+        mv.addObject("userName", firstName);
+        return mv;
+    }
+
     @GetMapping("/update")
     public ModelAndView updateUserInfo(UserDTO userDTO){
         service.updateUser(userDTO);
