@@ -44,10 +44,10 @@ public class EmailService {
         email.setOwnerRef(q);
 
         email.setSubject("Conta criada com sucesso");
+        email.setEmailFrom("mck.enterprises.clinic@gmail.com");
         email.setText("<h1>Olá, <style='text-transform:capitalize;'>" + q + "</h1>" 
                         + "\nAgora você faz parte da familia MCK Clinic. Aproveite e agende sua consulta. \n"
                         + "<img src='https://www.feedz.com.br/blog/wp-content/uploads/2021/10/mensagem-de-boas-vindas-para-novos-colaboradores-1.webp' alt='teste'/> ");
-        email.setEmailFrom("mck.enterprises.clinic@gmail.com");
         try {
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
@@ -90,16 +90,20 @@ public class EmailService {
         
         email.setEmailFrom("mck.enterprises.clinic@gmail.com");
         try {
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setFrom(email.getEmailFrom());
-            message.setTo(email.getEmailTo());
-            message.setSubject(email.getSubject());
-            message.setText(email.getText());
+            MimeMessage message = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+            helper.setFrom(email.getEmailFrom());
+            helper.setTo(user.getEmail());
+            helper.setSubject(email.getSubject());
+            helper.setText(email.getText(),true);
+           // helper.addAttachment("equipe.jpg", new ClassPathResource("/static/img/equipe.jpg"));
             mailSender.send(message);
             email.setStatusEmail(StatusEmail.SENT);
         } catch (MailException e) {
             email.setStatusEmail(StatusEmail.ERROR);
-        } 
+        } catch (MessagingException e) {
+            email.setStatusEmail(StatusEmail.ERROR);
+        }
             return repository.save(email);
     }
 

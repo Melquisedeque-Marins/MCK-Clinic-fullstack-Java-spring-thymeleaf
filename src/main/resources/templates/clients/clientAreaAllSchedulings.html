@@ -13,7 +13,8 @@
     />
 
     <link rel="stylesheet" th:href="@{/css/fragment.css}" />
-    <link rel="stylesheet" th:href="@{/css/managerDoctor.css}" />
+    <link rel="stylesheet" th:href="@{/css/clientAreaFragment.css}" />
+    <link rel="stylesheet" th:href="@{/css/clientAreaAllSchedulings.css}" />
     <script
     src="https://kit.fontawesome.com/954f0760ed.js"
     crossorigin="anonymous"
@@ -22,38 +23,36 @@
 
   <body>
     <div th:replace="fragments/fragments :: header"></div>
+
     <div class="container">
+      <div th:replace="fragments/clientAreaFragment :: side-menu"></div>
       <div class="content">
-        <div class="search">
-          <h1>Insira o nome do médico</h1>
-          <form class="seach-field" th:action="@{/admins/doctors}" method="get">
-            <div class="box">
-              <input type="search" th:name="name" id="">
-              <button type="submit" value="buscar"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
-            </div>
-          </form>
-        </div>
-          <table class="tb" >
-            <thead>
-              <th>#</th>
-              <th>Nome</th>
-              <th>Especialidade</th>
-              <th>Verificar consultas</th>
-            </thead>
+        
+        <h1>Histórico de consultas:</h1>
+        
+        <table class="tb" >
+          <thead>
+            <th>Especialidade</th>
+            <th>Médico</th>
+            <th>Horario</th>
+            <th>Status</th>
+          </thead>
           <tbody>
-            <tr th:each="doctor : ${doctors}">
-              <div th:each="expertise : ${doctor.expertises}" >  
-                <td th:text="${doctor.id}"></td>
-                <td th:text="${doctor.name}"></td>
+            <tr th:each="scheduling : ${schedulings}">
+              <div th:each="expertise : ${scheduling.doctor.expertises}" >  
                 <td th:text="${expertise.name}"></td>
-                <td><a th:href="@{'/admins/doctors/' + ${doctor.id}}" ><i class="fa-solid fa-calendar-check"></i></a></td>
+                <td th:text="${scheduling.doctor.name}"></td>
+                <td th:text="${#temporals.format(scheduling.schedulingTime, 'dd/MM/yyyy HH:mm')}"></td>
+                <td th:if="${#strings.toString(scheduling.status)} == 'SCHEDULED'"> Agendada</td>
+                <td th:if="${#strings.toString(scheduling.status)} == 'CONFIRMED'"> Confirmada</td>
+                <td th:if="${#strings.toString(scheduling.status)} == 'CANCELED'"> Cancelada</td>
               </div>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-
+      
     <div th:replace="fragments/fragments :: footer"></div>
 
     <script type="text/javascript" th:src="@{/js/navbar.js}"></script>

@@ -69,7 +69,7 @@ public class SchedulingService {
         scheduling.setStatus(Status.SCHEDULED);
         scheduling.setType(Type.CONSULT);
         scheduling = repository.save(scheduling);
-        emailService.sendEmailConfirmScheduling(user, scheduling);
+        emailService.sendEmailConfirmScheduling(scheduling.getUser(), scheduling);
         return repository.save(scheduling);
     }
 
@@ -114,7 +114,7 @@ public class SchedulingService {
     public void updateStatus(Long id) {
         authService.validateSelfOrAdmin(id);
         Scheduling scheduling = repository.getReferenceById(id);
-        if(scheduling.getSchedulingTime().plusHours(8).isBefore(LocalDateTime.now()) || scheduling.getStatus().equals(Status.CONFIRMED)){
+        if(scheduling.getSchedulingTime().plusHours(2).isBefore(LocalDateTime.now()) || scheduling.getStatus().equals(Status.CONFIRMED)){
             throw new InvalidDateException("this record cannot be updated, as it has already been");
         }
         scheduling.setStatus(Status.CONFIRMED);

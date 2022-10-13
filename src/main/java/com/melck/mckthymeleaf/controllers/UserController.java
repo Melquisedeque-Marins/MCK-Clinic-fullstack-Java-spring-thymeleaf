@@ -62,6 +62,20 @@ public class UserController {
         return mv;
     }
 
+    @GetMapping("/schedulings")
+    public ModelAndView schedulingHistoryByUser(Pageable pageable){
+        ModelAndView mv = new ModelAndView("/clients/clientAreaAllSchedulings");
+        User user = service.userLogged();
+        Page<Scheduling> schedulings  = schedulingService.findAllByUser(pageable);
+        String[] userName = user.getName().toLowerCase().split(" ", 0);
+        String firstName = userName[0];
+        mv.addObject("userLogged", user);
+        mv.addObject("userName", firstName);
+        mv.addObject("schedulings", schedulings);
+        mv.addObject("listStatus", Status.values());
+        return mv;
+    }
+
     @GetMapping("/info")
     public ModelAndView loggedAreaInfo(UserDTO userDTO){
         ModelAndView mv = new ModelAndView("/clients/clientAreaSelfInfo");

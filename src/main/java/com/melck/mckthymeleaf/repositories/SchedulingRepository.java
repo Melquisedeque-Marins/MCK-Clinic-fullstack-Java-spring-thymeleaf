@@ -18,7 +18,7 @@ public interface SchedulingRepository extends JpaRepository<Scheduling, Long>{
        
     @Query("SELECT obj FROM Scheduling obj INNER JOIN obj.user u WHERE "
             + "(u IN :users)"
-            + "ORDER BY obj.schedulingTime")
+            + "ORDER BY obj.schedulingTime DESC")
           //  + "(:name = '' OR LOWER(obj.name) LIKE LOWER(CONCAT ('%', :name, '%')) )")
     Page<Scheduling> find(java.util.List<User> users, org.springframework.data.domain.Pageable pageable);
 
@@ -35,7 +35,7 @@ public interface SchedulingRepository extends JpaRepository<Scheduling, Long>{
     
     @Query("SELECT obj FROM Scheduling obj WHERE "
             + "(obj.doctor.id = :doctorId) AND (obj.schedulingTime IN :schedules)"
-            + "ORDER BY obj.schedulingTime")
+            + "ORDER BY obj.schedulingTime " )
     List<Scheduling> findBySchedule(List<LocalDateTime> schedules, Long doctorId);
 
 

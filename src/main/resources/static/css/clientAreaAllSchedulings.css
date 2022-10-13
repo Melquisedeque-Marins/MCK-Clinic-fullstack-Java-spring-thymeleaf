@@ -25,7 +25,6 @@ html {
     padding: 30px 40px;
     padding-bottom: 0px;
     display: flex;
-    align-items: center;
     flex-direction: column;
     min-height: calc(100vh - 100px);
     background: rgb(14, 14, 83);
@@ -37,56 +36,32 @@ h1 {
     margin-bottom: 20px;
 }
 
-.cards {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    
-}
 
-span .info {
-    font-size: 2.5rem;
-    color:#FFF;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid gray;
+table {
+    border: 1px solid blue;
     background-color: #FFF;
-    border-radius: 10px;
-    margin: 10px;
-    padding: 10px 10px;
-    text-align: left;
-    width: 220px;
+
 }
 
-.card p {
+.tb{
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.tb th{
+    color: white;
+    background-color: blue;
+    font-weight: bold;
     font-size: 1.5rem;
-    padding: 5px 0;
-    text-align: left;
+    padding: 2px 0;
 }
 
-.actions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
+.tb td {
+    font-size: 1.5rem;
+    padding: 2px 0;
+    margin: 2px 0;
 }
-
-.actions a {
-    margin-bottom: 70px;
-}
-
-.actions a:hover {
-    opacity: 1;
-}
-.actions button:hover {
-    color: blue;
-}
-
-
-
 .actions button {
     display: flex;
     justify-content: center;
@@ -98,7 +73,6 @@ span .info {
     border-radius: 10px;
     cursor: pointer;
     font-size: 2.5rem;
-   
 }
 
 .message img {
