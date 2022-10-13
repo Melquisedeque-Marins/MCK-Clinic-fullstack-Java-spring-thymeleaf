@@ -1,5 +1,6 @@
 package com.melck.mckthymeleaf.services;
 
+import javax.mail.MessagingException;
 import javax.persistence.EntityNotFoundException;
 
 import com.melck.mckthymeleaf.models.user.Address;
@@ -53,7 +54,7 @@ public class UserService implements UserDetailsService {
     private AddressRepository addressRepository;
 
     @Transactional
-    public UserDTO insert(UserDTO dto){
+    public UserDTO insert(UserDTO dto) {
         if (repository.findByCpf(dto.getCpf()) != null){
             throw new ObjectIsAlreadyInUseException("cpf número: " + dto.getCpf() + " já esta sendo utilizado");
         }

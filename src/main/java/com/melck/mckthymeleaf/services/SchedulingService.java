@@ -48,7 +48,9 @@ public class SchedulingService {
     @Autowired
     private DoctorRepository doctorRepository;
 
-   
+    @Autowired
+    private EmailService emailService;
+
     @Autowired
     private AuthService authService;
 
@@ -66,6 +68,8 @@ public class SchedulingService {
         scheduling.setSchedulingTime(LocalDateTime.parse(dto.getSchedulingTime(), DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")));
         scheduling.setStatus(Status.SCHEDULED);
         scheduling.setType(Type.CONSULT);
+        scheduling = repository.save(scheduling);
+        emailService.sendEmailConfirmScheduling(user, scheduling);
         return repository.save(scheduling);
     }
 
