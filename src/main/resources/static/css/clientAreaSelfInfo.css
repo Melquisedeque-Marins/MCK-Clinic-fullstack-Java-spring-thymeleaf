@@ -24,7 +24,6 @@ html {
     max-width: 1400px;
     padding: 30px 40px;
     display: flex;
-    align-items: center;
     flex-direction: column;
     min-height: calc(100vh - 100px);
     background: rgb(14, 14, 83);

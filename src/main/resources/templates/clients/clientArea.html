@@ -31,7 +31,9 @@
         <h1>Seus agendamentos em aberto:</h1>
         
         <div class="cards">
-          <div th:if="${#lists.isEmpty(schedulings.content)}" >
+          <div class="message" th:if="${#lists.isEmpty(schedulings.content)}" >
+            <i class="fa-regular fa-face-sad-tear"></i>
+           
             <span th:class="info"> Você não possui consultas agendadas.</span>
           </div>
           <div th:each="sch : ${schedulings}">
@@ -46,6 +48,9 @@
           </div>
         </div>
         <div class="actions">
+          <div class="message" th:if="${#lists.isEmpty(schedulings.content)}" >
+            <img th:src="@{/img/scheduling.png}" alt="agende">
+          </div>
           <a th:href="@{/schedulings}"> <button>Agende sua consulta! </button> </a></li>
         </div>
       </div>

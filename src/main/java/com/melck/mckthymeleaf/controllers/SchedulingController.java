@@ -4,11 +4,13 @@ import com.melck.mckthymeleaf.dtos.SchedulingDTO;
 import com.melck.mckthymeleaf.models.Scheduling;
 import com.melck.mckthymeleaf.models.doctor.Doctor;
 import com.melck.mckthymeleaf.models.doctor.Expertise;
+import com.melck.mckthymeleaf.models.user.User;
 import com.melck.mckthymeleaf.repositories.DoctorRepository;
 import com.melck.mckthymeleaf.repositories.ExpertiseRepository;
 import com.melck.mckthymeleaf.services.DoctorService;
 import com.melck.mckthymeleaf.services.ExpertiseService;
 import com.melck.mckthymeleaf.services.SchedulingService;
+import com.melck.mckthymeleaf.services.UserService;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -40,6 +42,8 @@ public class SchedulingController {
     @Autowired 
     private ExpertiseService expertiseService;
 
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private DoctorRepository doctorRepository;
@@ -75,8 +79,11 @@ public class SchedulingController {
     
     @PostMapping("/new")
     public ModelAndView newScheduling(SchedulingDTO schedulingDTO) {
-       
+        User user = userService.userLogged();
         service.insert(schedulingDTO);
+        if(user.hasRole("ROLE_ADMIN")){
+            return new ModelAndView("redirect:/admins/users");
+        }
         return new ModelAndView("redirect:/users");
     }
 

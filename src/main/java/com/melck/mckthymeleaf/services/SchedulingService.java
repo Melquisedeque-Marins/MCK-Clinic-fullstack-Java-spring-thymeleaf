@@ -19,6 +19,7 @@ import com.melck.mckthymeleaf.dtos.SchedulingDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -116,12 +117,14 @@ public class SchedulingService {
         repository.save(scheduling);
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
+    @Scheduled(cron = "0 0 12 * * *")
+    @Scheduled(cron = "0 0 18 * * *")
     @Transactional
-    public void setCanceledStatus() {
+    public void cancelSchedulings() {
         List<Scheduling> scheduling = repository.findAll();
         for (Scheduling sch : scheduling) {
-            if(sch.getSchedulingTime().plusHours(8).isAfter(LocalDateTime.of(LocalDate.now(), LocalTime.of(01, 00))) && sch.getStatus().equals(Status.SCHEDULED)){
+            if(sch.getSchedulingTime().plusHours(1).isBefore(LocalDateTime.of(LocalDate.now(), LocalTime.now())) && sch.getStatus().equals(Status.SCHEDULED)){
                 sch.setStatus(Status.CANCELED);
                 repository.save(sch); 
             }
