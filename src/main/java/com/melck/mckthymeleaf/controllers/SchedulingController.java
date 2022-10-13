@@ -168,7 +168,7 @@ public class SchedulingController {
 
     @PutMapping("/canceleds")
     public ModelAndView setCanceledStatus (){
-        service.setCanceledStatus();
+        service.cancelSchedulings();
         return new ModelAndView("redirect:/admins/doctors");
     }
 
