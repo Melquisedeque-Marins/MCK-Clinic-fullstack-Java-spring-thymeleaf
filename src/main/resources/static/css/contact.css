@@ -20,9 +20,134 @@
 }
 
 .content {
-    height: 500px;
+    min-height: calc(100vh - 240px);
     width: 80%;
     display: flex;
-    margin: auto;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    margin: 30px auto;
+    
+}
+
+.personal-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: auto;
+}
+
+.personal-info i {
+  font-size: 3rem;
+  margin-right: 3px;
+}
+
+.personal-info img {
+  width: 250px;
+  border-radius: 50%;
+}
+
+.contacts {
+  text-align: left;
+}
+
+.contact a {
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.technologies {
+  display: flex;
+  justify-content: left;
+  margin: 50px auto;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.technologies img {
+  width: 150px;
+  height: 150px;
+}
+
+.technologies ul {
+  display: flex;
+  list-style: none;
+  width: 1500px;
+  height: 150px;
+}
+
+.technologies li {
+  position: relative;
+  animation: slide 27s infinite ease-out ;
+}
+
+.technologies-2 {
+  display: flex;
+  justify-content: left;
+  margin: 50px auto;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+  width: 1080px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.technologies-2 img {
+  width: 120px;
+  height: 120px;
+}
+
+.technologies-2 ul {
+  display: flex;
+  list-style: none;
+  width: 1350px;
+  height: 150px;
+}
+
+.technologies-2 li {
+  position: relative;
+  animation: slide-2 27s infinite ease-out ;
+}
+
+@keyframes slide {
+  0%{left: 0px}
+  7.4%{left: 0px;}
+
+  11.1%{left: -150px}
+  18.5%{left: -150px;}
+
+  21.9%{left: -300px;}
+  29.3%{left: -300px}
+
+  37%{left: -450px}
+  44.4%{left: -450px;}
+
+  51.8%{left: -600px;}
+  59.2%{left: -600px;}
+ 
+}
+
+@keyframes slide-2 {
+ 
+  0%{left: 0px}
+  7.4%{left: 0px;}
+
+  11.1%{left: -120px}
+  18.5%{left: -120px}
+  
+  21.9%{left: -240px;}
+  29.3%{left: -240px}
+ 
+  37%{left: -360px;}
+  44.4%{left: -360px;}
+
+  51.8%{left: -480px;}
+  59.2%{left: -480px;}
+  
+
+  
+ 
 }
