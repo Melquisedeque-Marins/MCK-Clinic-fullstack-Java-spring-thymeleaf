@@ -56,6 +56,12 @@ Todas as imagens utilizadas possuem licença de utilização gratuita e foram ad
 ### ✅ Tela de Horários
 ![](https://raw.githubusercontent.com/Melquisedeque-Marins/MCK-Clinic-Thymeleaf/main/utils/schedules-screen.png)
 
+### ✅ Tela da área do cliente inicial
+![](https://raw.githubusercontent.com/Melquisedeque-Marins/MCK-Clinic-Thymeleaf/main/utils/Client-area-2.png)
+
+### ✅ Tela da área do cliente 
+![](https://raw.githubusercontent.com/Melquisedeque-Marins/MCK-Clinic-Thymeleaf/main/utils/Client-area.png)
+
 
 
 ## 🚧 Projeto em construção 🚧
