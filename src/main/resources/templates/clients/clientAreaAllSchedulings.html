@@ -29,7 +29,11 @@
       <div class="content">
         
         <h1>Histórico de consultas:</h1>
-        
+        <div class="message" th:if="${#lists.isEmpty(schedulings.content)}" >
+          <i class="fa-regular fa-face-sad-tear"></i>
+         
+          <span th:class="info"> Você não possui consultas agendadas.</span>
+        </div>
         <table class="tb" >
           <thead>
             <th>Especialidade</th>

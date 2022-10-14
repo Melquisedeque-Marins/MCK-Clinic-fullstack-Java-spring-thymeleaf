@@ -48,33 +48,33 @@
                         <th>confirmar</th>
                 </thead>
                 <tbody>
-                    <tr th:each="scheduling : ${schedulings}">
+                    <tr th:each="scheduling, stats : ${schedulings}">
                         <td th:text="${scheduling.id}"></td>
                         <td th:text="${scheduling.doctor.name}"></td>
                         <td th:text="${#temporals.format(scheduling.schedulingTime, 'dd-MM-yyyy HH:mm')}"></td>
                         <td th:text="${scheduling.status}"></td>
                         <td><form th:action="@{'/admins/doctors/' + ${scheduling.doctor.id} + '/schedulings/' + ${scheduling.id}}" th:method="put">
                             <button type="submit" value=""><i class="fa-sharp fa-solid fa-check"></i></button>
-                          </form></td>
+                          </form>
+                        </td>
                     </tr>
                 </tbody>
 
 
             </table>
             <div class="pagination">
+              
                 <div class="buttons" th:if="${number + 1} == ${schedulings.totalPages}">
                     <a th:href="@{'/admins/schedulings/users/' + ${client.id} + '?page=' + ${number -1}}"><i class="fa-solid fa-chevron-left"></i></a>
-                    <span th:text="${schedulings.number + 1}"></span>
+                    <span th:text="${schedulings.number + 1} + ' de '"></span>
+                    <span th:text="${schedulings.totalPages} + ' páginas ' "></span>
                     <a href=""><i class="fa-solid fa-angle-right"></i></a>
-                    <span th:text="'total de paginas: ' + ${schedulings.totalPages}"></span>
-                    <span th:text="'consultas: ' + ${schedulings.totalElements}"></span>
                 </div>
                 <div class="buttons" th:unless="${number + 1} == ${schedulings.totalPages}">
-                <a th:href="@{'/admins/schedulings/users/' + ${client.id} + '?page=' + ${number -1}}"><i class="fa-solid fa-chevron-left"></i></a>
-                <span th:text="${schedulings.number + 1}"></span>
-                <a th:href="@{'/admins/schedulings/users/' + ${client.id} + '?page=' + ${number + 1}}"><i class="fa-solid fa-angle-right"></i></a>
-                <span th:text="'total de paginas: ' + ${schedulings.totalPages}"></span>
-                <span th:text="'consultas: ' + ${schedulings.totalElements}"></span>
+                    <a th:href="@{'/admins/schedulings/users/' + ${client.id} + '?page=' + ${number -1}}"><i class="fa-solid fa-chevron-left"></i></a>
+                    <span th:text="${schedulings.number + 1} + ' de '"></span>
+                    <span th:text="${schedulings.totalPages} + ' páginas ' "></span>
+                    <a th:href="@{'/admins/schedulings/users/' + ${client.id} + '?page=' + ${number + 1}}"><i class="fa-solid fa-angle-right"></i></a>
                 </div>
             </div>
         </section>
