@@ -10,6 +10,7 @@ import com.melck.mckthymeleaf.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -63,7 +64,7 @@ public class UserController {
     }
 
     @GetMapping("/schedulings")
-    public ModelAndView schedulingHistoryByUser(Pageable pageable){
+    public ModelAndView schedulingHistoryByUser(@PageableDefault(size = 10) Pageable pageable){
         ModelAndView mv = new ModelAndView("/clients/clientAreaAllSchedulings");
         User user = service.userLogged();
         Page<Scheduling> schedulings  = schedulingService.findAllByUser(pageable);

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.melck.mckthymeleaf.models.Scheduling;
 import com.melck.mckthymeleaf.models.doctor.Doctor;
-import com.melck.mckthymeleaf.models.enums.Status;
 import com.melck.mckthymeleaf.models.user.User;
 import com.melck.mckthymeleaf.services.DoctorService;
 import com.melck.mckthymeleaf.services.SchedulingService;
@@ -111,12 +110,14 @@ public class AdminController {
     }
 
     @GetMapping("/schedulings/users/{id}")
-    public ModelAndView schedulingsPerClient(@PathVariable Long id, Pageable pageable){
+    public ModelAndView schedulingsPerClient(@PathVariable Long id, @PageableDefault(size = 10) Pageable pageable){
         ModelAndView mv = new ModelAndView("/clients/clientsSchedulings");
         Page<Scheduling> schedulings  = schedulingService.findAllByUser(id, pageable);
         User client = service.findById(id);
+        int number = schedulings.getPageable().getPageNumber();
         mv.addObject("client", client);
         mv.addObject("schedulings", schedulings);
+        mv.addObject("number", number);
         return mv;
     }
 

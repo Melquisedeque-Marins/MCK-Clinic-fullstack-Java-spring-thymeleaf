@@ -87,11 +87,27 @@ i {
     font-weight: bold;
 }
 
-.fa-rotate-right {
-    color: green;
-  
+.pagination {
+   margin: auto;
 }
 
-.fa-ban {
-    color: red;
+.pagination a {
+    text-decoration: none;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.buttons i {
+   color: orangered;
+}
+
+.buttons span {
+    font-size: 1.5rem;
+   color: orangered;
 }

@@ -58,7 +58,25 @@
                           </form></td>
                     </tr>
                 </tbody>
+
+
             </table>
+            <div class="pagination">
+                <div class="buttons" th:if="${number + 1} == ${schedulings.totalPages}">
+                    <a th:href="@{'/admins/schedulings/users/' + ${client.id} + '?page=' + ${number -1}}"><i class="fa-solid fa-chevron-left"></i></a>
+                    <span th:text="${schedulings.number + 1}"></span>
+                    <a href=""><i class="fa-solid fa-angle-right"></i></a>
+                    <span th:text="'total de paginas: ' + ${schedulings.totalPages}"></span>
+                    <span th:text="'consultas: ' + ${schedulings.totalElements}"></span>
+                </div>
+                <div class="buttons" th:unless="${number + 1} == ${schedulings.totalPages}">
+                <a th:href="@{'/admins/schedulings/users/' + ${client.id} + '?page=' + ${number -1}}"><i class="fa-solid fa-chevron-left"></i></a>
+                <span th:text="${schedulings.number + 1}"></span>
+                <a th:href="@{'/admins/schedulings/users/' + ${client.id} + '?page=' + ${number + 1}}"><i class="fa-solid fa-angle-right"></i></a>
+                <span th:text="'total de paginas: ' + ${schedulings.totalPages}"></span>
+                <span th:text="'consultas: ' + ${schedulings.totalElements}"></span>
+                </div>
+            </div>
         </section>
     </div>
 <script>

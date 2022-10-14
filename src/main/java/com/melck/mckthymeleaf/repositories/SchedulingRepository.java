@@ -17,9 +17,8 @@ public interface SchedulingRepository extends JpaRepository<Scheduling, Long>{
     
        
     @Query("SELECT obj FROM Scheduling obj INNER JOIN obj.user u WHERE "
-            + "(u IN :users)"
+            + "(u IN :users) "
             + "ORDER BY obj.schedulingTime DESC")
-          //  + "(:name = '' OR LOWER(obj.name) LIKE LOWER(CONCAT ('%', :name, '%')) )")
     Page<Scheduling> find(java.util.List<User> users, org.springframework.data.domain.Pageable pageable);
 
     @Query("SELECT obj FROM Scheduling obj INNER JOIN obj.doctor d  WHERE "
