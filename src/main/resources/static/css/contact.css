@@ -20,7 +20,7 @@
 }
 
 .content {
-    min-height: calc(100vh - 240px);
+    min-height: calc(100vh - 100px);
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -58,96 +58,110 @@
   font-size: 2rem;
 }
 
+.carrossel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
 .technologies {
-  display: flex;
-  justify-content: left;
-  margin: 50px auto;
+  background-color: #FFF;
+  width: 256px;
+  height: 256px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
-  width: 150px;
-  height: 150px;
   overflow: hidden;
+  animation: slide-3 40s infinite ease-out ;
 }
 
-.technologies img {
-  width: 150px;
-  height: 150px;
+.technologies .img {
+  width: 1000%;
 }
 
-.technologies ul {
-  display: flex;
-  list-style: none;
-  width: 1500px;
-  height: 150px;
-}
-
-.technologies li {
-  position: relative;
-  animation: slide 27s infinite ease-out ;
-}
-
-.technologies-2 {
-  display: flex;
-  justify-content: left;
-  margin: 50px auto;
-  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
-  width: 1080px;
-  height: 150px;
-  overflow: hidden;
-}
-
-.technologies-2 img {
-  width: 120px;
-  height: 120px;
-}
-
-.technologies-2 ul {
-  display: flex;
-  list-style: none;
-  width: 1350px;
-  height: 150px;
-}
-
-.technologies-2 li {
-  position: relative;
-  animation: slide-2 27s infinite ease-out ;
+.technologies .img img {
+  width: 9.92%;
 }
 
 @keyframes slide {
-  0%{left: 0px}
-  7.4%{left: 0px;}
+  0%{margin-left: 0;}
+  8%{margin-left: 0;}
+  10.5%{margin-left: -100%;}
+  18.5%{margin-left: -100%;}
+  21%{margin-left: -200%;}
+  29%{margin-left: -200%;}
+  31.5%{margin-left: -300%;}
+  39.5%{margin-left: -300%;}
+  42%{margin-left: -400%;}
+  50%{margin-left: -400%;}
+  52.5%{margin-left: -500%;}
+  60.5%{margin-left: -500%;}
+  63%{margin-left: -600%;}
+  71%{margin-left: -600%;}
+  73.5%{margin-left: -700%;}
+  81.5%{margin-left: -700%;}
+  84%{margin-left: -800%;}
+  92%{margin-left: -800%;}
+  94.5%{margin-left: -900%;}
+  100%{margin-left: -900%;}
+}
 
-  11.1%{left: -150px}
-  18.5%{left: -150px;}
+@keyframes slide-3 {
+  0%{margin-right: 0;}
+  8%{margin-right: 0;}
+  10.5%{margin-right: -128px;}
+  18.5%{margin-right: -128px;}
+  21%{margin-right: -256px;}
+  29%{margin-right: -256px;}
+  31.5%{margin-right: -384px;}
+  39.5%{margin-right: -384px;}
+  42%{margin-right: -512px;}
+  50%{margin-right: -512px;}
+  52.5%{margin-right: 500%;}
+  60.5%{margin-right: 500%;}
+  63%{margin-right: 600%;}
+  71%{margin-right: 600%;}
+  73.5%{margin-right: 700%;}
+  81.5%{margin-right: 700%;}
+  84%{margin-right: 800%;}
+  92%{margin-right: 800%;}
+  94.5%{margin-right: 900%;}
+  100%{margin-right: 900%;}
+}
 
-  21.9%{left: -300px;}
-  29.3%{left: -300px}
 
-  37%{left: -450px}
-  44.4%{left: -450px;}
+.technologies-2 {
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+  height: 128px;
+  width: 896px;
+  overflow: hidden;
+}
 
-  51.8%{left: -600px;}
-  59.2%{left: -600px;}
- 
+.technologies-2 .img-2 {
+  width: 1280px;
+}
+
+.technologies-2 .img-2 img {
+  width: 128px;
 }
 
 @keyframes slide-2 {
- 
-  0%{left: 0px}
-  7.4%{left: 0px;}
-
-  11.1%{left: -120px}
-  18.5%{left: -120px}
-  
-  21.9%{left: -240px;}
-  29.3%{left: -240px}
- 
-  37%{left: -360px;}
-  44.4%{left: -360px;}
-
-  51.8%{left: -480px;}
-  59.2%{left: -480px;}
-  
-
-  
- 
+  0%{margin-left: 0;}
+  8%{margin-left: 0;}
+  10.5%{margin-left: -128px;}
+  18.5%{margin-left: -128px;}
+  21%{margin-left: -256px;}
+  29%{margin-left: -256px;}
+  31.5%{margin-left: -384px;}
+  39.5%{margin-left: -384px;}
+  42%{margin-left: -512px;}
+  50%{margin-left: -512px;}
+  52.5%{margin-left: -640px;}
+  60.5%{margin-left: -640px;}
+  63%{margin-left: -768px;}
+  71%{margin-left: -768px;}
+  73.5%{margin-left: -896px;}
+  81.5%{margin-left: -896px;}
+  84%{margin-left: -1024px;}
+  92%{margin-left: -1024px;}
+  94.5%{margin-left: -1152px;}
+  100%{margin-left: -1152px;}
 }
