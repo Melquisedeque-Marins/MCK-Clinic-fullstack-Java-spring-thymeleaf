@@ -17,6 +17,7 @@
     max-width: 2000px;
     width: 100%;
     margin: auto;
+    background-color: rgb(14, 14, 83);
 }
 
 .content {
@@ -24,144 +25,106 @@
     width: 80%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: stretch;
     margin: 30px auto;
     
 }
 
 .personal-info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 80%;
   margin: auto;
 }
 
-.personal-info i {
-  font-size: 3rem;
-  margin-right: 3px;
+.personal-info img {
+  margin-top: 30px;
+  width: 200px;
+  border-radius: 50%;
 }
 
-.personal-info img {
-  width: 250px;
-  border-radius: 50%;
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 75%;
+}
+
+.about h1 {
+  font-size: 4rem;
+  color: orangered;
+}
+
+.about h2 {
+  font-size: 3rem;
+  color: orangered;
+}
+
+.about p {
+  font-size: 2rem;
+  color: #FFF;
+}
+
+.card {
+  background-color: #FFF;
 }
 
 .contacts {
   text-align: left;
+  margin-left: 20px;
+}
+
+.contact {
+  margin: 5px auto;
+ 
+}
+
+.contact i {
+  font-size: 2.2rem;
+  margin-right: 3px;
+  color: gray;
 }
 
 .contact a {
   text-decoration: none;
+  color: #FFF;
   font-size: 2rem;
+}
+.contact span {
+  font-size: 2.2rem;
+  margin-left: 5px;
 }
 
 .carrossel {
-  position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin: 64px auto;
 }
 
 .technologies {
-  background-color: #FFF;
-  width: 256px;
-  height: 256px;
-  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+  height: 148px;
+  width: 640px;
   overflow: hidden;
-  animation: slide-3 40s infinite ease-out ;
+  box-shadow: 15px 15px 20px rgba(100, 100, 100, 1);
+  background-color: #FFF;
 }
 
 .technologies .img {
-  width: 1000%;
+  margin: 10px auto;
+  width: 1280px;
+  animation: slide 20s infinite ease-out ;
 }
 
 .technologies .img img {
-  width: 9.92%;
-}
-
-@keyframes slide {
-  0%{margin-left: 0;}
-  8%{margin-left: 0;}
-  10.5%{margin-left: -100%;}
-  18.5%{margin-left: -100%;}
-  21%{margin-left: -200%;}
-  29%{margin-left: -200%;}
-  31.5%{margin-left: -300%;}
-  39.5%{margin-left: -300%;}
-  42%{margin-left: -400%;}
-  50%{margin-left: -400%;}
-  52.5%{margin-left: -500%;}
-  60.5%{margin-left: -500%;}
-  63%{margin-left: -600%;}
-  71%{margin-left: -600%;}
-  73.5%{margin-left: -700%;}
-  81.5%{margin-left: -700%;}
-  84%{margin-left: -800%;}
-  92%{margin-left: -800%;}
-  94.5%{margin-left: -900%;}
-  100%{margin-left: -900%;}
-}
-
-@keyframes slide-3 {
-  0%{margin-right: 0;}
-  8%{margin-right: 0;}
-  10.5%{margin-right: -128px;}
-  18.5%{margin-right: -128px;}
-  21%{margin-right: -256px;}
-  29%{margin-right: -256px;}
-  31.5%{margin-right: -384px;}
-  39.5%{margin-right: -384px;}
-  42%{margin-right: -512px;}
-  50%{margin-right: -512px;}
-  52.5%{margin-right: 500%;}
-  60.5%{margin-right: 500%;}
-  63%{margin-right: 600%;}
-  71%{margin-right: 600%;}
-  73.5%{margin-right: 700%;}
-  81.5%{margin-right: 700%;}
-  84%{margin-right: 800%;}
-  92%{margin-right: 800%;}
-  94.5%{margin-right: 900%;}
-  100%{margin-right: 900%;}
-}
-
-
-.technologies-2 {
-  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
-  height: 128px;
-  width: 896px;
-  overflow: hidden;
-}
-
-.technologies-2 .img-2 {
-  width: 1280px;
-}
-
-.technologies-2 .img-2 img {
   width: 128px;
 }
 
-@keyframes slide-2 {
-  0%{margin-left: 0;}
-  8%{margin-left: 0;}
-  10.5%{margin-left: -128px;}
-  18.5%{margin-left: -128px;}
-  21%{margin-left: -256px;}
-  29%{margin-left: -256px;}
-  31.5%{margin-left: -384px;}
-  39.5%{margin-left: -384px;}
-  42%{margin-left: -512px;}
-  50%{margin-left: -512px;}
-  52.5%{margin-left: -640px;}
-  60.5%{margin-left: -640px;}
-  63%{margin-left: -768px;}
-  71%{margin-left: -768px;}
-  73.5%{margin-left: -896px;}
-  81.5%{margin-left: -896px;}
-  84%{margin-left: -1024px;}
-  92%{margin-left: -1024px;}
-  94.5%{margin-left: -1152px;}
-  100%{margin-left: -1152px;}
+@keyframes slide {
+  0%{margin-left: 0px;}
+  49%{margin-left: -536px;}
+  50%{margin-left: -536px;}
+  100%{margin-left: 0px;}
 }
