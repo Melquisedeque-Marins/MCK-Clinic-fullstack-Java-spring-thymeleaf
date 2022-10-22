@@ -81,7 +81,7 @@
                   />
                   <div class="error-field alert" th:errors="*{birthDate}"></div>
                   <label class="lbl">Sexo</label>
-                  <select class="campo" th:field="*{gender}">
+                  <select class="campo" th:field="*{gender}" >
                     <option
                       th:each="gender : ${listGender}"
                       th:value="${gender}"

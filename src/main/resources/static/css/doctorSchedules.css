@@ -14,6 +14,7 @@
     flex-direction: column;
     padding-top: 100px;
     background-color: rgb(14, 14, 83);
+    min-height: calc(100vh - 100px);
    
 }
 
@@ -118,17 +119,26 @@
     margin: 20px 0;
 }
 
- h2 {
-    font-size: 1.8rem;
-    padding: 10px;
-    border: 2px solid gray;
-    border-radius: 5px;
-    margin: 10px 10px;
-    cursor: pointer;
+.schedule {
     transition: .4s;
+    background-color: #FFF;
+    margin: 10px;
 }
 
-.content h2:hover {
+#schedule {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    background-color: unset;
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 7px 10px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#schedule:hover {
     color: white;
     background-color: rgb(14, 14, 83);
 }
@@ -153,6 +163,7 @@
     justify-content: space-around;
     background-color: #FFF;
     padding: 10px 20px;
+    display: none;
 }
 
 .active {

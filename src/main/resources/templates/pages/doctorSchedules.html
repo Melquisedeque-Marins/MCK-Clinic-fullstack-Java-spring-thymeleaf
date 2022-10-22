@@ -47,16 +47,13 @@
           </div>
             
           <div class="schedule"  th:each=" schedule : ${freeSchedules}">
-            <h2 th:onclick="choiceSchedule([[${schedule}]])"  id="schedule" th:text="${schedule}"></h2> 
+            <button type="submit" th:onclick="choiceSchedule([[${schedule}]])"  id="schedule" th:text="${schedule}">
+            </button>
           </div>
         </div>
         <div class="schedule-sumary">
-          <h1 th:text=" 'Médico: ' + ${doctor.name}"></h1>
-          <h1 th:text=" 'Especialidade: ' + ${expertise.name}"></h1>
-          <h1>Horario</h1>
           <input class="id" type="text" th:field="*{doctorId}" />
           <input id="time" type="datetime-local" th:field="*{schedulingTime}" />
-          <input class="botão" type="submit" value="Agendar" />
         </div>
       </form>
     </section>
