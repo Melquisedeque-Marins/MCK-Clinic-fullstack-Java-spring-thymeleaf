@@ -24,12 +24,15 @@ Todas as imagens utilizadas possuem licença de utilização gratuita e foram ad
 <a id="Funcionalidades"></a>
 ## 🔨 Funcionalidades
 - Segurança com autenticação básica via JDBC e Spring Security;
+- Área logada para clientes;
+- Área logada para Admins;
 - Cadastro de usuarios;
 - Validação de cadastro único por cpf;
 - Agendamento de consultas;
 - Gerenciamento de médicos e especialidades;
 - Validação dos agendamentos por horário e data do paciente e médico;
 - Histórico de consultas por paciente;
+- Cancelamento automatico em caso de não comparecimento do cliente;
 - Confirmação da consulta pelo operador do sistema;
 - Envio de e-mail de confirmação de cadastro;
 - Envio de e-mail de notificação de agendamento de consultas;
