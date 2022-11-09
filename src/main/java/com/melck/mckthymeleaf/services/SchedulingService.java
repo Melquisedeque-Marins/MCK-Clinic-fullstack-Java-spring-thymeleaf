@@ -115,7 +115,7 @@ public class SchedulingService {
         authService.validateSelfOrAdmin(id);
         Scheduling scheduling = repository.getReferenceById(id);
         if(scheduling.getSchedulingTime().plusHours(2).isBefore(LocalDateTime.now()) || scheduling.getStatus().equals(Status.CONFIRMED)){
-            throw new InvalidDateException("this record cannot be updated, as it has already been");
+            throw new InvalidDateException("Este agendamento esta fora do prazo e não pode ser confirmado");
         }
         scheduling.setStatus(Status.CONFIRMED);
         repository.save(scheduling);
@@ -170,7 +170,7 @@ public class SchedulingService {
         List<LocalDateTime> schedules = new ArrayList<>();
 
         if (date.isBefore(LocalDate.now())){
-            throw new ResourceNotFoundException("Não pode agendar no passado");
+            throw new ResourceNotFoundException("Insira uma data valida para seu agendamento");
         }
 
         switch(officeHours){
