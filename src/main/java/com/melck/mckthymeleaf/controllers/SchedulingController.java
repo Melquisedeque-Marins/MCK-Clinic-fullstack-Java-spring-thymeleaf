@@ -79,7 +79,13 @@ public class SchedulingController {
     
     @PostMapping("/new")
     public ModelAndView newScheduling(SchedulingDTO schedulingDTO) {
+
+        Doctor doctor = doctorService.findById(schedulingDTO.getDoctorId());
         User user = userService.userLogged();
+        if (schedulingDTO.getSchedulingDate() == null ) {
+            System.out.println(schedulingDTO.getSchedulingDate());
+            return new ModelAndView("redirect:/schedulings/expertises/1");
+        }
         service.insert(schedulingDTO);
         if(user.hasRole("ROLE_ADMIN")){
             return new ModelAndView("redirect:/admins/users");
